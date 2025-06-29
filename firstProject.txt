@@ -1,0 +1,31 @@
+Small business network design
+
+Problem analyis
+1. Design a network suitable for a small business that can support up to 240 hosts. The business has 4 departments (finance, HR, logistics, IT) and  so create a subnetwork for each department. The company has one server and all nodes must have access to it. Additionally, the finance department must have its own server inaccessible at a data link layer by other departments
+
+technical specifications
+- four subnets
+- up to 210 supported hosts
+- two servers
+
+Design
+- We will use a class C network since the number of supported nodes is low.
+- The network ip address is 218.10.13.0/26
+- subnet mask: 255.255.255.0
+
+number of possible subnets: 2^2 = 4 subnets
+number of hosts per subnet: 64-2, which is 62 hosts per subnet
+Subnet ip addresses
+four subnets 
+- 218.10.13.0
+- 218.10.13.128
+- 218.10.13.192
+- 218.10.13.224
+
+- You really need to figure out these calculations if subnets, I understand the underlying concept, but of what use is it if I can't assign the IP addresses?
+- but you can't delay finish the project just because of subnetting, define your own ranges and configure them.
+Begin by configuring ip addresses for the router's interfaces. then for the switches interfaces, then for the example hosts.
+
+
+
+Calculate subnets later, now design the topology
