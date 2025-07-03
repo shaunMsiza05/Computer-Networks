@@ -11,3 +11,28 @@ A few exercises so that the knowledge of socket programming is cemented.
 4. Code dhcp server side
 
 5. code library for sockets
+
+def searchForResourceRecord(resourceRecords):
+    print(resourceRecords['A'])
+    
+def dnsResolver(domainName, type):
+
+    resourceRecords = {
+        "A": [
+            ("web.amazon.com", "localhost", "A", 10),
+            ("mail.amazon.com", "localhost", "A", 10),
+            ("web.facebook.com", "localhost", "A", 10),
+            ("mail.facebook.com", "localhost", "A", 10)
+        ],
+        "MX": [
+             ("facebook.com", "mail.facebook.com", "MX", 10),
+             ("amazon.com", "mail.amazon.com", "MX", 10)
+        ],
+        "CNAME": [
+            ("facebook.com", "web.facebook.com", "CNAME", 10),
+            ("amazon.com", "web.amazon.com", "CNAME", 10)
+        ]
+    }
+
+    searchForResourceRecord(resourceRecords)
+
