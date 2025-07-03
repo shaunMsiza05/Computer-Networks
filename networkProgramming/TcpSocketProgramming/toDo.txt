@@ -1,3 +1,13 @@
 A few exercises so that the knowledge of socket programming is cemented.
 
 1. Code the web application.
+
+2. code a load balance for a distributed server architecture
+
+3. Code a dns system, root, tld, and authoritaitive servers, then the web application should make requests to that dns system
+
+4. Code static Nat, dynamic Nat, and easy IP
+
+4. Code dhcp server side
+
+5. code library for sockets
