@@ -5,7 +5,7 @@ socketPort = 1030
 clientSocket.bind(('localhost', socketPort))
 
 clientSocket.listen(100)
-print(f"sever socket listeninf at port {socketPort}")
+print(f"sever socket listeninf at port {socketPort  }")
 while True:
     connenction, addr = clientSocket.accept()
     print(f"{connenction} connected successfully")
