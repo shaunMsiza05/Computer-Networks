@@ -1,6 +1,7 @@
 # for now, make the requests through this client socket. But when  you start refining the code, add a basic html file for a browser UI
 
 import socket
+import json
 
 clientSocket = socket.socket()
 
@@ -50,7 +51,7 @@ def makeRequest(url):
         "connection": "close"
     }
     clientSocket.connect((dnsResolver(getRequestObject["Host"], "A"), 1024))
-    clientSocket.send(bytes(str(getRequestObject), 'utf-8'))
+    clientSocket.send(bytes(json.dumps(getRequestObject), 'utf-8'))
 
 makeRequest("web.amazon.com/somedir/page.html")
 #print(dnsResolver("web.amazon.com", "A"))
