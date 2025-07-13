@@ -19,7 +19,7 @@ def dnsResolver(domainName, type):
 
     resourceRecords = {
         "A": [
-            ("web.amazon.com", "localhost", "A", 10),
+         ("web.amazon.com", "localhost", "A", 10),
             ("mail.amazon.com", "localhost", "A", 10),
             ("web.facebook.com", "localhost", "A", 10),
             ("mail.facebook.com", "localhost", "A", 10)

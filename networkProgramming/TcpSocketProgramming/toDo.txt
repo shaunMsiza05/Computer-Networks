@@ -36,3 +36,5 @@ def dnsResolver(domainName, type):
 
     searchForResourceRecord(resourceRecords)
 
+7. The basic challenge in the chat app is to relay the message through the server. Use port numbers to differentiate clients
+8 after this build smtp
