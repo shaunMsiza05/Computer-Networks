@@ -1,0 +1,209 @@
+Here’s a complete, structured summary of everything you’ve configured so far in your Branch A network design, Shaun—ready for documentation, rubric alignment, or simulation planning. It reflects your IP strategy, switch roles, EtherChannel links, DHCP pools, and ACL logic.
+
+---
+
+## 🧾 Branch A Network Configuration Summary
+
+### 🔹 Subnet Overview
+| Subnet         | Purpose                                |
+|----------------|----------------------------------------|
+| `10.0.13.0/24` | Staff LAN (wired access switches, aggregation switches)  
+| `10.0.10.0/24` | Wireless infrastructure (FAT APs and wireless clients)  
+| `10.0.11.0/24` | Guest LAN (FIT APs and guest clients)  
+| `10.0.255.0/30`| Point-to-point routed link between aggregation switches  
+
+---
+
+### 🔹 Hostname & Static IP Assignments
+| Device Name               | IP Address     | Role                          |
+|---------------------------|----------------|-------------------------------|
+| BranchA-AccessSW1         | 10.0.13.20     | Staff LAN Section 1  
+| BranchA-AccessSW2         | 10.0.13.40     | Midpoint in Section 1  
+| BranchA-AccessSW3         | 10.0.13.60     | Staff LAN Section 2  
+| BranchA-AccessSW4         | 10.0.13.80     | Start of Section 2  
+| BranchA-AccessSW5         | 10.0.13.100    | Midpoint in Section 2  
+| BranchA-AccessSW6         | 10.0.13.120    | End of Section 2  
+| BranchA-AccessSW-Admin    | 10.0.13.140    | Admin-only access  
+| BranchA-AggSW1            | 10.0.13.160    | Aggregation switch 1  
+| BranchA-AggSW2            | 10.0.13.180    | Aggregation switch 2  
+| BranchA-FatAP1            | 10.0.10.10     | Wireless AP – Section 1  
+| BranchA-FatAP2            | 10.0.10.20     | Wireless AP – Section 2  
+| WLC (suggested)           | 10.0.11.10     | Guest LAN controller  
+
+---
+
+## 🔗 EtherChannel Configuration Summary
+
+### 🔸 Access Layer
+- **SW1 ⇄ SW2**: `fa0/3–5`, `channel-group 1`
+- **SW2 ⇄ AdminSW**: `fa0/6–8`, `channel-group 2`
+- **SW4 ⇄ SW5**: `fa0/3–5`, `channel-group 3`
+- **SW5 ⇄ SW6**: `fa0/6–8`, `channel-group 4`
+
+### 🔸 Aggregation Layer
+- **AggSW1 ⇄ AggSW2**: `gig1/0/3–5`, `channel-group 10`  
+  *(Layer 2 EtherChannel)*
+
+### 🔸 Aggregation to Access Trunk
+- **AggSW1 ⇄ Access Layer**: `gig1/0/6–12`, `channel-group 20`
+- **AggSW2 ⇄ Access Layer**: `gig1/0/6–12`, `channel-group 20`
+
+---
+
+## 📡 DHCP Pool Configurations
+
+### 🔸 Staff LAN – `10.0.10.0/24`
+```plaintext
+ip dhcp excluded-address 10.0.10.1 10.0.10.29
+
+ip dhcp pool STAFF-LAN
+ network 10.0.10.0 255.255.255.0
+ default-router 10.0.10.1
+ dns-server 8.8.8.8
+ lease 7
+```
+- **Start IP for dynamic assignment**: `10.0.10.30`
+- **Serves**: Wired staff clients and wireless clients via FAT APs
+
+### 🔸 Guest LAN – `10.0.11.0/24`
+```plaintext
+ip dhcp excluded-address 10.0.11.1 10.0.11.29
+
+ip dhcp pool GUEST-LAN
+ network 10.0.11.0 255.255.255.0
+ default-router 10.0.11.1
+ dns-server 8.8.8.8
+ lease 1
+```
+- **Short lease** for high-turnover guest clients
+- **FIT APs** and WLC operate in this subnet
+
+---
+
+## 🔐 ACL Strategy – DHCP Isolation
+
+### 🔸 Prevent Guest DHCP Offers from Reaching Staff LAN
+```plaintext
+access-list 100 deny udp host 10.0.11.2 any eq 67
+access-list 100 permit ip any any
+
+interface vlan 10
+ ip access-group 100 in
+```
+
+### 🔸 Prevent Staff DHCP Offers from Reaching Guest LAN
+```plaintext
+access-list 101 deny udp host 10.0.10.2 any eq 67
+access-list 101 permit ip any any
+
+interface vlan 11
+ ip access-group 101 in
+```
+
+---
+
+Let me know if you'd like this turned into a rubric-aligned case study, simulation-ready topology, or annotated for peer tutoring. I can also help you layer in VLAN definitions and inter-VLAN routing next.Here’s a complete, structured summary of everything you’ve configured so far in your Branch A network design, Shaun—ready for documentation, rubric alignment, or simulation planning. It reflects your IP strategy, switch roles, EtherChannel links, DHCP pools, and ACL logic.
+
+---
+
+## 🧾 Branch A Network Configuration Summary
+
+### 🔹 Subnet Overview
+| Subnet         | Purpose                                |
+|----------------|----------------------------------------|
+| `10.0.13.0/24` | Staff LAN (wired access switches, aggregation switches)  
+| `10.0.10.0/24` | Wireless infrastructure (FAT APs and wireless clients)  
+| `10.0.11.0/24` | Guest LAN (FIT APs and guest clients)  
+| `10.0.255.0/30`| Point-to-point routed link between aggregation switches  
+
+---
+
+### 🔹 Hostname & Static IP Assignments
+| Device Name               | IP Address     | Role                          |
+|---------------------------|----------------|-------------------------------|
+| BranchA-AccessSW1         | 10.0.13.20     | Staff LAN Section 1  
+| BranchA-AccessSW2         | 10.0.13.40     | Midpoint in Section 1  
+| BranchA-AccessSW3         | 10.0.13.60     | Staff LAN Section 2  
+| BranchA-AccessSW4         | 10.0.13.80     | Start of Section 2  
+| BranchA-AccessSW5         | 10.0.13.100    | Midpoint in Section 2  
+| BranchA-AccessSW6         | 10.0.13.120    | End of Section 2  
+| BranchA-AccessSW-Admin    | 10.0.13.140    | Admin-only access  
+| BranchA-AggSW1            | 10.0.13.160    | Aggregation switch 1  
+| BranchA-AggSW2            | 10.0.13.180    | Aggregation switch 2  
+| BranchA-FatAP1            | 10.0.10.10     | Wireless AP – Section 1  
+| BranchA-FatAP2            | 10.0.10.20     | Wireless AP – Section 2  
+| WLC (suggested)           | 10.0.11.10     | Guest LAN controller  
+
+---
+
+## 🔗 EtherChannel Configuration Summary
+
+### 🔸 Access Layer
+- **SW1 ⇄ SW2**: `fa0/3–5`, `channel-group 1`
+- **SW2 ⇄ AdminSW**: `fa0/6–8`, `channel-group 2`
+- **SW4 ⇄ SW5**: `fa0/3–5`, `channel-group 3`
+- **SW5 ⇄ SW6**: `fa0/6–8`, `channel-group 4`
+
+### 🔸 Aggregation Layer
+- **AggSW1 ⇄ AggSW2**: `gig1/0/3–5`, `channel-group 10`  
+  *(Layer 2 EtherChannel)*
+
+### 🔸 Aggregation to Access Trunk
+- **AggSW1 ⇄ Access Layer**: `gig1/0/6–12`, `channel-group 20`
+- **AggSW2 ⇄ Access Layer**: `gig1/0/6–12`, `channel-group 20`
+
+---
+
+## 📡 DHCP Pool Configurations
+
+### 🔸 Staff LAN – `10.0.10.0/24`
+```plaintext
+ip dhcp excluded-address 10.0.10.1 10.0.10.29
+
+ip dhcp pool STAFF-LAN
+ network 10.0.10.0 255.255.255.0
+ default-router 10.0.10.1
+ dns-server 8.8.8.8
+ lease 7
+```
+- **Start IP for dynamic assignment**: `10.0.10.30`
+- **Serves**: Wired staff clients and wireless clients via FAT APs
+
+### 🔸 Guest LAN – `10.0.11.0/24`
+```plaintext
+ip dhcp excluded-address 10.0.11.1 10.0.11.29
+
+ip dhcp pool GUEST-LAN
+ network 10.0.11.0 255.255.255.0
+ default-router 10.0.11.1
+ dns-server 8.8.8.8
+ lease 1
+```
+- **Short lease** for high-turnover guest clients
+- **FIT APs** and WLC operate in this subnet
+
+---
+
+## 🔐 ACL Strategy – DHCP Isolation
+
+### 🔸 Prevent Guest DHCP Offers from Reaching Staff LAN
+```plaintext
+access-list 100 deny udp host 10.0.11.2 any eq 67
+access-list 100 permit ip any any
+
+interface vlan 10
+ ip access-group 100 in
+```
+
+### 🔸 Prevent Staff DHCP Offers from Reaching Guest LAN
+```plaintext
+access-list 101 deny udp host 10.0.10.2 any eq 67
+access-list 101 permit ip any any
+
+interface vlan 11
+ ip access-group 101 in
+```
+
+---
+
+Let me know if you'd like this turned into a rubric-aligned case study, simulation-ready topology, or annotated for peer tutoring. I can also help you layer in VLAN definitions and inter-VLAN routing next.

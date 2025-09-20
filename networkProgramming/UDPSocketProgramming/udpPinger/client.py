@@ -22,6 +22,7 @@ for sequence_Number in range(1, 11):
     try:
         clientSocket.sendto(message.encode(), serverAddress)
         # if not data is returned, recvfrom will throw a timeout exception
+        
         response, addr = clientSocket.recvfrom(1024)
         receive_time = time.time()
         rtt = receive_time - send_time

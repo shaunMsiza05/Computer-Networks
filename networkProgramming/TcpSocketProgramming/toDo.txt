@@ -38,3 +38,5 @@ def dnsResolver(domainName, type):
 
 7. The basic challenge in the chat app is to relay the message through the server. Use port numbers to differentiate clients
 8 after this build smtp
+
+8. write an lcp sockect program that simulates the negotitae of these three link layer parameters: magic number, authentication mode, and MRU. Interestingly, you can then call the PAP mdoule for further PPP negotiation. ensure that you also simulate mismatch and unkown parameters. alcso code ncp
