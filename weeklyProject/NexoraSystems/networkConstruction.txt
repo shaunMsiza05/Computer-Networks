@@ -1,0 +1,304 @@
+Perfect, Shaun. With **VLAN 50 now integrated** for the Network Controller and trunking updated between the NMS switch and Aggregation Switch 1, here’s the **updated full configuration summary**—clean, modular, and ready for documentation or peer review.
+
+---
+
+## 🧾 Updated Network Configuration Summary
+
+### 🧠 Topology Overview
+- **Layered design**: Access → Aggregation → Interconnect → NMS  
+- **Inter-VLAN routing**: Enabled via SVIs on Aggregation Switch 1  
+- **Trunking**: Between access switches, aggregation switches, and NMS switch  
+- **EtherChannel**: Between aggregation switches (Gi1/0/8–10)  
+- **Management VLAN**: VLAN 99 with IPs assigned for remote access  
+- **Controller VLAN**: VLAN 50 for network control segmentation
+
+---
+
+## 🔧 VLAN Definitions (on all switches)
+
+```bash
+vlan 10
+ name IT
+vlan 20
+ name Finance
+vlan 30
+ name HR
+vlan 40
+ name Guest
+vlan 50
+ name NetControl
+vlan 99
+ name Native
+```
+
+---
+
+## 🔧 Aggregation Switch 1 (Mgmt IP: 192.168.99.1)
+
+```bash
+interface Vlan10
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+
+interface Vlan20
+ ip address 192.168.20.1 255.255.255.0
+ no shutdown
+
+interface Vlan30
+ ip address 192.168.30.1 255.255.255.0
+ no shutdown
+
+interface Vlan40
+ ip address 192.168.40.1 255.255.255.0
+ no shutdown
+
+interface Vlan50
+ ip address 192.168.50.1 255.255.255.0
+ no shutdown
+
+interface Vlan99
+ ip address 192.168.99.1 255.255.255.0
+ no shutdown
+
+ip routing
+
+interface GigabitEthernet1/0/7
+ description Uplink to NMS Switch
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,50,99
+ switchport trunk native vlan 99
+ no shutdown
+
+interface Port-channel1
+ description Interconnect between Aggregation Switches
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50
+ switchport trunk native vlan 99
+
+interface range GigabitEthernet1/0/8 - 10
+ description EtherChannel Interconnect to Peer Aggregation Switch
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50
+ switchport trunk native vlan 99
+ channel-group 1 mode active
+```
+
+---
+
+## 🔧 Aggregation Switch 2 (Mgmt IP: 192.168.99.2)
+
+```bash
+interface Vlan99
+ ip address 192.168.99.2 255.255.255.0
+ no shutdown
+
+ip default-gateway 192.168.99.1
+```
+
+---
+
+## 🔧 Access Switches (SW1–SW4)
+
+Each switch has:
+
+```bash
+interface Vlan99
+ ip address 192.168.99.3 255.255.255.0  # SW1
+ ip address 192.168.99.4 255.255.255.0  # SW2
+ ip address 192.168.99.5 255.255.255.0  # SW3
+ ip address 192.168.99.6 255.255.255.0  # SW4
+ no shutdown
+
+ip default-gateway 192.168.99.1
+```
+
+---
+
+## 🔧 NMS Switch (Mgmt IP: 192.168.99.7)
+
+```bash
+interface Vlan99
+ ip address 192.168.99.7 255.255.255.0
+ no shutdown
+
+ip default-gateway 192.168.99.1
+
+interface FastEthernet0/1
+ description Trunk to Aggregation Switch
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,50,99
+ switchport trunk native vlan 99
+ no shutdown
+
+interface FastEthernet0/2
+ description NMS PC
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface FastEthernet0/3
+ description Network Controller
+ switchport mode access
+ switchport access vlan 50
+ no shutdown
+```
+
+---
+
+## ✅ Final Routing Table (Agg1)
+
+Run `show ip route` and expect:
+
+```
+C    192.168.10.0/24 is directly connected, Vlan10
+C    192.168.20.0/24 is directly connected, Vlan20
+C    192.168.30.0/24 is directly connected, Vlan30
+C    192.168.40.0/24 is directly connected, Vlan40
+C    192.168.50.0/24 is directly connected, Vlan50
+C    192.168.99.0/24 is directly connected, Vlan99
+```
+
+
+second phase 
+
+
+
+## 🔧 Edge Routing & NAT Configuration (HSRP + PAT)
+
+### 🧠 Design Summary
+- **HSRP** provides a resilient default gateway for VLAN 99  
+- **PAT** is configured on each router’s serial interface to simulate ISP connectivity  
+- **Firewall** acts as a transit device between routers and ISP routers  
+- **Transit subnet**: `192.168.254.0/30` for Router 1, `192.168.254.4/30` for Router 2
+
+---
+
+### 🔧 Router 1 (Active HSRP + PAT)
+
+```bash
+interface GigabitEthernet0/0
+ description Link to Agg1 (inside)
+ ip address 192.168.99.254 255.255.255.0
+ ip nat inside
+ standby 1 ip 192.168.99.250
+ standby 1 priority 110
+ standby 1 preempt
+ no shutdown
+
+interface Serial0/2/0
+ description Link to ISP Router 1
+ ip address 192.168.254.1 255.255.255.252
+ ip nat outside
+ no shutdown
+
+access-list 1 permit 192.168.99.0 0.0.0.255
+
+ip nat inside source list 1 interface Serial0/2/0 overload
+```
+
+---
+
+### 🔧 Router 2 (Standby HSRP + PAT)
+
+```bash
+interface GigabitEthernet0/0
+ description Link to Agg2 (inside)
+ ip address 192.168.99.253 255.255.255.0
+ ip nat inside
+ standby 1 ip 192.168.99.250
+ standby 1 priority 100
+ standby 1 preempt
+ no shutdown
+
+interface Serial0/2/0
+ description Link to ISP Router 2
+ ip address 192.168.254.5 255.255.255.252
+ ip nat outside
+ no shutdown
+
+access-list 1 permit 192.168.99.0 0.0.0.255
+
+ip nat inside source list 1 interface Serial0/2/0 overload
+```
+
+---
+
+### 🔧 Aggregation Switch Uplinks to Routers
+
+```bash
+interface GigabitEthernet1/0/5
+ description Uplink to Router 1
+ switchport mode access
+ switchport access vlan 99
+ no shutdown
+
+interface GigabitEthernet1/0/5
+ description Uplink to Router 2
+ switchport mode access
+ switchport access vlan 99
+ no shutdown
+```
+
+---
+
+### 🔧 Default Gateway on Non-Routing Switches
+
+```bash
+ip default-gateway 192.168.99.250
+```
+
+Applied to:
+- Aggregation Switch 2  
+- Access Switches (SW1–SW4)  
+- NMS Switch  
+
+---
+
+## 🔧 Firewall Configuration (Transit Role)
+
+### 🔽 Inside Interfaces (Facing Aggregation)
+
+```bash
+interface GigabitEthernet1/1
+ nameif inside
+ security-level 100
+ ip address 192.168.99.241 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet1/2
+ nameif inside
+ security-level 100
+ ip address 192.168.99.242 255.255.255.0
+ no shutdown
+```
+
+### 🔼 Outside Interfaces (Facing ISP Routers)
+
+```bash
+interface GigabitEthernet1/3
+ nameif outside
+ security-level 0
+ ip address 192.168.254.2 255.255.255.252
+ no shutdown
+
+interface GigabitEthernet1/4
+ nameif outside
+ security-level 0
+ ip address 192.168.254.6 255.255.255.252
+ no shutdown
+```
+
+---
+
+## 🧪 Reachability & NAT Testing
+
+- ✅ Ping from VLAN 99 hosts to `8.8.8.8` via NAT  
+- ✅ `show ip nat translations` on each router  
+- ✅ HSRP failover: shut down Router 1’s Gi0/0 and verify Router 2 handles NAT  
+- ✅ Firewall passes traffic transparently between zones
+
+
+
+
+---
+
