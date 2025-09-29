@@ -302,3 +302,144 @@ interface GigabitEthernet1/4
 
 ---
 
+Here’s your full session summary, Shaun—documenting everything we configured, refined, and architected for NexoraSystems. This aggregates all tasks from SSH setup to DHCP pool distribution, formatted for deployment notes, simulation reports, or commit history.
+
+---
+
+# 📄 NexoraSystems Full Configuration Summary  
+**Session Scope:** Secure access, hostname assignments, enable passwords, DHCP pool distribution, and simulation logic for VLANs 10–40
+
+---
+
+## 🔐 SSH Access Configuration
+
+**Objective:** Secure remote access across all infrastructure devices using unified credentials.
+
+- **Domain Name:** `nexorasystems.local`  
+- **RSA Key Generation:** `modulus 1024`  
+- **SSH Username:** `nexoraadmin`  
+- **SSH Password:** `Nexora@Access1`  
+- **VTY Line Setup:**
+  ```bash
+  line vty 0 4
+   login local
+   transport input ssh
+  ```
+
+Applied to:
+- Access Switches (SW1–SW4)
+- Aggregation Switches (Agg1, Agg2)
+- Routers (R1, R2)
+- Firewall (ASA-style SSH)
+- NMS Switch
+
+---
+
+## 🏷️ Hostname & Enable Password Assignments
+
+| Device        | Hostname        | Enable Password     |
+|---------------|------------------|----------------------|
+| SW1           | Nexora-SW1       | Enable#SW1!          |
+| SW2           | Nexora-SW2       | Enable#SW2!          |
+| SW3           | Nexora-SW3       | Enable#SW3!          |
+| SW4           | Nexora-SW4       | Enable#SW4!          |
+| Agg1          | Nexora-Agg1      | Enable#Agg1!         |
+| Agg2          | Nexora-Agg2      | Enable#Agg2!         |
+| Router 1      | Nexora-R1        | Enable#R1!           |
+| Router 2      | Nexora-R2        | Enable#R2!           |
+| Firewall      | Nexora-FW        | Enable#FW!           |
+| NMS Switch    | Nexora-NMS       | Enable#NMS!          |
+
+> All devices configured with SSH access and unique enable passwords for privilege escalation.
+
+---
+
+## 📡 DHCP Pool Distribution
+
+**Objective:** Assign VLAN-specific DHCP pools across two servers to prevent default pool leakage and enforce subnet integrity.
+
+### 🖥️ Server `192.168.60.10`
+
+- **VLAN10_IT**
+  - Subnet: `192.168.10.0/24`
+  - Gateway: `192.168.10.1`
+  - Start IP: `192.168.10.100`
+- **VLAN30_HR**
+  - Subnet: `192.168.30.0/24`
+  - Gateway: `192.168.30.1`
+  - Start IP: `192.168.30.100`
+
+### 🖥️ Server `192.168.60.11`
+
+- **VLAN20_Finance**
+  - Subnet: `192.168.20.0/24`
+  - Gateway: `192.168.20.1`
+  - Start IP: `192.168.20.100`
+- **VLAN40_Guest**
+  - Subnet: `192.168.40.0/24`
+  - Gateway: `192.168.40.1`
+  - Start IP: `192.168.40.100`
+
+> All pools include DNS servers `192.168.60.10` and `.11`, and domain name `nexorasystems.local`.
+
+---
+
+## 🔁 IP Helper-Address Relay Setup
+
+Configured on Aggregation Switch SVIs to forward DHCP requests to correct server:
+
+```bash
+interface Vlan10
+ ip helper-address 192.168.60.10
+
+interface Vlan20
+ ip helper-address 192.168.60.11
+
+interface Vlan30
+ ip helper-address 192.168.60.10
+
+interface Vlan40
+ ip helper-address 192.168.60.11
+```
+
+> Clients were pre-configured with their VLAN’s default gateway to ensure accurate DHCP routing.
+
+---
+
+## 🧪 Simulation Tips Applied
+
+- Manually set default gateway on clients before DHCP request to avoid fallback to default pool  
+- Distributed services across two servers to mirror real-world segmentation  
+- Scoped each DHCP pool to its VLAN subnet and gateway  
+- Preserved simulation clarity and modular service control
+
+---
+
+## ✅ Commit Messages
+
+### SSH & Hostname Setup
+
+```bash
+git commit -m "feat: Enabled SSH access and assigned secure hostnames and enable passwords across NexoraSystems infrastructure
+
+- SSH configured on all routers, switches, firewall, and NMS device
+- Username: nexoraadmin with unified SSH password (Nexora@Access1)
+- Unique enable passwords per device to prevent single point of compromise
+- Hostnames assigned for simulation clarity (e.g., Nexora-R1, Nexora-SW1, Nexora-FW)
+- Domain name set to nexorasystems.local for RSA key generation
+- Preserved modular access control and simulation-grade security"
+```
+
+### DHCP Pool Distribution
+
+```bash
+git commit -m "feat: Configured distributed DHCP pools for VLANs 10, 20, 30, and 40
+
+- Server 192.168.60.10 hosts VLAN10_IT and VLAN30_HR pools
+- Server 192.168.60.11 hosts VLAN20_Finance and VLAN40_Guest pools
+- Each pool scoped to correct subnet, gateway, and DNS
+- IP helper-address configured on SVIs for relay accuracy
+- Clients prepped with default gateway to prevent fallback to default pool
+- Preserved VLAN-to-subnet integrity and simulation clarity"
+```
+
