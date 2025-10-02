@@ -443,3 +443,12 @@ git commit -m "feat: Configured distributed DHCP pools for VLANs 10, 20, 30, and
 - Preserved VLAN-to-subnet integrity and simulation clarity"
 ```
 
+
+
+
+
+
+I have found the solution to my problem, the services of my network are distributed over two server and I have two types of users, staff and guest
+
+- so i will use the dedicated server for my wlan and push the wlc to the guest section of my lan. so users connecting to the guest ap will get addresses from the server.
+
