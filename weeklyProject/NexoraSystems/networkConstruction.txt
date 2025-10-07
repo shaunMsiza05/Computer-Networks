@@ -460,3 +460,391 @@ I have found the solution to my problem, the services of my network are distribu
 - SO My network doesnt have ipv6 addresses, and obviously, i can assign them statically, using RAs is not in alignment with my layer architecture, besides, it is a kinda of a security issue since addresses are based on mac address
 
 so one thing to do is obtain an ipv6 address, and since subnetting is easier in IPv6, use one address
+
+
+I have again found the solution to my problem, my idea was that having two switches at the aggregation layer was dor redundancy, so HSRP based on vlans allowing to run the two switches as though one is the active router and the other the standby
+
+so i have already configured ip addresses for my svi, but i will modify these to implement svi, then do OSPF. secondly, since the routers now act as active and standby mode, i dont have to interconnect them with an ether channel, so that's one jusfification i have for remove the channel, but i wanna keep it, its fine, just add the hrsp configs without removing the channel
+
+
+oh the next step is to set the links to trunk
+so i should also do some ospf
+
+
+192.168.70.0/30
+
+192.168.70.4/30
+
+192.168.70.8/30
+
+192.168.70.12/30
+
+
+i feel like you 
+                        
+
+oh, the reason it aint working is because you used 1.1 2.1 and so forth, instead of 10.1 and so forth, so wipe the configs and start all over             
+
+works, so next step is to do ospf, on the two switches first, on the firewall, then on the routers, but first begin by assigning ip address the dot 1 will be configured on the firewalls, and since hsrp is running on the agg siwtches, it seems redundant on the egress layer, but ask ai for that  . but the one firewall creates a single point of failuure. if packet tracer has a protocol for redundancy on firewall, then i am covered                                                                                                                                                                                                                                                                                                                              
+
+
+okay, now start ospf on switches use process,what is your lucky number, do 10 area 0 now this is an interesting issue in design, you hvae multiple layer and using the same area for all will learn to excessive ospf adjancency, so the area between firewall and layer 3 switches is area 0, the area between firewall and rpiuters is 1, but what i suggest for now is that you do area 0 for all, if it works, move back to area 0 and 1
+
+you aslo have to advertise the vlan subnets of the swicthes 
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0 
+network 192.168.30.0 0.0.0.255 area 0
+
+
+router ospf 10
+network 192.168.70.128 0.0.0.31 area 0
+ network 192.168.70.192 0.0.0.31 area 0
+
+router ospf 10
+
+
+router ospf 10
+router-id 6.6.6.6
+ network 192.168.70.160 0.0.0.31 area 0
+ network 192.168.70.224 0.0.0.31 area 0
+
+
+ip route-static 192.168.10.0 255.255.255.0 192.168.70.1
+ip route-static 192.168.20.0 255.255.255.0 192.168.70.1
+ip route-static 192.168.30.0 255.255.255.0 192.168.70.1
+ip route-static 192.168.40.0 255.255.255.0 192.168.70.1
+ip route-static 192.168.50.0 255.255.255.0 192.168.70.1
+ip route-static 192.168.60.0 255.255.255.0 192.168.70.1
+
+
+oh, when doing firewalls, you dont use wildcard but subnet mask, i was so confused about why ospf is not working
+
+
+router ospf 10
+ router-id 1.1.1.1
+ network 192.168.70.0 0.0.0.31 area 0
+ network 192.168.70.32 0.0.0.31 area 0
+ network 192.168.70.64 0.0.0.31 area 0
+ network 192.168.70.96 0.0.0.31 area 0
+ network 192.168.70.128 0.0.0.31 area 0
+ network 192.168.70.160 0.0.0.31 area 0
+ network 192.168.70.192 0.0.0.31 area 0
+ network 192.168.70.224 0.0.0.31 area 0
+
+
+
+first firewall 
+
+router ospf 10
+router-id 3.3.3.3
+ network 192.168.70.0 255.255.255.224 area 0
+ network 192.168.70.32 255.255.255.224 area 0
+network 192.168.70.128 255.255.255.224 area 0
+ network 192.168.70.160 255.255.255.224 area 0
+
+second fiirewall
+
+router ospf 10
+router-id 4.4.4.4
+ network 192.168.70.64 255.255.255.224 area 0
+ network 192.168.70.96 255.255.255.224 area 0
+ network 192.168.70.192 255.255.255.224 area 0
+ network 192.168.70.224 255.255.255.224 area 0
+
+
+no  network 192.168.70.160 255.255.255.224 area 0
+
+so is it neccessary to configure hrsp when the routers are preceded by firewall, i know its a strange question but i am used to hrsp with respect to end systems, will the firewall identify the router ip address and use it
+
+
+
+my ospf configs may be wrong, so let me do them step by step and refer to the documentation
+
+first aggregation switch
+
+router ospf 10
+router-id 1.1.1.1
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0 
+network 192.168.30.0 0.0.0.255 area 0
+network 192.168.70.0 0.0.0.31 area 0
+network 192.168.70.32 0.0.0.31 area 0
+
+second aggregation switch
+
+router ospf 10
+router-id 2.2.2.2
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0 
+network 192.168.30.0 0.0.0.255 area 0
+network 192.168.70.64 0.0.0.31 area 0
+network 192.168.70.96 0.0.0.31 area 0
+
+
+first firewall 
+
+router ospf 10
+router-id 3.3.3.3
+ network 192.168.70.0 255.255.255.224 area 0
+ network 192.168.70.32 255.255.255.224 area 0
+network 192.168.70.128 255.255.255.224 area 0
+ network 192.168.70.160 255.255.255.224 area 0
+
+second firewall
+
+router ospf 10
+router-id 4.4.4.4
+ network 192.168.70.64 255.255.255.224 area 0
+ network 192.168.70.96 255.255.255.224 area 0
+ network 192.168.70.192 255.255.255.224 area 0
+ network 192.168.70.224 255.255.255.224 area 0
+
+first core router
+
+router ospf 10
+router-id 5.5.5.5
+network 192.168.70.192 0.0.0.255 area 0
+network 192.168.70.128 0.0.0.255 area 0
+
+second core router
+router ospf 10
+router-id 6.6.6.6
+ network 192.168.70.160 0.0.0.31 area 0
+network 192.168.70.224 0.0.0.31 area 0
+
+
+no router ospf 10
+
+
+okay tommorow is your deadline for this network, but I this layered architecture should be something your practice and refine daily, master it once and you become networking god.
+
+
+
+so the main barrier to my understanding of my aggregation layer are the vlan configs, so i want a way to clear the vlan configs and redo them, in fact, it would hurt to redo it again
+
+
+
+my internal hosts can reach the server, i think it has to do with the vlan config, i should set the port to trunk and native to 60
+
+
+my staff server is back
+
+torubleshoot vlan 30 access to the server, but that's a small issue
+
+
+agg 1 can ping both switches
+
+agg 2 cant ping firewall 1
+
+router 1 can ping both firewalls
+
+router 2 cant ping firewall one
+
+so my solution to these complex layers is to first find a way for the firewalls to communicate with the routers, one that works, then i can stress about getting the packet outside the network.
+
+oh, i have a strategy for it, you are building layer by layer right, so for a sec, imagine your network being bordered by the firewall then figure out how to move the packets from the hosts to the firewall, once that works, you then add the egress routers, i think if you approach it that way you wont have problem
+
+so we havent configured ospf for ipv6 traffic, so that's one step
+
+
+dont confuse the process ids. in fact, restart the configs
+
+ok, shaun, step by step
+
+ipv4 ospf should take process id of 10
+
+ipv6 ospf should take process id of 15
+
+
+delete the current ipv4 osp configs
+
+
+
+okay now start with ospf for ipv6
+
+process id is 15
+
+i have configured ipv4 for the interfaces but no ipv6.
+
+
+
+agg 1 router-id 1.1.1.1
+
+agg 2 router-id 2.2.2.2
+
+fiewall 1 router-id 3.3.3.3
+
+firewall 2 router-id 4.4.4.4
+
+
+done, so an interesting question is whether the agg swicthes should include all interfaces on its ipv6 ospf configs, either way, especially svi, I dont think that will be a big deal.
+
+
+
+
+so the pc swicthed off so i dont know if the ospf configs are set, so the first step is to remove all ospf configs and start all over
+
+now do ipv6 ospf first, the interfaces between the firewall and the switches and so forth dont have ipv6 addresses, maybe that's inconsistent
+
+- the plan is to approach the coe layer step by first by first configuring the firewalls, then attaching and connecting the router, and you cant attach the router until you are the firewalls are reachable by all devices
+
+so firstly, do ipv6 
+
+
+done, verify configs
+
+but also fix that issue of the staff server, done, now ping it
+
+it works, but the network controller cant assess it, but it's not a big deal, will get back to that. but there should be an acl to block all traffic from vlan 30
+
+so now do the ipv4 ospf configs
+
+
+
+first aggregation switch
+
+router ospf 10
+router-id 1.1.1.1
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0 
+network 192.168.30.0 0.0.0.255 area 0
+network 192.168.40.0 0.0.0.255 area 0
+network 192.168.70.0 0.0.0.31 area 0
+network 192.168.70.32 0.0.0.31 area 0
+
+second aggregation switch
+
+router ospf 10
+router-id 2.2.2.2
+network 192.168.10.0 0.0.0.255 area 0
+network 192.168.20.0 0.0.0.255 area 0 
+network 192.168.30.0 0.0.0.255 area 0
+network 192.168.40.0 0.0.0.255 area 0
+network 192.168.70.64 0.0.0.31 area 0
+network 192.168.70.96 0.0.0.31 area 0
+
+
+first firewall 
+
+router ospf 10
+router-id 3.3.3.3
+ network 192.168.70.0 255.255.255.224 area 0
+ network 192.168.70.64 0.0.0.31 area 0
+ network 196.44.3.0 0.0.0.252 area 0
+
+second firewall
+
+router ospf 10
+router-id 4.4.4.4
+ network 192.168.70.32 255.255.255.224 area 0
+ network 192.168.70.96 255.255.255.224 area 0
+ network 196.44.3.4 0.0.0.252 area 0
+
+done, now do some pings
+
+so agg 1 can ping both firewalls, which means both can ping agg 1
+
+agg 2 cant ping firewall 1
+
+step by step troubleshoot
+
+
+
+verify ip assignment
+
+
+also verify security levels, the security should be inside
+
+ok, the ip addresses are correct, check the security level is ok on the firewall.  the interface doesnt have a name, maybe that's an issue, give it inside2, ok, that had to be the issue cause after setting the name, even the ip address configs appearS
+
+done, now both firewalls and ags can ping each other, or can they?
+do firewall to firewall. do switch to switch. 
+
+the firewalls cant, they will if you interconnect them, but this will leave us with a network with many redundacy paths, leading to a loop, so for a sec, let us avoid that.
+
+now ping from hosts to the firewalls.
+
+this is weird dude, if you remeber that ccna lab, you were able to ping even beyond SVIs, whih is better, spend days stuck on the same problem, or just redo the layer with your new found knowledge, that's learning
+
+okay so while redoing the aggregation layer, these are the steps you will follow
+- configure the SVIs first. then ping the gateway and test inter vlan routing, then afterwards, configure the hrsp parameters, verify if they work
+- then configure trunk interfaces on the agg
+- once you have done that, attack the firewall or the router and try pinging them from the host devices
+- if this works
+- configure dhcp on the switches.
+
+- then having done the above, you will decide a way forward
+
+
+- step 1
+- configure vlans and name them
+- done that
+- now configure trunk interfaces
+- the interfaces between the vlans are trunk, so are the vlans connection the access layer switches
+
+so its fa 1 to 7
+
+
+- the trunk interfaces on the acess layers have native vlans but do it in my own way, i will clear those, just trunk
+
+
+
+ Native VLAN mismatch discovered on GigabitEthernet1/0/1 (1), with Nexora-SW1 FastEthernet0/1 (99).
+
+done with the vlans, redo the vlan on the acces swicthes two, to remove AI's native vlans
+
+
+so redo the vlans, this time around the wont be any mismatches, ensure that
+- so step 1, create and name vlans and assign access ports
+- ok, i have done both access and trunk ports
+- so i should do both svi and hrsp at once
+
+the configs are okay, ping
+
+- done, now you know exactly what configs are running on the agg switches, again a firewall, let's see what happens
+
+
+attach just on firewall, run ospf ipv4 on the agg 
+
+that native mismatch is no longer appearing, so it aint appearing on all of the switches
+
+
+- oh, do ospf on both the swicth and the firewall, remember it is just one firewall, advertise only the neccessary networks
+
+now wait for both devices to form neighbour relationship
+
+the neighbour relationships wont form because you only advertise direcly connected networks
+
+
+topology simplified, now you gotta run pat on the firewalls and configure the public addresses, enable communication between the firewall and the aggregation switches, complex, but if can take forever, this is the only step left really
+
+dont get stuck on one problem, do configs between isp and firewalls
+
+
+the isp is advertising this subnet to the network: 196.44.3.0/24
+
+so the lan should subnet the address properly:
+so first path: 196.44.3.0/30
+second path: 196.44.3.4/30
+
+
+perfect, so now the only thing and the complex thing missing is the routing, fix that then you done. oh, also do some pat
+
+
+so now do ipv4 dhcp
+
+oh, i dint set the interfaces to outside so that will cause issues, the interfaces connecting to the isp firewall, so done that, bring back dhcp to the swicthes, 
+
+
+
+
+done, now i am thinking of dhcp ipv6, but i wanna complete the other configs first
+
+
+now run ospf on the switches and other firewalls and routers, i am doubtful if this will solve the problem but hopefully
+
+finally, it works, after so much sweating
+
+i think the reason why ospf is not including the outside network is because outside meanings not within the AS and ospf is intra-sa 
+
+so yeah take a long ass break
