@@ -988,3 +988,40 @@ commit: assign IPv6 interface roles — configure global unicast addresses to en
 ```
 
 So yes, it may feel repetitive—but it’s the kind of repetition that builds architectural precision. Want to explore SLAAC vs DHCPv6 next, or simulate prefix delegation across routed links?
+
+
+
+
+
+
+
+
+
+
+
+
+! Hostname (customize per switch)
+hostname Nexora-SW4
+
+! Domain name
+ip domain-name nexorasystems.local
+
+! RSA key generation
+crypto key generate rsa modulus 1024
+
+! SSH user credentials
+username nexoraadmin privilege 15 secret Nexora@Access4
+
+! Enable SSH version 2
+ip ssh version 2
+
+! VTY line setup
+line vty 0 4
+ login local
+ transport input ssh
+
+
+
+done, all ssh clients can be pinged, so tommorow do the nms
+
+- what's left. try fixing, ohhh, do some security lab, that;s enigh here, 
