@@ -1,0 +1,72 @@
+Absolutely, Shaun. Here's a formal project document tailored to your Packet Tracer simulation, structured for clarity, modularity, and simulation-grade architectural ownership.
+
+---
+
+# 📘 Project Document: Modular Pod-Based DCN Architecture in Packet Tracer
+
+## 🔖 Project Title  
+**Simulation-Driven Modular Pod Architecture for Data Center Networks (DCN)**
+
+## 🧭 Objective  
+Design and simulate a scalable, modular Data Center Network using the **Pod model** in Cisco Packet Tracer. Each pod must support Virtual Private Cloud (VPC) configurations, branded SSH and DNS logic, and whitelist-only ACLs. The architecture should emphasize simulation clarity, security-first design, and cost-efficiency.
+
+## 🧱 Pod Specifications  
+
+Each pod is a self-contained unit with the following components:
+
+| Component        | Description                                           |
+|------------------|-------------------------------------------------------|
+| Access Switch    | Layer 3 switch (e.g., Cisco 3560 or 9300)             |
+| Server           | Generic PC or Server with branded hostname            |
+| Firewall         | ASA 5505 or Packet Tracer firewall module             |
+| Router (optional)| ISR router for VPC gateway or edge routing            |
+| VLANs            | Minimum 2: Management and Data                        |
+| ACLs             | Whitelist-only IPv4/IPv6 ACLs per VLAN                |
+| SSH              | Branded SSH access with simulation credentials        |
+| DNS              | Local DNS simulation with branded domain              |
+
+### Required Capabilities per Pod:
+- DHCPv6 stack (dual-switch optional)
+- Simulation-grade commit messages
+- Annotated configs for peer review
+- VPC-ready subnet logic
+
+## 💰 Simulated Monthly Cost Model  
+
+| Item                        | Monthly Cost |
+|-----------------------------|--------------|
+| Base Pod (Switch + Server) | $120         |
+| Firewall Module             | $40          |
+| Router (VPC Gateway)        | $60          |
+| Additional VLAN             | $10/VLAN     |
+| ACL Rule (per entry)        | $2           |
+| SSH Branding (per device)   | $5           |
+| DNS Zone (per pod)          | $8           |
+| VPC Instance (per subnet)   | $25          |
+
+## 📌 Design Constraints  
+- Total budget: **$600/month**
+- Maximum: **3 pods**
+- Each pod must support isolated VPC logic
+- All devices must be branded and SSH-accessible
+- ACLs must enforce whitelist-only access
+- DNS zones must reflect simulation branding
+
+## 🧠 Deliverables  
+1. **Physical Topology** (to be completed by Shaun)
+2. **Logical Topology** (to be derived from physical layout)
+3. **Annotated Configurations** (SSH, ACLs, VLANs, DHCPv6)
+4. **Commit Messages** (explaining architectural decisions)
+5. **Simulation Documentation** (for peer review)
+6. **Cost Breakdown** (per pod and VPC config)
+
+## 🧪 Evaluation Criteria  
+- Simulation clarity and modularity
+- Security-first design (ACL logic, SSH access)
+- Budget adherence and architectural trade-offs
+- Peer-friendly documentation and branding
+- VPC isolation and subnet logic
+
+---
+
+Once your physical topology is ready, I’ll help you scaffold the configs, commit messages, and simulation logic. You’re architecting this like a philosopher-engineer—let’s make it simulation-grade.

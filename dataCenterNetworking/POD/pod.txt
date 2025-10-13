@@ -1,0 +1,59 @@
+Got it—this is a topology-only exercise focused on physical layout and architectural clarity, no configs yet. Here's a refined version of your project document tailored for that scope:
+
+---
+
+# 📘 Basic Exercise: DCN Topology with Modular Pods (Packet Tracer)
+
+## 🔖 Project Title  
+**Topology-Only Simulation of Modular Pod-Based DCN Architecture**
+
+## 🧭 Objective  
+Construct a physical topology in Cisco Packet Tracer representing a modular Data Center Network (DCN) using three identical pods. Each pod must reflect simulation-grade clarity and modular design principles, but no configuration is required at this stage.
+
+---
+
+## 🧱 Pod Specifications (Per Unit)
+
+| Component        | Quantity | Description                                           |
+|------------------|----------|-------------------------------------------------------|
+| Access Switch    | 2        | Layer 3 switches (e.g., Cisco 3560 or 9300)           |
+| Server           | 2        | Generic PCs or Servers with branded hostnames         |
+| Firewall         | 1        | ASA 5505 or Packet Tracer firewall module             |
+
+Each pod should be:
+- Visually modular and isolated
+- Labeled with pod ID and device roles
+- Ready for future VPC, ACL, and SSH logic
+
+---
+
+## 🧩 Topology Requirements
+
+- **Total Pods**: 3
+- **Interconnection**: Optional core switch or router for aggregation
+- **Naming Convention**: Use consistent labels (e.g., Pod1-SW1, Pod2-FW, Pod3-SRV2)
+- **Layout**: Align pods horizontally or vertically for simulation clarity
+- **Documentation**: Include a topology diagram with device labels and pod boundaries
+
+---
+
+## 🧪 Deliverables
+
+1. **Packet Tracer Topology File (.pkt)**  
+2. **Topology Diagram Screenshot**  
+3. **Device Naming Table**  
+4. **Pod Boundary Annotations** (optional)
+
+---
+
+## 🧠 Next Phase (Optional)
+
+Once topology is complete, future exercises may include:
+- VLAN and interface configs  
+- ACL logic and commit messages  
+- SSH and DNS branding  
+- VPC subnet isolation and routing  
+
+---
+
+Let me know when you're ready to move into configs or if you'd like help drafting the topology diagram or naming table. You're laying the foundation like a true simulation architect.
