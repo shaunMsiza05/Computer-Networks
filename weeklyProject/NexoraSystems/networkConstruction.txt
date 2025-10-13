@@ -504,6 +504,10 @@ router ospf 10
 
 
 router ospf 10
+
+
+
+
 router-id 6.6.6.6
  network 192.168.70.160 0.0.0.31 area 0
  network 192.168.70.224 0.0.0.31 area 0
@@ -1025,3 +1029,15 @@ line vty 0 4
 done, all ssh clients can be pinged, so tommorow do the nms
 
 - what's left. try fixing, ohhh, do some security lab, that;s enigh here, 
+
+
+
+
+
+
+
+
+
+interface GigabitEthernet1/0/11
+ description Link to server or start VLANs
+ ip access-group START-VLAN-TO-SERVER out
