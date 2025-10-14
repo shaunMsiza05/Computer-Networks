@@ -347,7 +347,7 @@ Applied to:
 | Agg2          | Nexora-Agg2      | Enable#Agg2!         |
 | Router 1      | Nexora-R1        | Enable#R1!           |
 | Router 2      | Nexora-R2        | Enable#R2!           |
-| Firewall      | Nexora-FW        | Enable#FW!           |
+| Firewall      | Nexora-FW        | Enable#FW1!           |
 | NMS Switch    | Nexora-NMS       | Enable#NMS!          |
 
 > All devices configured with SSH access and unique enable passwords for privilege escalation.
@@ -1041,3 +1041,416 @@ done, all ssh clients can be pinged, so tommorow do the nms
 interface GigabitEthernet1/0/11
  description Link to server or start VLANs
  ip access-group START-VLAN-TO-SERVER out
+
+
+for today, we assign ipv6 subnets to the routing interfaces. the link to the agg switch aint converging, weird, what is wrong with link, connect to a diffrent port.
+
+leave it for now, test email, but how if server is unreachable, remove the switch for now
+
+ok, restored, should have deleted the swicth but you forgot the passowrd anyway, stop this vlan 99 issue, clear this vlan from all swicthes, it aint need, are u sure it aint needed?, yeah, you can use the interfcace addresses to ssh to swicthes and firewalls, its much simple, and the access switches use their onw vlan
+
+vlan 50 and 60 have agg 2 for standby but dont have links to it, illogical
+
+
+did you realised you can run a vpn client on the device? know you can extend to client to site vpn mode too, consider that in your next projects
+
+updated the records, the dns server at each web server only holds the record for that server, since guest lan cant access staff server, so staff shouldnt guest server
+
+fix the acls, redo the website, and what else? just finish this project tommorow, there's no need to delay it any longer. day after tommorow is the deadline
+
+
+so first fix the website, the styling is amazning but the context, ai missed that.
+
+so you have updated the website, but the staff server cannot be pinged, so the first step is to remove yesterday's acls, rewrite them step by step, paste them here to validate any issues
+
+so firs, there's the acl blocking staff traffic from reaching the guest server, start with that.
+
+done removing the acls, try pinging again
+
+so to better deploy the acls, deploy them at the interface connecting the server, it is inefficient for the default gateway to process the acls all of the time.
+
+dont overfocus on one problem, while the server staff cant be pinged, write the acl to the guest server
+but there are also issues with vlan 30's configs, fix that, the conflict is gone, seems it had to do with converging
+
+the staff server is back, gone again, everytime i try to run the browser it does it, when it runs again, do the acl before testing the browser
+
+
+so the guest ser acl will be
+
+for ipv4
+
+access-list 101 deny ip 192.168.10.0 0.0.0.255 host 192.168.40.5
+access-list 101 deny ip 192.168.20.0 0.0.0.255 host 192.168.40.5
+access-list 101 deny ip 192.168.30.0 0.0.0.255 host 192.168.40.5
+access-list 101 deny ip 192.168.50.0 0.0.0.255 host 192.168.40.5
+access-list 101 deny ip 192.168.60.0 0.0.0.255 host 192.168.40.5
+access-list 101 permit ip any any
+
+for ipv6
+
+ipv6 access-list BLOCK-GUEST-V6
+ deny ipv6 2001:DB8:ACAD:10::/64 host 2001:DB8:ACAD:40::5
+ deny ipv6 2001:DB8:ACAD:20::/64 host 2001:DB8:ACAD:40::5
+ deny ipv6 2001:DB8:ACAD:30::/64 host 2001:DB8:ACAD:40::5
+ permit ipv6 any any
+
+
+
+deploy the above . ok for this the deployment plan is to deploy them on the links leading to the guest vlan,  so it will be out
+gig1/0/1 on agg two
+gig1/0/4 on agg 1
+
+ip access-group 101 out
+
+test then . the acl aint working, ask ai
+
+
+this the to staff server acl
+
+access-list 102 deny ip 192.168.40.0 0.0.0.255 192.168.60.10 0.0.0.0
+
+
+you should configure your ipv6 address properly and exclude the addresses used by the server.
+
+
+also fix the ipv6 pool of your server, do the ccna lab for that
+
+
+
+so the website is giving me problem, add some temporary pc then test it on the server switch
+
+so the acl of the guest server does work, so one thing you should note is that convergence may take some time,
+
+but the acl of the staff server is wrong, access to it is blocked to all possible subnets excluding the staff vlans, so rewrite it
+
+
+
+Here’s a clean, simulation-grade documentation of the ACLs you’ve architected to protect the **staff server**—which hosts a public-facing email service—while blocking all other traffic, including unintended web access.
+
+---
+
+## 🔐 ACL Documentation: Staff Server Access Control
+
+### 🧭 Server Details
+| Protocol | Address                          | Role                      |
+|----------|----------------------------------|---------------------------|
+| IPv4     | `192.168.60.10`                  | Staff Email Server        |
+| IPv6     | `2001:DB8:ACAD:60::10`           | Staff Email Server        |
+
+---
+
+### 📜 IPv4 ACL: `access-list 150`
+
+```bash
+access-list 150 remark Permit email traffic only to staff server (192.168.60.10)
+access-list 150 permit tcp any host 192.168.60.10 eq 25     ! SMTP
+access-list 150 permit tcp any host 192.168.60.10 eq 465    ! SMTPS
+access-list 150 permit tcp any host 192.168.60.10 eq 587    ! SMTP (submission)
+access-list 150 permit tcp any host 192.168.60.10 eq 110    ! POP3
+access-list 150 permit tcp any host 192.168.60.10 eq 995    ! POP3S
+access-list 150 permit tcp any host 192.168.60.10 eq 143    ! IMAP
+access-list 150 permit tcp any host 192.168.60.10 eq 993    ! IMAPS
+access-list 150 deny tcp any host 192.168.60.10 eq 443      ! Block HTTPS (web access)
+access-list 150 deny ip any host 192.168.60.10              ! Block all other traffic
+access-list 150 permit ip any any                          ! Allow rest of network
+```
+
+**Applied on**:  
+```bash
+interface GigabitEthernet1/0/11
+ ip access-group 150 in
+```
+
+---
+
+### 🌐 IPv6 ACL: `ipv6 access-list EMAIL-ONLY-V6`
+
+```bash
+ipv6 access-list EMAIL-ONLY-V6
+ remark Permit email traffic only to staff server (2001:DB8:ACAD:60::10)
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 25     ! SMTP
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 465    ! SMTPS
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 587    ! SMTP (submission)
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 110    ! POP3
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 995    ! POP3S
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 143    ! IMAP
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 993    ! IMAPS
+ deny tcp any host 2001:DB8:ACAD:60::10 eq 443      ! Block HTTPS (web access)
+ deny ipv6 any host 2001:DB8:ACAD:60::10            ! Block all other traffic
+ permit ipv6 any any                                ! Allow rest of network
+```
+
+**Applied on**:  
+```bash
+interface GigabitEthernet1/0/11
+ ipv6 traffic-filter EMAIL-ONLY-V6 in
+```
+
+---
+
+### 🧾 Commit Message Suggestion
+
+> _“ACL 150 (IPv4) and EMAIL-ONLY-V6 (IPv6) deployed inbound on Gig1/0/11 to restrict access to staff email server. Only email protocols permitted; HTTPS and all other traffic explicitly denied for simulation clarity and security-first design.”_
+
+---
+
+Want to build a test matrix to validate these ACLs across VLANs or simulate a branded DNS lookup scenario next? I can scaffold that with you.
++]
+
+
+so it seems like the acl, but with the staff server bugging, you wont be able to test, for now, just test the email service on both lans, it was distributed, but now the servers have been divided, so follow that
+
+
+the first acl works, the second does but partly, this is because of the acl you deployed first, remove that and it will work
+
+
+the staff acls are botched, gotta redo them
+
+the acl should allow all staff vlans to access of the service of the server
+the acl should then allow only the email service to every other network. This should be done for both ipv4 and ipv6, so delete the acls and start all over. so redo them based on this prompt.
+
+then 
+
+
+just do it
+
+ok so the interfaces between agg 1 and fw 1 is gig1/0/8 on agg 1 and gig1/1 on fw1
+ok so the interfaces between agg 1 and fw 2  is gig1/0/9 on agg 1 and gig1/2 on fw2
+
+ok so the interfaces between agg 2 and fw 1 is gig1/0/8 on agg 2 and gig1/1 on fw2
+ok so the interfaces between agg 2 and fw 2  is gig1/0/9 on agg 2 and gig1/2 on fw1
+
+
+interface GigabitEthernet1/3
+ description IPv6 uplink to ISP Router (Gig0/0)
+ ipv6 address 2001:DB8:ACAD:ISP1::1/64
+ ipv6 enable
+
+
+assign ipv6 addresses between the isp and the firewalls, come back
+
+Absolutely—adding **link-local addresses** before the **global unicast addresses (GUAs)** is best practice for IPv6 interface configs, especially in simulation environments where neighbor discovery and routing protocols rely on them.
+
+Let’s revise the **Firewall ↔ ISP uplink configs** with proper link-local declarations first.
+
+---
+
+## 🔥 Firewall 1 Config (to ISP Gig0/0)
+
+```bash
+interface GigabitEthernet1/3
+ description IPv6 uplink to ISP Router (Gig0/0)
+ ipv6 address FE80::F1ISP1 link-local
+ ipv6 address 2001:DB8:ACAD:ISP1::1/64
+ ipv6 enable
+```
+
+---
+
+## 🔥 Firewall 2 Config (to ISP Gig0/1)
+
+```bash
+interface GigabitEthernet1/3
+ description IPv6 uplink to ISP Router (Gig0/1)
+ ipv6 address FE80::F2ISP2 link-local
+ ipv6 address 2001:DB8:ACAD:ISP2::1/64
+ ipv6 enable
+```
+
+---
+
+## 🌐 ISP Router Config
+
+```bash
+interface GigabitEthernet0/0
+ description Link to Firewall 1
+ ipv6 address FE80::ISP1F1 link-local
+ ipv6 address 2001:DB8:ACAD:ISP1::2/64
+ ipv6 enable
+
+interface GigabitEthernet0/1
+ description Link to Firewall 2
+ ipv6 address FE80::ISP2F2 link-local
+ ipv6 address 2001:DB8:ACAD:ISP2::2/64
+ ipv6 enable
+```
+
+---
+
+### 🧾 Commit Message Suggestion
+
+> _“IPv6 uplinks between FW1/FW2 and ISP router updated with explicit link-local addresses (FE80::) for simulation clarity and routing protocol support. GUA assignments preserved for upstream reachability.”_
+
+Want to simulate OSPFv3 adjacency, test ND behavior, or document these in your topology map next? I’ve got scaffolds ready.
+
+
+ipv6 access-list STAFF-EMAIL-V6
+ remark Allow full access from staff VLANs
+ permit ipv6 2001:DB8:ACAD:50::/64 host 2001:DB8:ACAD:60::10
+ permit ipv6 2001:DB8:ACAD:51::/64 host 2001:DB8:ACAD:60::10
+
+ remark Allow email services from other networks
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 25
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 465
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 587
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 110
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 995
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 143
+ permit tcp any host 2001:DB8:ACAD:60::10 eq 993
+
+ remark Deny all other traffic to server
+ deny ipv6 any host 2001:DB8:ACAD:60::10
+ permit ipv6 any any
+
+
+
+
+
+
+access-list 160 remark Allow full access from staff VLANs
+access-list 160 permit ip 192.168.50.0 0.0.0.255 host 192.168.60.10
+access-list 160 permit ip 192.168.51.0 0.0.0.255 host 192.168.60.10
+
+access-list 160 remark Allow email services from other networks
+access-list 160 permit tcp any host 192.168.60.10 eq 25     ! SMTP
+access-list 160 permit tcp any host 192.168.60.10 eq 465    ! SMTPS
+access-list 160 permit tcp any host 192.168.60.10 eq 587    ! SMTP (submission)
+access-list 160 permit tcp any host 192.168.60.10 eq 110    ! POP3
+access-list 160 permit tcp any host 192.168.60.10 eq 995    ! POP3S
+access-list 160 permit tcp any host 192.168.60.10 eq 143    ! IMAP
+access-list 160 permit tcp any host 192.168.60.10 eq 993    ! IMAPS
+
+access-list 160 remark Deny all other traffic to server
+access-list 160 deny ip any host 192.168.60.10
+access-list 160 permit ip any any
+
+
+
+you ddint do the ipv4 staff vlans properly, then are .20 and .30.50. 60.10
+
+access-list 160 permit ip 192.168.10.0 0.0.0.255 host 192.168.60.10
+access-list 160 permit ip 192.168.20.0 0.0.0.255 host 192.168.60.10
+access-list 160 permit ip 192.168.30.0 0.0.0.255 host 192.168.60.10
+access-list 160 permit ip 192.168.50.0 0.0.0.255 host 192.168.60.10
+access-list 160 permit tcp any host 192.168.60.10 eq 25
+access-list 160 permit tcp any host 192.168.60.10 eq 465
+access-list 160 permit tcp any host 192.168.60.10 eq 587
+access-list 160 permit tcp any host 192.168.60.10 eq 110
+access-list 160 permit tcp any host 192.168.60.10 eq 995
+access-list 160 permit tcp any host 192.168.60.10 eq 143
+access-list 160 permit tcp any host 192.168.60.10 eq 993
+access-list 160 deny ip 192.168.40.0 0.0.0.255 host 192.168.60.10
+access-list 160 deny ip any host 192.168.60.10
+
+
+ deploying the acl will be a bit complex. but oh maybe its convergence again, but either way complete the other parts and come back
+
+
+your acl's are gonna disrupt your traffic flow, making it hard for you to test other parts of the project, so for no, disable them on the interface, finish any other missing config
+
+list:
+fix your vlan 40 dhcpv6 server, it works, but make it more direct
+do ipv6 interfaces between firewalls and ISPs
+fix web browsing
+configure guest email service by adding users
+do ssh for all devices, especially firewalls, so problem with ssh is that some dont have enable passwords, fix those. done, but as you saw, some complication may arise if you paste without checking, so ssh into all the devices to ensure its running smoothly, now
+
+pat for all devices
+redo ntp, staff lan its own server, guest lan its own server. done, gotta do testing, will do that when testing everything
+done guest mail server, but mail is not getting sent, fix that
+
+after these I can say I am done with the network. But I should document what I have done so that the key differences between plan and implementation can be noted
+
+ntp authentication-key 1 md5 NexoraTimeSync123
+ntp authenticate
+ntp trusted-key 1
+ntp server 192.168.40.5 key 1
+
+
+ntp authentication-key 2 md5 NexoraStaffSync456
+ntp authenticate
+ntp trusted-key 2
+ntp server 192.168.60.10 key 2
+
+
+
+once you have done ntp for all, you have to figure out how to specify ntp server in your wlc. and you should test if ntp is running on all devices
+
+do basic test of guest email service
+
+
+
+hostname Nexora-ServerSW
+ip domain-name nexorasystems.local
+
+enable secret ForgeSwitch!92
+
+username nexoraadmin secret Nexora@Access1
+
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+line vty 0 4
+ login local
+ transport input ssh
+
+
+do for sw4
+
+
+
+
+Enable#FW2
+
+
+
+so you gona redo all of the ssh, and for each device you do, test immediately
+
+Nexora@Access1
+
+
+2 aint working, try sw3, if it aint working, pause and figure it put2
+
+sw3 can ping agg but agg cant, fix hrsp or wait for some convergence
+
+
+all priorities for second agg should be 90
+
+okay, so the issue of sw3 not pinging the gateway is a big deal, figure it out.
+
+
+for now, do ssh for sw4
+
+
+hostname Nexora-ServerSW
+ip domain-name nexorasystems.local
+
+enable secret Enable#ServerSW!
+
+username nexoraadmin secret Nexora@Access1
+
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+line vty 0 4
+ login local
+ transport input ssh
+
+
+so ssh works for nms, serversw. test the aggs
+
+if the password aint working, something is wrong with key generation. Therefore, you have to redo
+
+the ssh of agg 1 doesnt ask for enable, weird
+
+do agg 2. done, sw1 done
+
+come back to sw3 DONE
+
+sw2 fixed, but it jumps straight to global view, that's insecure
+
+done with all ssh semmingly, but firewalls and the straight jump to config mode for select nodes.
+
+so now that my ssh configs are actually working, let's hope my nms will add even more devices
+
+pause for today
