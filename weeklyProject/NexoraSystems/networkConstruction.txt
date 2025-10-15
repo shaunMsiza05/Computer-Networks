@@ -998,7 +998,7 @@ So yes, it may feel repetitive—but it’s the kind of repetition that builds a
 
 
 
-
+Enable#FW2!
 
 
 
@@ -1454,3 +1454,84 @@ done with all ssh semmingly, but firewalls and the straight jump to config mode 
 so now that my ssh configs are actually working, let's hope my nms will add even more devices
 
 pause for today
+
+so what's remaining, do ipv6 ospf for the agg switches and the two firewalls
+
+your acl's are gonna disrupt your traffic flow, making it hard for you to test other parts of the project, so for no, disable them on the interface, finish any other missing config
+
+list:
+do ipv6 interfaces between firewalls and ISPs
+fix web browsing
+configure guest email service by adding users, did, but it aint working as expected.
+do ssh for all devices, especially firewalls, so problem with ssh is that some dont have enable passwords, fix those. done, but as you saw, some complication may arise if you paste without checking, so ssh into all the devices to ensure its running smoothly, now
+
+pat for all devices
+redo ntp, staff lan its own server, guest lan its own server. done, gotta do testing, will do that when testing everything
+done guest mail server, but mail is not getting sent, fix that
+
+after these I can say I am done with the network. But I should document what I have done so that the key differences between plan and implementation can be noted
+
+
+do a ccna lab on assigning ipv6 addresses to routers and firewalls, then come back to do it here.
+
+so done with ipv6 ospf. done. this staff server should be redone somehow
+
+
+
+so if i have 2 servers in my lan, one for staff and one for guest, the guest should be the one carrying the public facing email service for security right, just make the assumption, If that is the case, then it simplifies your acl, cause now your acl will block everything else beside the staff vlans but your server itself is bugging, fix it first, then do thta, but i think I know why, the server has two links to each agg switch, but you have only addressed one, address both links, in fact, the link connecting to the agg sw, wtf are you talking about.
+
+okay so remove the allow pass vlans for now, but keep the link trunk. if you dont specify vlans for your trunk, then it will allow untagged packets to pass, i dont know, something along those lines. and your trunk interface on the server switch dont have to specify vlans since it expects untagged frames.
+
+so delete staff vlans and redo them. they should allow any other subs, even for email.
+
+
+thia acl should explicity deny all the staff vlans but allowing everything else, this one seems to be related to stuff remove it, in fact, remove all acls and start all over again
+access-list 102 deny ip 192.168.40.0 0.0.0.255 host 192.168.60.10
+
+
+so for the guest acl, this should be done, the staff vlans, 10,20,30,50,60 should be denied access (infer the subnets), but every other subnet should be allowed access.
+also do the ipv6 equivalent of this acl
+the guest server ipv4 address is .40.5
+
+but this server also has an ipv6 address: 2001:DB8:ACAD:60::5
+vlan 10 ipv6 subnet:  ipv6 address prefix 2001:DB8:ACAD:10::/64
+vlan 20 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:20::/64
+vlan 30 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:30::/64
+vlan 50 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:50::/64
+vlan 60 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:60::/64
+so use this address for the ipv6 acl equivalent
+
+then for the staff acl to the server, only the staff vlans are allowed acccess. deny every other subnet.
+ 10,20,30,50,60. the ipv4 address of the server is 60.10
+but this server also has an ipv6 address: 2001:DB8:ACAD:60::5
+vlan 10 ipv6 subnet:  ipv6 address prefix 2001:DB8:ACAD:10::/64
+vlan 20 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:20::/64
+vlan 30 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:30::/64
+vlan 50 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:50::/64
+vlan 60 ipv6 subnet: ipv6 address prefix 2001:DB8:ACAD:60::/64
+so use this address for the ipv6 acl equivalent
+
+
+you should work out a few security policies to protect the staff server, only the firewall, traffic from outside the network can be destined for the server, your reasoning is still flawed, so yo have to expose the email service
+
+
+
+interface GigabitEthernet1/4
+ description GUEST_VLAN_UPLINK
+ ip access-group GUEST_IPV4_ACL in
+
+interface GigabitEthernet1/4
+ description GUEST_VLAN_UPLINK
+ ip access-group GUEST_IPV4_ACL in
+
+give the acl some time, if it still dont work, change direction. if the guest server will receive mail for staff server, then the server should be allowed by the acl to communicate with guest server, you overengineering dude, do this one the next
+. it is not like packet tracer can test that, but maybe it can, have a lab on this, and apply it there first call it mailServerRelay
+
+
+so do the staff acl.
+
+for now, test the ssh of all devices again, then do ssh on firewalls.
+
+so you might wanna bring back that vlan 99, but only for ssh of the agg switches, but nah, use addresses on the switches like the gateways, dont use virtual ips. all ssh works, but the ssh of the agg switches doesnt require the enable passwords first, so that's an issue
+
+do firewall ssh. wait. do acl
