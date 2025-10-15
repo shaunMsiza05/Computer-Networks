@@ -1518,7 +1518,7 @@ you should work out a few security policies to protect the staff server, only th
 
 interface GigabitEthernet1/4
  description GUEST_VLAN_UPLINK
- ip access-group GUEST_IPV4_ACL in
+ ip access-group GUEST_IPV4_ACL ineee
 
 interface GigabitEthernet1/4
  description GUEST_VLAN_UPLINK
@@ -1535,3 +1535,7 @@ for now, test the ssh of all devices again, then do ssh on firewalls.
 so you might wanna bring back that vlan 99, but only for ssh of the agg switches, but nah, use addresses on the switches like the gateways, dont use virtual ips. all ssh works, but the ssh of the agg switches doesnt require the enable passwords first, so that's an issue
 
 do firewall ssh. wait. do acl
+
+
+then wait a lil for convergence like yesterday.
+
