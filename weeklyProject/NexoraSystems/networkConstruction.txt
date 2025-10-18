@@ -352,6 +352,7 @@ Applied to:
 
 > All devices configured with SSH access and unique enable passwords for privilege escalation.
 
+Enable#FW2!
 ---
 
 ## 📡 DHCP Pool Distribution
@@ -1539,3 +1540,95 @@ do firewall ssh. wait. do acl
 
 then wait a lil for convergence like yesterday.
 
+
+
+kevin.naidoo@mail2.nexora.com
+
+jason.mokoena@mail2.nexora.com
+
+thandi.sibanda@mail2.nexora.com
+
+fix the email server
+
+finally.
+
+fix staff email, wonderful. but web server is bugging
+
+the guest acl now works.
+
+fix that web server
+
+done with all ssh, hope more devices will appear on nms
+
+the staff acl works too, I may have to reset my nms so that the firewall appears
+
+so now there are two main issues remaining
+- routing to the isp router
+- setting default routes
+- fixing web server
+
+NEXORA-GUEST
+
+123456@UCl
+
+NEXORA-STAFF-2
+
+NEXORA-STAFF-3
+
+Nexora@Secure22
+
+so yeah, fix those then you done.
+
+so you dont need bgp to the ISP router, you just have to configure static routes, OSPF doesnt work for outside networks, hence the bug.
+
+
+the routes are not working as expected
+route outside 0.0.0.0 0.0.0.0 196.44.3.1
+route outside 0.0.0.0 0.0.0.0 196.44.3.5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ok, dont get stuff on on problem. Explain the workings of your project
+
+
+- so the topology has three layers: the access, the aggregation, and the core layer.
+
+- so at the access layer, we have 6 switches, each runs its own vlan, 10, 20, 30, 40, 50, and 60.
+
+so the switches from vlan 10 to 30 have a fat ap, and both these switches and aps belong to staff devices, or are used fro staff access. then the switch of vlan 40 connects guest devices, it has a fit ap architecture. the 3 aps and the wlc connect to the switch. the vlan 40 switch also connects a guest server, a server exclusively reserved to perfom services for guest users, the services are web, email, ntp, and dns
+
+then the vlan 50 switch is the nms switch, it connects the sdn controller and the admin pc.
+
+then the vlan 60 switch connects the staff server, this server runs applications dedicated to staff devices. the services are a web server, ntp server and email server. and dns
+
+
+then each of these access switches have links to both the aggregation switches.
+
+on the aggregation switches, the are svis for all of the vlans, these svis have both ipv4 and ipv6 addresses. but the svis on both agg swicthes run hrsp, meaning that at one instannce, only one of these agg switches is the active device, while the other is standby.
+between the two agg switches is an lacp channel of three links, group 1. then there are dhcp pools, ipv4 and ipv6, serving addresses vlan 10,20,30,50,60. 
+
+then the agg switches connect to two firewalls above them, meaning that each agg switches has a link to each firewall. both the agg switch and the firewalls run ospf process id 10 (ipv4) and ospf for ipv6, process id 15.
+the ospf of the agg switch has to advertise the subnets of the vlans to the firewalls, the firewalls advertises its subnets, the firewalls subnets to the isp router are also advertises. the isp router is not running OSPF, so a different mechanism has to be used to enable communication from the inside networks to the ISPs.
+
+
+then finally the two firewalla connect to a single isp router. 
+
+
+finalllllllllllllllllllllllllllllllllllly the staff web server works, test the aclss
+you are two steps aways from a complete network.  access to isp routers and acls.
+
+maybe i am the one in the wrong, how will the router return the packets to the original subnets if it doesnt have routes to it, or maybe that's not how it works?
+
+dude, you saw your advertises networks for ospf are incomplete, maybe that's the reason
