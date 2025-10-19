@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.2.00.510">
+    <devices>
+        <dev id="F42847FC-A475-4d14-839D-DDDCAB193CB2" name="LSW1" poe="0" model="S3700" settings="" system_mac="4C-1F-CC-86-12-94" com_port="2000" bootmode="0" cx="203.000000" cy="280.000000" edit_left="230" edit_top="334">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="22" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="7AE70249-4ACE-40ec-9EC2-4BD441BA3B65" name="PC1" poe="0" model="PC" settings=" -simpc_hostname PC1  -simpc_ip 192.168.10.1  -simpc_mask 0.0.0.0  -simpc_gateway 0.0.0.0  -simpc_mac 54-89-98-FB-5C-CD  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-FB-5C-CD" com_port="0" bootmode="0" cx="124.000000" cy="481.000000" edit_left="151" edit_top="535">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="C34D249E-EFCC-4652-A655-C29DD6726B11" name="PC2" poe="0" model="PC" settings=" -simpc_hostname PC2  -simpc_ip 192.168.20.1  -simpc_mask 0.0.0.0  -simpc_gateway 0.0.0.0  -simpc_mac 54-89-98-79-0B-99  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-79-0B-99" com_port="0" bootmode="0" cx="606.000000" cy="481.000000" edit_left="633" edit_top="535">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="1C31F63C-7B17-42aa-88C3-295C406179D7" name="LSW2" poe="0" model="S3700" settings="" system_mac="4C-1F-CC-73-0B-73" com_port="2001" bootmode="0" cx="504.000000" cy="282.000000" edit_left="531" edit_top="336">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="22" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="F42847FC-A475-4d14-839D-DDDCAB193CB2" destDeviceID="1C31F63C-7B17-42aa-88C3-295C406179D7">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="273.182800" srcBoundRect_Y="307.286926" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="487.817200" tarBoundRect_Y="308.713074" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="285.182800" srcBoundRect_Y="295.286926" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="0" tarBoundRect_X="499.817200" tarBoundRect_Y="296.713074" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="7AE70249-4ACE-40ec-9EC2-4BD441BA3B65" destDeviceID="F42847FC-A475-4d14-839D-DDDCAB193CB2">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="166.796432" srcBoundRect_Y="467.809082" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="2" tarBoundRectIsMoved="0" tarBoundRect_X="214.203568" tarBoundRect_Y="347.190918" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="C34D249E-EFCC-4652-A655-C29DD6726B11" destDeviceID="1C31F63C-7B17-42aa-88C3-295C406179D7">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="613.302368" srcBoundRect_Y="469.570313" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="2" tarBoundRectIsMoved="0" tarBoundRect_X="550.697632" tarBoundRect_Y="347.429688" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes>
+        <shape type="2" filloption="1" color="16744448" upleftcorner="43,419" width="226" height="192" startpt="0,0" endpt="0,0" borderStyle="0" borderWidth="1" />
+        <shape type="2" filloption="1" color="65280" upleftcorner="488,425" width="255" height="195" startpt="0,0" endpt="0,0" borderStyle="0" borderWidth="1" />
+    </shapes>
+    <txttips>
+        <txttip left="192" top="48" right="596" bottom="174" content="*** 802.1Q Native VLAN config ***&#x0D;&#x0A;&#x0D;&#x0A;1. Draw the necessary topology.&#x0D;&#x0A;2. Create VLANs and name them.&#x0D;&#x0A;3. Identify trunk links and configure them.&#x0D;&#x0A;4. Display the current native VLAN through the trunk.&#x0D;&#x0A;5. Configure native VLANs on the trumk links.&#x0D;&#x0A;6. Display the final native VLAN through the trunk." fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
