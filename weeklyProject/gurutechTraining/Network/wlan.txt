@@ -1,0 +1,59 @@
+
+what is CSMA/CA cause I know CD
+
+and what is orthogonal frequency division/access
+
+look up frequency hoping and direct sequence
+
+ I think I get the concept behind orthogonal fdm, instead diving the channel into frequencies and assigning them too each user, each frequency is also divided into sub frequencies and users can access concurrently, but I think my explanation is bogus, why would you divide the assigned frequencies into sub-frequencies, reread
+
+OFDMA
+- builds on traditional FDM
+- improves spectrum utilisation
+- allows concurrent access of users
+- channels are divides into resource units
+- 
+
+
+
+
+
+
+
+
+- what's a mimo, this word keeps recurring
+
+
+
+
+
+- doesn't fdm also allow concurrent access as the channel is divided evenly for users, look that up, reread
+-- I think I kinda get ofdma, a channel can be used by a single user at a time, so to enable concurrent access, the channel must be divided. 
+
+- I should do a tcp implemented of rts and cts, the user must be able to buffer data until they have been cleared to send. these are implemented in virtual carrier sense ma
+this is how it works, so the rts is sent by sta and then the cts is broadcasted to silence the other nodes. carries in this mode don't sense the channel for activity (signal energy)
+
+to go as far as to consider twt and bss colors for your wlan goes to show the complexity involved in constrast to wired networks
+
+NO router ospf 10
+router ospf 10
+ router-id 2.2.2.2
+ log-adjacency-changes
+ network 10.10.10.0 255.255.255.252 area 0
+ network 20.20.20.0 255.255.255.252 area 0
+ network 172.16.0.0 255.255.0.0 area 0
+
+
+no access-list INSIDE-DMZ extended permit icmp any any
+no access-list INSIDE-DMZ extended permit tcp any any eq www
+no access-list INSIDE-DMZ extended permit udp any any eq bootps
+no access-list INSIDE-DMZ extended permit udp any any eq bootpc
+no access-list INSIDE-DMZ extended permit udp any any eq domain
+no access-list INSIDE-DMZ extended permit tcp any any eq domain
+no access-list INSIDE-DMZ extended permit tcp any any eq smtp
+no access-list INSIDE-DMZ extended permit tcp any any eq pop3
+no access-list INSIDE-OUTSIDE extended permit icmp any any
+no access-list INSIDE-OUTSIDE extended permit tcp any any eq domain
+no access-list INSIDE-OUTSIDE extended permit udp any any eq domain
+no access-list INSIDE-OUTSIDE extended permit tcp any any eq www
+!

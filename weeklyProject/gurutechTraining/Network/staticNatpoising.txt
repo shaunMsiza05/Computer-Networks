@@ -1,0 +1,69 @@
+Absolutely, Shaun. Here's a detailed, academically styled case study that explores the theoretical and practical implications of NAT poisoning via compromised egress devices. It’s framed as if authored by a cybersecurity researcher, aligning with your academic rigor and rubric-ready documentation style.
+
+---
+
+## 🧪 Case Study: Exploiting Static NAT via Destination Policy Poisoning in Compromised Egress Devices
+
+**Author:** Shaun Marlon Msiza  
+**Affiliation:** Level 3 Software Development Researcher  
+**Focus Area:** Ethical Simulation of Network Attacks and Defenses
+
+---
+
+### 1. **Abstract**
+This case study investigates a theoretical attack vector in enterprise networks utilizing static NAT without Port Address Translation (No-PAT). It explores how an attacker, upon compromising a firewall or router, could manipulate destination NAT policies to redirect inbound traffic to a malicious internal device. The study simulates the attack logic, evaluates its feasibility, and proposes layered defense mechanisms.
+
+---
+
+### 2. **Background and Motivation**
+Static NAT is commonly deployed in enterprise networks to ensure predictable public-to-private IP mappings, especially for services requiring consistent external access. While this design simplifies routing and access control, it introduces a deterministic attack surface. If an attacker compromises the NAT device, they can exploit the rigidity of static mappings to reroute traffic.
+
+---
+
+### 3. **Hypothesis**
+If destination NAT policies are independently managed from source NAT, an attacker can poison only the destination NAT table. This allows inbound traffic to be redirected to a single compromised internal device, without disrupting outbound traffic legitimacy—thus maintaining stealth.
+
+---
+
+### 4. **Attack Simulation Setup**
+
+#### 4.1 Network Topology
+- HQ LAN with multiple servers (Web, Mail, DB)
+- Static NAT firewall with separate source/destination NAT policies
+- Public IP pool: `203.0.113.0/28`
+- Internal IP range: `192.168.10.0/24`
+
+#### 4.2 Attack Steps
+1. **Compromise Firewall:** Attacker gains admin access via exploit or misconfiguration.
+2. **Destination NAT Poisoning:** Modify NAT table to map all public IPs to `192.168.10.66` (attacker’s device).
+3. **Traffic Redirection:** All inbound requests (HTTP, SMTP, etc.) are forwarded to the attacker.
+4. **Response Relay (Optional):** Attacker mimics expected services or proxies responses to maintain session integrity.
+
+---
+
+### 5. **Feasibility Analysis**
+
+| Factor | Impact |
+|--------|--------|
+| **Policy Separation** | Enables selective poisoning of destination NAT |
+| **Session Statefulness** | May break sessions unless attacker mimics responses |
+| **Firewall Logging** | High risk of detection unless logs are suppressed |
+| **DMZ Segmentation** | Mitigates lateral movement if properly configured |
+
+---
+
+### 6. **Defense Recommendations**
+- **Unified NAT Policy Enforcement:** Prevent asymmetric manipulation.
+- **NAT Table Integrity Monitoring:** Alert on unexpected remappings.
+- **Role-Based Access Control (RBAC):** Limit admin privileges on egress devices.
+- **Redundant Firewall Architecture:** Use dual ASA with failover and state sync.
+- **Deep Packet Inspection (DPI):** Detect anomalous payloads from spoofed sources.
+
+---
+
+### 7. **Conclusion**
+This case study demonstrates that static NAT, while operationally efficient, can be weaponized if destination NAT policies are compromised. Ethical simulation of this attack reveals the importance of policy cohesion, logging integrity, and layered defenses. Future research may explore dynamic NAT poisoning and its implications in cloud-native architectures.
+
+---
+
+Would you like this expanded into a rubric-aligned academic report with diagrams, simulation configs, and references? I can help you build that out next.

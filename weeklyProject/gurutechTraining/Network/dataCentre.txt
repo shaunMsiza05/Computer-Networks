@@ -1,0 +1,1700 @@
+Outline
+
+Data center overview
+- enterprises have to process massive amounts of data
+- data centre allows enterprises to do so more efficently 
+- enterprise may rent or build their own data centres
+- a data centre as a large-scale equipment room
+- the data centre has a large storage capacity, high security, and high running speed
+
+Typical applications of data centres
+- finance, the government, and big enterprises
+
+Data center architecture
+- a data centre is an extended version of the personal computer
+- it provides computing, storing, and forwarding for enterprise data
+- consists of:
+   - a computing system - consists of a large numbers of servers
+   - a storage system - consists of different types of storage devices
+- network - network devices like routers, switches, and firewalls interconnect the various devices
+
+Intro to DCN
+Data center network
+- the physical infrastructure that is responsible for forwarding service traffic in a data centre
+- data centres can connect to branches of an enterprise accross regions
+- data centers can also connect to enterprises through the internet
+- architecture: Spine-leaf
+- connectivity: virtual extensible local area network
+- spine: a backbone node and core node on the VXLAN network. 
+        - provides high-speed IP forwarding and connects to leaf nodes
+- leaf: provides VXLAN access for network devices
+        - provides access to both internet and intranet users
+- value-added service: a device providing L4-L7 services, such as a firewall or load balancer
+
+Advantages of the spine-leaf architecture
+- used in data center networks
+- spine nodes are backbone nodes providing high-speed ip forwarding
+- a leaf node provides the network access function
+- the nodes are fully connected at layer 3, ecmp is used to improve network availability
+- characteristics of the spine-leaf architecture:
+   - the lower level nodes (leafs) connect to higher-level nodes (spines) to form a full-mesh topology
+   - there is no horizontal line between nodes of the same level
+- the architecture can be likened to a modular switch:
+   - the leaf nodes represent interface line cards
+   - the spine nodes represent the switch fabric
+- the maximum number of spine devices should correspond to the number of uplink ports on leaf devices
+- the hirerachy of the devices can go higher to three-levels
+
+Basic concepts of the leaf architecture
+- terms:
+  - fabric - the interconnected spine and leaf nodes forming the topology of the network
+  - service leaf - this is a node which provides layer 4 to 7 value-added services, such as firewall or load balancer
+  - server leaf - provides computing resources. The servers can be virtualised into one server
+  - border leaf - the leaf node deployed at the border of the VXLAN fabrice network to connect external traffic to the network.
+
+VXLAN-based data center network layer
+- the hierarchy:
+   - the physical network:
+      - the interconnected physical devices providing the infrastructure for all services and service data forwarding
+      - use virtualisation technologies to create a logical topology
+      - the virtual topology can also enable logical tunnels to build a large layer 2 network
+      - VPC - a logically isolated network
+            - also called a security domain
+
+Underlay and overlay
+Overlay:
+  - a logical network that utilises the physical infrastructure of the underlay
+  - it has an independent forwarding and control protocol
+  
+Underlay:
+  - consists of various phyical devices and is the bearer network of the overlay network
+  - this network provides basic capabilities like reachability and reliability
+  - has an indepedent control and forwarding plane protocol
+  
+Typical data center network scenarios
+- it's an autonomous driving control system developed for DCNs
+- it integrates management, control analysis, and AI functions
+
+Integrated cabling
+- three concepts: Top of Rack, End of Row, and Middle of Row
+- the common height of cabinets is 42U
+- 1 U = 4.445 cm
+- the height of each unit is 1U
+- Top of Rack (TOR):
+   - ToR switches are deployed at the top of the cabinet
+   - servers in that cabinet connect to the switch 
+    - the ToR switches connect to aggregation switches at the upper layer
+- End of Row (EoR):
+    - switches are deployed on one or two cabinets in a cabinet group in a centralised mode
+    - all servers of the row of cabinets are connected to the switches through horizontal cabling
+     - this is common to traditional DCs
+     - many cable connections will be aggregated from multiple server cabinets to network cabinets
+      - the above causes problems in connection management
+
+- middle of row (MoR):
+  - connection mode similar to the EOR switches
+  - access switches are connected to one or more cabinets of the same cabinet group
+  - the network cabinets are in the middle of the cabinet group
+  - the access switches are managed centrally
+  - it is a compromise between EoR and ToR
+
+Equipment room module
+- each floor of a data center may be divided into multiple euqipment room modules
+- the different modules can be classified based on functions: the test, open server, storage, and network module
+- the different modules have different power densities
+- each floor is divided into three areas based on density: high, medium, and low density
+- modules:
+  - network module - responsible for network access. different devices have different power consumption rates.
+  - storage module: houses storage devices in a centralised mode
+  - open server module - used of housing servers in a centralised way
+  - test module - used to house test devices
+
+POD
+- point of delivery 
+- to facilitate resource pool-based operation and management, the DC is divided into multiple physical partitions
+- PODs are defined based on actual service requirements:
+  - In large DC's, each equpment room is a PoD
+  - In midsize DC's, every two or multiple rows of cabinets can be defined as a Pod
+  - in small DC's, In a small DC's, one or more cabinets can be defined as a PoD
+
+Data centre switch
+- a hardware switch
+   - three phases:
+      1 - FE and GE access uplinks are used
+      2 - GE and 10GE access uplinks are used
+      3 - 10, 40 and 100 GE uplinks are used
+
+DC Switches for the AI Era
+- Cloud Engine (CE) refers to Huawei's high speed switches
+- 
+
+DC key IT technologies
+Introduction to server virtualisation
+- server virtualisation is a technology used to run multiple virtual machines
+- users can run multiple services and applications on these virtual machines
+
+Server virtualisation: Virtualisation management platform
+- servers clusters increas with the rise in services
+- a plaftorm is necessary to manage these growing servers
+- the platform provides a user interface
+- the platform also provides functions like monitoring and managing the virtual resources
+- common platforms include the Huwaei VRM, VMare vCenter, and Microsoft System Center
+
+Introduction to cloud computing and OpenStack
+- OpenStack is an open-source cloud operating system that controls large-sized computing, storage, and network resource pools of the data center
+- after it's deployed, resources can be manaaged using web UIs, CLIs, and APIs
+- Open stack and cloud computing:
+   - Openstack is a framework for building a cloud OS
+   - the couud OS intergrates various hardware devices and bears various upper-layer applications and services to form a complete cloud computing system
+- OpenStack and virtualisation:
+   - OpenStack needs to be intergrated with a virtualisation software to implement compute resource pooling of servers.
+
+
+so for your tcp lab, you gonna do some virtual for the tcp servers and a simple management platform that includes turning them off, viewing active users and such statistics. 25 pages a day will do, 16 days you'll be done. this idea doesn't neccessarily virtualise the servers, first, it just load balances between them and provides a common interface. It will be much better to compensate for that by learning how to run multiple server instances in various virtual machines, the first ideas is to download more os' for your vm. and learn how to boot an os from a usb . 				
+
+to practicals for this module:
+- do a spine and leaf architecture
+- do a dcn that solves the isp access link bottleneck
+- build a dcn thatt uses POS to create module, with each module advertised as a separate VPC to tenants.
+
+
+
+
+Introduction to containers
+- more lightweight and efficient
+- OS-level virtualisation technology
+- linux can be divided into the kernel space and the user sapce
+- multiple user spaces can share the same kernel space
+- portable due to OS-independence
+- in the kernel space runs the OS and drivers
+- applications run in the user space
+- containers are used to run cointaner images
+- container image:
+   - an application and its dependencies
+   - packages the application and its runtime environment
+
+Containers vs virtual machines
+- containers share the OS kernel
+- they provide an OS-level isolation
+- advantages of cointaners: better in startup speed, running performance, and server resource usage
+
+Container management platform
+- managing containers on a single node is simple
+- managing multiple container nodes owned by an enterprise is complex
+- managing multiple container nodes in the public cloud is complex
+- this platform provides a means to manage many container nodes
+- such a platform should contain an application orchestration management and cluster resource scheduling function
+- most popular platforms: Kurbenetes, Swarm, and Mesos
+- resource management and scheduling of container clusters:
+  - the resource status of managed nodes is obtained by the platforms
+  - algorithms and specific scheduling policies may be used for resource requests
+  - application management - application management functions are abstracted and exposed through APIs
+  - Kurbenetes - a community project launched by Google
+               - provides the container cluster resource management and application management
+  - Docker - proposed by Docker
+  - Mesos - promoted by Mesosphere, Twitter, and  other comapines
+
+Introduction to storage types:
+- block storage:
+   - used by high perfomance applications. Application: high i/o database
+- file storage:
+   - used by file sharing applications like ftp and nfs servers. Application: file-sharing. 
+- objet storage:
+   - applications that hold a large amount of data that keeps on growing. Distributed servers with large-capacity HDDs. Application scenario: Video storage/video survelliance. remote backup/archiving.
+
+Introduction to the storage system
+- two modes: centralised and decentralised
+- features of the centralised mode:
+   - simple deployment. Storage devices dont have to be deployed at multiple locations.
+   - can become the bottleneck of the system architecture. 
+   - can be a spof both in terms of perfomance and security.
+   - network scalability is limited
+   - easier to enforce policies
+- features of the decentralised mode:
+   - scalable
+   - flexible service expansion
+   - high elasticity
+
+High perfomance computing
+- seeks to push computing to tera operations per second
+- uses methods like a cluster architecture, parallel algorithm, and the parallel computing of related software
+- typical architecture includs infrastructure, compute nodes, storage and file systems, network switching, cluster management, and resource scheduling
+- used to perform tasks such as modeling, rendering, and simulation
+- uses the cluster-node architecture
+- virtualises the interconnected computers
+
+HPC power measurement
+- come back
+
+Introduction to AI
+- used to simulate and extended human intelligence
+- machine learning simuulates and implements human learning behavior
+- deep learning simulates the mechanisms of the human brain to interpret data, such as image, voice, and text recognition
+
+AI industry ecosystem
+- runs on high speed communication netwoks between computing nodes
+- four elements of AI: scenario, data, cloud computing, and IoT
+
+Network requirements of AI computing
+- distributed compute clusters are required by AI
+- the algorithm is ditributed and perfomed by multiple nodes
+- the underlying network uses 100 GBPs devices
+
+DC key network technologies
+- key technologies: NETCONF, SLB, Telemetry, M-LAG, EVPN, VXLAN, SFX, intelligent and lossless network technologies, and microsegmentation
+
+Introduction to load balancing
+- used by compute clusters to allocate loads
+- load balancer - proxy device that receives requests and distributes them
+- load balancing is perfomed at multiple layers
+- floating ip and virtual ip as layer 3 load balancing
+- algorithms:
+   - random and hash
+
+Load-balancing applications in DC's
+- there's server load balancing and global server load balancing
+- enterprises establish multiple DC and therefore the reasoEn for GSLB
+- use case for dns system
+- proprietary protocols also being required
+
+Introduction to M-LAG
+- multichassis link aggregation group
+- in a DC, the M-LAG is established between two (or more) ToR switches
+- uses active/standby negotiation
+- also uses dual-active detection
+- recomended fo server and firewall access
+
+Introduction to VXLAN
+- VPN technology
+- used to create virtual layer 2 networks
+- so have VXLAN network identifier fields, VlAN ID equivalent
+- between two nodes, there is one VXLAN tunnel
+- the tunnel is used to carry permtted VNIs
+
+VXLAN applications in Cloud DCs
+- use of many VMs to map services on cloud DCs
+- random live migration of VMs in a server cluster
+
+Introduction to EVPN
+- ethernet VPN
+- defined in RFC-7432
+- MPLS based
+- a host may carry VMs of multiple tenants
+- to solve the above, network virtualisation overlay is used
+
+EVPN applications in DC
+- BGP EVPN is used on the control plane of the DC network
+- VXLAN is used as the forwading plane of the DC network
+
+
+Introduction to telemetry
+- a technology used to gather remote device statistics at high speed
+- uses the push-strategy to send device stats
+
+Telemetry applications in DCs
+- the data is collected to build an inelligent O&M system
+- Managed network device features:
+  - supports open software and hardware programmability.
+  - uses of collection taks to perform data monitoring and reporting
+- Big data O&M system:
+  - running machine learning algorithms for big data analytics
+  - network service analysis 
+  - centralised management
+   - intergration capabilities
+
+Introduction to NETCONFIG
+- Network configuration protocol
+- used to manage devices
+- functions: add, delete, or modify configurations
+- the protocol has these advantages compared to CLI and SNMP:
+   - high operation efficiency
+   - transaction process, with feautures like trial processing, configuration rollback, and rollback upon errors
+   - interface type: machine-to-machine 
+   - secure transmission
+
+NETCONF applications in DCs
+- used by network controllers
+- used to orchstrate services and delivery configurations to southbound devices
+- two encoding formats: XML and the YANG model
+
+Introduction to microsegmentation
+- a security isolation technology
+- groups DC service units to implement rules
+- deploys policies between groups to implement traffic control
+- allows more grouping modes, include, mac and ip address, and VM names
+
+Microsegmentation applications in DCs
+- classifies servers and VMs into groups
+- uses access policies to manage traffic control between service nodes
+
+Introduction to SFC
+- provides ordered services for the application layer
+- common devices: UDP, IPS, DPI, firewalls, and load balancers
+
+SFC Applications in data centre
+- data packets in a DC need to pass through various service nodes to provide VASs for users
+- DCs utilise this to provide differentiated VSAs
+
+Introduction to the intelligent and lossless network technologies
+- lossy networks are insuffient to meet DC service requirements
+- uses the iLoses algorithm and AI capable hardware
+- has five layers:
+  - application layer, traffic scheduling layer, congestion control layer, flow control layer, and hardware layer
+
+Technical principles and applications of virtualisation
+- server virtualisation is a technology used to create multiple server instances on the same physical server
+- IT engineers divide virtualisation into compute, storage, and network virtualisation
+- to network engineers, this refers to the virtulisation technologies such as stacking, M-LAG, virtual system, and VXLAN
+
+Server virtualisation (from the perspective of IT engineers)
+- a technology used to create multiple virtual machines
+- benefits include:
+   - physical resource utilisation, rapid service provisioning, and elasticity
+
+Server virtualisation (2)
+- we can use this technology to create a virtual resource pool out of server clusters
+- VMs can be migrated betwen physical servers in a cluster
+
+Virtualised server cluster management
+- to implement central control of multiple VMs, a virtualisation management platform is required
+- the platform provides a user interface and a few functions
+- the functions include the monitoring and managing of virtualised resource
+- common platforms:
+  - System center - Microsoft
+  - FusionCompute VRM - Huawei
+  - RHEV - red hat
+
+Server virtualisation benefits
+- increased resource utlisation: pre-virtualisation utilises about 5 to 30 percentage of a server's resources. 
+                                 - with virtualisation, utilisation increases to 60 percent
+- reduced costs - enables the time-sharing feature for resources.
+improved flexibility - clustering allows elastic VM provisioning and can flexibly cope with requirements in peaks and off-peaks
+- less system breakdown - high availability of VMs helps services remain unaffected due to faulty server hardware
+
+Server virtualisation technologies
+- three types: compute, storage, and network virtualisation
+- a hypervisor (a VM monitor) is used in  compute virtualisation
+- hardware resources are abstracted 
+- the abstraction is turned into virtual resources
+- the resources are distributed to run multiple OSs
+- these physical resources are virtualised: CPU, memory, and input and output resources
+- two main functions of a hypervisor: provides virtual resources from hardware. 
+                                     - manages hardware resources
+
+Compute virtualisation - Basic concepts
+- host machine is the end system running the VMs
+- the OS of the host machine is callted the host OS
+- Guest machines - VMs running on the host machine
+- Guest OS - an OS running on a VM/guest machine
+- hypervisor - the virtual machine manager betwen the host and guest OSs.
+- so physical architecture:
+   - adopts a two-tier architecture
+   - includes hardware and OS
+- a virtulisation architecture:
+   - adopts a three-tier architecture
+   - includes hardware, hypervisor, and guest machine
+
+Compute virtualisation technologies
+- two modes of virtualisation based on hypervisor deployment
+- type 1 runs the hypervisor directly on the hardware, without needing a host OS
+- type 2 runs as a software program
+
+Compute virtulisation: CPU virtualisation
+- a host has three types of instructions: sensitive, priveleged, and common instructions
+- virtualisation scenario - sensitive instruction
+- physical scenario - common and priveleged instructions
+- a cpu has four rings, numbered from 0 to 3
+- ring 0 is the most priveleged level and interacts with hardware directly
+- ring 3 is the least priveleged and hosts application software
+- common instructions from applications are executed at the non priveleged level
+- when kernel-based virtual machines are used, guest OSs send instructions to the hypervisor
+- the hypervisor schedules the CPU execution of the guest OS instructions
+-  sensitive instruction is used for changing the operating mode of a VM
+- a sensitive instruction is also used to change the state of a host machine
+
+Compute virtualisation - memory virtualisation
+- used to centrally manage the physical memory of a server and divide it into multiple virtual segments for VMs
+- memory addresses are assigned contiguously, therefore, when multiple VMs are runnning, the first memory address will be misassigned to multiple VMs, causing a memeory conflict.
+- includes three types of memory addresses: VM, physical, and machine memory address
+
+Compute virtualisation - I/O virtualisation
+- the hypervisor intercepst the request from VMs
+- the hypervisor then simulates I/O devices using software
+- full virtualisation: software is used to virtualise hardware devices like keyboards
+- hardware-assisted virtualisation: an I/O device driver is installed directly on the guest OS
+- simulates the access speed time used by direct hardware access
+- para virtualisation: a priveleged VM is granted rights to run hardware drivers
+                       - the OSs of all VM access I/O devices through it
+
+Mainstream compute virtualisation technologies:
+- Open-source:
+ - KVM:
+   - KVM, a module in the linux kernel
+   - KVM is used to virtualise CPU and memory resources
+   - implented in full virtualisation mode
+   - KVM is a process running on the Linux OS
+   - when KVM is used, QEMU is usedd to virtualise I/O devices
+- Xen:
+   - runs directly on hardware
+   - VM run on Xen
+   - Priveleged VM (Domain O) - has permission to access hardware and manage common VMs.
+   - common VM (Domain U) - cannot access hardware directly
+
+Server virtualisation: Storage virtualisation
+- provides these technologies:
+   - disk mounting
+   - file storage access to VMs
+
+Server virtualisation: Network virtualisation
+- a virtual network is neccesaary to connect compute and storage units
+- allows communication between VM on the same and different physical servers
+- uses virtual network elements
+- VMs are bound to physical NICs using NAT, in a small-scale system
+- in a large-scale systems, vms are connected to the network by vSwitches
+
+Virtualisation management platform
+- Compute resource management:
+  - VM, cluster, host, and GPU management
+- Storage resource management: 
+  - storage resource, data storage, disk, and file management
+- Network resource management:
+  - distirbuted switch, uplink, port group and security group configuration
+
+Server virtualisation deployment
+- two components: hypervisor and virutalisation management platform
+- a hyper is used to create the VMs
+- virtualisation platform can be deployed as a VM on the hypervisor to manage other VMs
+
+Server virtualisation topology
+- a baseboard management controller plane:
+   - similar to the management port of a switch
+   - enables remote access to the BMC system of a serve
+- management plane:
+   - plane used by the management system to managede nodes centrally
+- storage plane:
+   - plane used by hosts to communicate with storage units on storage devices
+service plane:
+   - plane used by service data of user VMs
+
+Network virtualisation in DCs
+- two layers: server and network
+- network layer:
+  - device virtualisation: M-LAG, stacking, and virtual system
+  - network architecture virtualisation: virtualising layer 2 networks using VXLAN and BGP EVPN
+- server layer:
+   - sets up virtual networks to interconnect virtual NEs in a server
+
+End-to-End Network virtualisation
+- three phases: virtual access, network connection, and network switching
+- VMs are assigned vNICs
+- VXLAN is used to create the overlays
+
+From a VVM to a switch
+- vlans are used to distinguish traffic of different VMs
+- the vSwitch establishes virtual interfaces for VM access
+
+From a vSwitch to a physical NIC
+- the vswitch terminates the packet receives from a VM
+- the vswitch adds a VLAN tag corresponding to the destination NIC
+- configs for physical NICs on servers: vSwitch connection mode, allowed VLAns, and bonding mode
+
+From the physical NICs to an access switch
+- the physical NICs connect to the access switch interfaces
+
+From the local access switch to the remote switch
+- technologies used to build a Layer 2 network: VXLAN and BGP EVPN
+- on the control plane:
+  - BGP EVPN - used to transmit IP and MAC addresses of VMs
+  - VXLAN - used to establish tunnels and import external routes
+- on the data plane:
+   - the tunnels transmit service traffic
+
+New traffic model: Host overlay
+- VMs on the server connect to a vSwitch
+- the vSwitch differentiate networks
+- the VXLAN tunnels are established between the vSwitches for VM communication
+- tradition network forwarding is perfomed on your physical switches
+
+Server OS basics
+- different by based on OSI model
+- adopts the kernel/user space model
+- the kernel space controls hardware resources to support programs running on auser space
+- the kernel can host one or more user spaces
+- the user space run application software
+- three levels:
+  - hardware:
+     - NIC
+     - physical layer
+  - kernel space: 
+     - NIC driverl network protocol stack
+     - data, transport and network layer
+  - user space:
+     - application programs
+     - application, session, and presentation layers
+
+How does a server NIC send and receive data
+- the prcoess of data and reading by the physical NIC:
+   - the kernel reads data from the network protocol stack and writes it to the NIC
+   - the NIC then sends data to the destination network
+   - the NIC stops the CPU when it receives data
+   - the CPU then instructs the kernel to read the data and place it in memory
+- for the NIC to function properly, it has to be registered in the kernel space by an NIC driver
+- the properties like IP address and mask can be set for the NIC
+- the physical NIC connects to the network protocol stack of the kernel space
+- the NIC connects to an external network on the other end
+- the direct memory access function of an intelligent server NIC
+- the above function allows data to be directly cached to the memory bypassing the CPU
+
+Linux virtual network devices
+- the kernel can create virtual NICs
+- the kernel provides NIC drivers for virtual NICs
+- two vNICs of the Linux kernel:
+   - TUN - reads and writes layer 3 packets
+   - TAP - reads and writes layer 2 ethernet frames
+- the vNICs connect to the user space on one end
+- the vNICs connect to the network protocol stack on the other
+- the vNICs cannot read or write data directly to the physical NICs
+- AP and TUN are responsible for transferring data between the user space
+- AP and TUN also transfer data inn the network protocol stack
+
+vNIC vs Physical NIC
+- the same configurations can be performed for both
+- data transfer:
+   - physical NIC transfer data as bit streams
+    - vNICs copy data to and from memory
+
+SR-IOV: used to improve I/O perfomance
+- Single Root I/O virtualisation and sharing specification: hardware-based virtualisation solution
+- it works on special hardware
+- enables the sharinf of a PCIe device among virtual machines
+- the PCIe device may be divided into multiple virtual devices for each VM
+- each virtual machine has an ndepedent memory space, queues, interrrupts, and command execution capability
+- the PCIe device cann then perform direct I/O for attached VMs
+
+Smart NIC
+- can offload network virtualisation protocols like VXLAN and NVGRE
+
+Introduction to Linux bridges
+- a virtual device that works at layer 2 in the Linux system
+- TAP and TUN can be added to Linux bridge interfaces
+- the linux bridge supports MAC address learning, STP, and VLAN
+
+Introduction to OVS
+- open vSwitch is a virtual switch
+- the vSwitch runs an open-source virtualisation platform
+- can be deployed acctoss multiple physical servers
+- four main functions:
+   - security: 
+     - VLAN isolation, an traffic filtering
+   - monitoring:
+     - Netflow, sFlow, SPAN, RSPAN
+  - QoS:
+     - traffic queuing and shaping
+  - Automated control:
+     - Openflow, OVSDB, and mgmt protocol
+- supports the standard 802.1Q VLAN protocol
+- supports tunneling, GRE, VXLAN, and IPsec
+
+Introduction to DVS
+- its an abstraction of multiple hosts defining the same name, network policy, and attributes
+- distributed virtual server
+- so put simply, a dvs is a OVS running on multiple servers
+
+DVS fundamentals
+- has multiple distributed port groups
+- an uplink connects to a physical NIC
+- a DVS can have only one uplink port group
+- an uplink port group can have one or more uplinks
+
+How do DVSs allow VMs to communicate
+- hosts in the same DVS and VLAN can communicate directly
+- hosts on different DVs' or the same DVS but different VLANs only communicate through the switch
+
+Introduction to FusionCompute vritualisattion suite
+- industy-leading virtulisation solution
+- used to create virtual servers
+- applies to the scenario where the enterprise uses the solution for unitified O&m management
+
+VM provisioning
+- an empty VM, creating a VM from a template, and create a VM based on a existing VM
+
+Technical applications and principles of VXLAN
+Background of VXLAN
+- virtualisation technologies reduce IT and O&M costs
+- improve service deployment flexibility
+
+Network requirement - layer 2 extension
+- VMs can be migrated flexibly on a server cluster
+- the live migration of VMs requires that their network status, like IP address, remain the same
+- a large layer 2 network is necessary to solve the problem
+
+New network requirement: Multi-tenant isolation
+- a in cloud DC, multiple tenants share the same physical infrastructure
+- two requirements:
+   - inter-tenant isolation: different tenants have to be isolated from each other
+   - intra-tenant communication: VMs of the same tenant should be able to communicate at layer 2, even when located on different host devices.
+
+Challenges facing traditional networks
+VM quantity limited by entry specifications of devices
+- the layer 2 devices cannot handle the requirements of rapidly increasing VMs
+VM quantity exceeds server capacity
+- the server has a specific processing power which can be overwhelmed by rapidly increasing VMs
+Limited network isolation capabilities
+- the 802.1Q vlan tag has 12 bits, meaning only 4096 logical units can be created
+- the number of tenants supported by a DC may exceed the above limitation
+Limited VM migration scope
+- VM migration is performed on a layer 2 network
+- VMs are migrated within VLANs, but the number of VLANs is limited
+
+Overview of VXLAN
+- a VPN technology
+- used to build a Layer 2 network on any physical network
+- VXLAN tunnels are built between VXLAN gateway to enable communication within a VXLAN network
+- VXLAN tunnels can also be used for communication between non-VXLAN and VXLAN networks
+- to extend layer 2 networks, MAC-in-UDP is used
+- ethernet packet are encapsulated into IP packets
+- the encapsulated packet then routed through a layer 3 network
+- VM migration is not limited by the physical network architecture
+VXLAN resolves these problems on traditional networks:
+  VM quantity limited by device specifications:
+    - VXLAN encapsulates packets from VMs into UDP packets
+    - VXLAN adds IP and MAC addresses on the outer header
+- limited network isolation capabilities:
+     - a VNI field is used as the VLAN equivalent
+     - the field has 24 bits and can identify up to 16M VXLAN segments
+VM migration scope limited by the network architecture:
+      - VMs with IP addresses on the same network segments belong to the same broadcast domain even if located on different layer 2 networks
+    
+Underlay and Overlay
+Overlay:
+  - a logical network build using VXLAN
+  - has an independent forwarding and control plane protocols
+  - the underlay is not transparent to the VXLAN tunnel endpoints
+Underlay:
+  - the physical network that bears the overlay
+  - provides reachability and reliability to the overlay
+
+VXLAN overlay network types
+- classified based on the type of devices where VTEPs reside
+- Network overlay:
+   - VTEPs at both ends of the tunnel are physical switches
+   - classified into centralised and distributed network overlay
+- Host overlay:
+   - VTEPs at both ends are virtual switches
+- hyrid overlay
+  - VTEPs at both ends can be either a physical or a virtual switch
+
+Overlay protocol deployment
+- requirements of multi-tenant and VM migration must be met in cloud DCs
+- VXLAN defined in FRC 7348 meets these requirements
+early VXLAN:
+   - VXLAN is deployed statically
+   - VXLAN tunnels are created manually
+   - VXLAN doesn't have a control plane
+   - flooding at the data plane is used for VTEP discovery and host information 
+   - due to the above, broadcast radiation occurs
+   - so EVPN is used to solve the above
+   - EVP offers automatic tunnel establishment, automatic VTEP disovery, and automatic host information advertisement
+- to facilitate control and deployment on a large later 2 network, an SDN controller is used
+- the controller uses NETCONFIG to control devices
+- the controller automatically create an overlay
+- the controller collaborates with the cloud platform to implement automatic service and network deployment
+
+VXLAN packet format
+- VXLAN encapsulation:
+   - the VXLAN header packet:
+       - VXLAN flags - 8 bits long
+       - Reserved - 24 bits
+       - VNI - 24 bits 
+       - Reserved 8 bits
+    - the outer IP header:
+       - the source and destination IP addresses
+    - the outer Ethernet header:
+       - I presume a source and destination MAC address
+     - the outer UDP header:
+        - source and destination UDP ports
+        - length (of what?)
+        - the checksum
+the original data frame has an inner IP and Ethernet header
+
+Basic concepts of VXLAN: NVE
+- Network virtualisation edge:
+   - an entity running network virtulisation functions
+   - a hardware or software switch can work as one
+- these devices run VXLAN and construct a layer 2 virtual network
+
+Basic concepts of VXLAN: VTEP
+- it is located in an NVE and performs encapsulation and decapsulation
+- the source ip address of the ip outer header is the source VTEP's
+- the destination ip address of the ip outer header is the destination VTEP's
+- the VTEP address is typically the address of a loopback interface
+- a pair of VTEP IP addresses identifies a VXLAN tunnel
+- the source VTEP encapsulates a packet and sends it through the tunnel
+- the destination VTEP decapsulates the packet 
+
+Basic concepts of VXLAN: VNI and BD
+-Vxlan network identifier:
+   - L2 VNI is similar to a VLAN ID and identifies a layer 2 broadcast domain
+   - L3 VNI identifies a layer 3 instance
+   - L3 used for inter-subnet forwarding of VXLAN packets
+- Bridge domain (BD):
+   - used to divide the broadcast domain of a VXLAN network 
+   - VINs are mapped to BDs in one-to-one mode
+   - terminals in the same BD can communicate at layer 2
+
+Basic concepts of VXLAN: VXLAN access mode
+- services access points must be configured for devices to access a VXLAN network
+- two available access modes:
+   - Access in a layer 2 sub-interface mode: 
+     - a specific sub-interface is associated with a BD
+     - traffic sent through the sub-interface is bound to the BD
+   - Access in VLAN binding mode: 
+     - a specific VLAN is associated with a BD
+     - all traffic forwarded from the VLAN go through the BD
+
+Basic concepts of VXLAN: Layer 2 and 3 VXLAN gateways
+- L2 gateway:
+  - used for intra-subnet communication in the same VXLAN network
+- L3 gateway:
+  - used for inter-subnet communication between terminals on a VXLAN network
+  - allows terminals to access the external network
+
+Basic concepts of VXLAN: VBDIF interface
+- these VBDIF interfaces are the VLANIF equivalent in VXLAN
+- allows for inter-BD communication
+- a logical layer 3 interface created on an L3 VXLAN gateway
+- allows for communication between VXLAN and non-VXLAN networks
+
+Basic concepts of VXLAN: distributed and centralised gateways
+Centralised gateways:
+ - only one device funtions as the layer 3 gateway
+ - all inter-subnet traffic goes through the gateway
+ - therefore the traffic is managed centrally
+Advantage:
+  - central managemennt simplifies gateway deployment and management
+Disadvantage:
+  - the L3 gateway has to maintain a large number of ARP entries
+  - the number of possible ARP entries becomes the bottleneck
+  - the forwarding path may not be optimal 
+
+Distributed gateway
+-VTEPs can function as both L2 and L3 gateways
+ - advantage:
+    - a VTEP has to maintain ARP entries of directly connected terminals only
+    - therefore, ARP entries are no longer a bottleneck
+ - disavantage:
+    - more complex to configure, implement, and manage
+
+Applications of VXLAN in DCs
+- applicable to networks that use a 2 layer spine-leaf architecture
+- the VXLAN network with distributed gateways must be deployed in a DC
+- spine nodes mereley forward traffic and are unaware of VXLAN
+- leaf nodes provide network acess to servers and perform VXLAN encapsulation and decapsulation
+
+VXLAN Tunnel establishment
+- identified by a pair of VTEPs
+- encapsulation is performed by the VTEPs and packets are routed through the tunnel
+- the tunnel is only established if the VTEPs have reachable layer 3 routes to each other
+- tunnels are classified into these types based on the tunnel creation mode:
+    - static VXLAN tunnels: created by configuring the VTEP ip addresses, local and remote VNIs, and ingress replication lists.
+    - dynamic VXLAN tunnels: uses the BGP EVPN
+                             - a BGP peer relationship is established first
+                             - the peers uuse the BBGP EVPN routes to transmit VNIs and VTEP IP addresses
+                             - the transmitted info is used to establish a VXLAN tunnel
+
+Static VXLAN Tunnel
+- manually configured, hence the high workload
+- only established if the VTEPs have reachable layer 3 to each other
+
+VXLAN Mac address entries
+- VXLAN implements layer 2 forwarding on the overlay
+- unicast packets are transmitted based on MAC address entries
+- when a VTEP receives a data frame:
+   - the source mac address is added to the mac address table of the BD
+   - the outbound interface of the entry is the interface that receives the packet
+
+Dynamic MAC address learning (1)
+- like traditional MAC address entry generation, ARP packet exchange is used on a VXLAN network
+- first, one endpoint sends an ARP request to determine the address of the destination
+- the switch records the source mac address, the BD ID, and the interface that receives the packet
+- the switch then determines the packet's destination VXLAN tunnel, VNI, and BD ID
+- the switch then forwards the packet before forwarding it based on the ingress replication list
+- the receiving switch decapsulates the packet
+- the sitch also learns the mac address of the sending pc and binds it to the sending switch's VTEP address
+- the receives switch then floods the packet within the destination BD
+
+Dynamic MAC address learning
+- the destination PC then sends the unicast reply ARP packet
+- then sending switch forwards the packet in unicast mode since it has an entry for the destination MAC
+- the packet is encapsulated before being sent
+- the receiving switch records the mac address of the sending device
+- the switch also associates the device with the remote VTEP
+
+Intra-subnet communication with known IP addresses
+- the sending device sends the packet in unicast mode
+- the switch then encapsulates the packet, adding its VTEP address to the headers
+- the switch then forwards the packet to the receiving switch
+- the receiving switch decapsulates the packet to receive the inner payload
+- the packet then transmits the packet to the pc
+- the main difference is that the addresses of the VTEPs are used to establish the tunnel and direct the packets, and encapsulation and decapsulation is performed by the VTEPs
+
+Inter-subnet forwarding of unicast packets
+- the sending device determines that the receiving host is on a different subents
+- the device then sends the packet to the L2 gateway
+- the L2 gateway or switchs encapsulated the packet, adding a VXLAN packet, and sends the packet to the L3 gateway through the tunnel
+- the L3 gateway decapsulates the packet to obtain the destination mac address and discovers the mac address to be an interface on it
+- the L3 gateway then searches the destination address on the routing table and discoveres which outbound innterface it should go through
+- the gateway then obtains the outbound interface corresponding to the destination mac address
+- so once the outbound interface has been discovered, the packet is encapsulated and sent through it
+- you know the remaining steps
+
+BMU traffic forwarding
+- when transmitting broadcast, unknown unicast, and multicast traffic, the ingress replication list is used to obtain the addresses of VTEPs that will receive copies of the packet.
+
+Using BPG EVPN as the control plane protocol
+- without it:
+  - a lot of tunnels need to be formed between nodes, causing a huge configuration workload
+  - the flood and learn mechanism cause broadcast radiation
+with VPN:
+   - nodes will establish EVPN peer relationships
+   - nodes will advertise routes to each other
+   - tunnels are automatically established and forwarding entries are dynamically updated
+- static VXLAN solution:
+   - doesn't have a control plane
+   - traffic flooding is used for VTEP discovery and learning of host information
+- BGP EVPN:
+    - offers a control plane
+    - allows VTEP to obtain routes, implement automatic VTEP discovery, and host information discovery
+
+Overview of BGP EVPN
+- extends BGP by defining new types of BGP EVPN routes
+- perfoms the aboove using the network layer reachability information
+- the information is in the MP_REACH_NLRI attribute
+- the routes transfer host information and VTEP addresses
+- different types of routes:
+   - type 2: advertises host MAC addresses, ARP entires, and IP routes
+   - type 3: transmits Layer 2 VNI and VTEP IP address information
+            - the information is used for automatic VTEP discovery, dynamic VXLAN tunnel establishment, and BMU traffic forwadrding
+   - type 5: used to advertise host ip routes and external network routes
+
+EVPN 
+come back
+
+Host ARP advertisement
+- a MAC/IP route can carry both the IP and MAC addresses of a host
+- the above allows it to be used for ARP advertisements
+- also called ARP routes
+- when a VTEP learns a host IP-to-MAC mapping, is floods it to remote VTEPs
+- the remote VTEP receives the ARP route and stores it in an ARPP suppresion table
+- when a ARP request is made to a VTEP, the VTEP checks it cache before flooding the request
+
+Asymmetric IRB
+- ingress searches both its layer 2 and layer 3 tables for forwarding
+- the egress only searches its layer 2 table
+- VTEPs dont advertise host IP routes between each other
+- the ingress VTEP perfoms routing while the egress only performs bridging
+- since routing is limited to the ingress, the ingress should have VBDIF interfaces for all VNIs
+- the egress VTEP discovers that the packet doesnt correspond to a local interface
+- so the egress then searches its forwarding table for the mac address of the BD
+
+Symmetric IRB
+- both the ingress and the egress search the L3 forwarding table
+- unque concepts: IP VPN and a layer 3 VNI
+- implemented by Hawei devices
+- a route is accepted if the RT carried in the route mmatches the import RT of the local EVPN instance
+- after obtaining the IRB route, the EVPN instance extracts an ARP route from it to implement host ARP advertisement
+- 
+
+EVPN RT and IP VPN RT
+- a route is discarded if the RT in it matches neither the IP VPN RT or the EVPN RT
+- entries made by the receiving EVPN instance:
+   - checks if the RT is the same as the import rt of the EVPN instance bond to the packet's BD
+   - checks also if the RT is the same as the local IP VPN rt bound to a VNI logical interface
+   - if both of the above are true:
+      - the device adds the EVPN route to the EVPN routing table of the BD
+       - adds the IP route contained in the RVPN route to the routing table of the local VPN instance corresponding to the VNI logical interface
+
+
+Symmetric IRB: communication process
+- hosts in this mode exchannge 32-bit host routes
+
+Type 3 routes
+-  used for automatic VTEP discovery and dynamic VXLAN tunnel establishmennt
+- peers transmit layer 2 VNI and VTEP IP addresses
+- the fields originating router IP address and the MPLS label 1 are used to indicate the local VTEP's IP address and L2 VNI.
+
+VXLAN tunnel establishment
+- VTEPs exchange layer 2 VNI and IP address information through layer 3 routes
+- a tunnel is establishes if there are reachable layer 3 routes between thhe VTEPs
+- if the local and remote VNIs are the same, an ingress replication list is create for BUM packet forwarding
+
+Description of type 5 routes
+- the IP prefix field carries a host IP address or network segmnent address
+- if a network segment address is added, the route is used to advertise an external network
+- if a host IP address is added, the route is used for IP route advertisement in a distributed VXLAN gateway scenario	
+
+Application scenario of advertising IP prefix routes
+- the type 5 route is used to advetise the IP prefix of an extenal network
+- the TYPE 5 route carries the router MAC address of the VTEP
+- the MAC address is held by the MAC extended community attribute
+
+ARP broadcast suppression
+- used to counter ARP broadcast radiation
+- uses the type 2 routes
+- a device receives an arp request
+- if the ip address of the host whose mac is being queried is found in the broadcast suppression table, its mac address is obtained
+- the arp request is then sent in unicast mode
+- if thhe mac address cannot be obtain from the ARP proxy, then the request is flooded
+
+Host information collection
+- you must enable BGP EVPN host information collection on an L3 gateway
+- do the above to generate IRB routes
+Arp routes vs IRB routes
+- ARP routes contain - mac and ip address, and layer 2 VNI
+- IRB routes contain the above including a Layer 3 VNI
+- IRB routes include ARP routes
+- IRB routes can be used to advertise both host IP routes and host ARP entries
+
+
+Technical principles an applications of M-LAG
+Overview of M-LAG
+- virtualisation technology
+- performs device level link aggregation
+- stacking technology that can stack multiple devices into a single logical device
+
+Advantages of M-LAG
+- inter-device link aggregation
+- offers the active-active gateway mode
+- gap
+
+M-LAG Fundamentals
+- dynamic fabric group: used to pair M-LAG devices
+- peer link: an intermediate link used to exchange negotiation packets, synchronise device info and transmit some traffic.
+- there are master and backup devices
+- M-LAG member interfaces: connect to user-devices
+- when no faults occur, both the master and backup devices transmit service traffic
+- to improve reliability, use an eth trunk for the peer link
+- DAD link (heartbeat link): a layer 3 link used by the M-LAG peers to exchange DAD packets
+- HB DFS master and backup devices
+- any path or link that provides layer 3 reachability between the M-LAG devices is a DAD link
+- the base protocol for M-LAG member interfaces is LACP
+- STP is also a base protocol
+- STP is used by M-LAG for dual-homing and a logical-free network
+
+M-LAG setup process
+- step 1: exchange hello packets
+- step 2: pair if the DFS group IDs are the same
+- step 3: Exchange DFS group device information
+- step 4: select master/backup information
+- step 5: perform dual-active detection
+- step 6: synchronise information and entries
+
+Negotiate master/backup
+- this occurs after pairing
+- DFS group information packet is sent through the peer link
+- the DFS group priority and the MAC address fields are compared
+- the smaller MAC address is preferred
+
+Dual-active detection
+- DAD packets are sent at 1s intervals
+- if a link fault occurs, three DAD packets are sent at an interval of 100ms
+- when a device goes down, its service port is set to the Error-down state
+- the DAD link used when DFS group pairing or the peer-link fails
+
+MLAG device data synchronisation
+- common tables too sync: ARP, ND, MAC and IGMP multicast table
+
+Local preferential forwarding
+- layer 2 vs layer 3 unicast traffic
+- loops are prevented through unidirectional isolation
+- so acls are used to engineer the traffic
+- the aforesaid only applies to broadcast traffic
+- the unidirectional isolation configurations are transmitted by the peers through the peer link
+
+MLAG upgrade in maintenance mode
+- traffic must be switched over first
+- after the above has been performed, the upgrade can start
+- the upgrade requires a license
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
+- the book says this command, that's confusing
+
+- 
+
+
+
+- step 5: perform dual-active detection. is this necessary if M-LAG offers active-active gateway
+
+
+
+
+- what does dad stand for?
+- i also think it absurd for ip reachability to be performed out of band when the two devices are directly connected, network management interfaces will do.
+
+always do an ai read on these concept. module is okay but not as detailed
+
+- what is board-level load balancing?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for my tp explorer, we do a lab that will exhibit arp broadcast suppresion, so the server will function as a destination VTEP. then another server will function as the source VTEP, maybe my lab is to complex but i have to go with it, so one client will connect to source vtep, that client will originate the ARP request. the destination vtep will connnect multiple clients. then the source client will sent an arp request, it will go through its vtep to the destination vtep, the destination will then look up its arp proxy to avoid flooding the request, thereby sending it in boradcast mode to one of its clients.
+
+
+
+
+- so i think i get the main part of arp broadcast suppresion, when a node receives an arp request, it has to broadcast it to all connected device, but by storing a IP-to-MAC binding table, it can use the ip address of the device being queried to obtain its mac address, then add the unicast address to the ARP packet so that it can be sent in unicast mode. the idea of the vtep sending the packet to the destination or queried host is not how it works, or seems unccessary if the VTEP already has the mapping
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\
+- I never understood the process of sending packet through gateways and how it is performed. for exmaple, if a packet has to go through the gateway to reach its destinnation, then if the destination address is the gateway, how will the address of the original host be preserved.
+
+
+- what are host IP routes
+
+- what is a route reflector?
+
+- but why should both the destination and ip addresses be used to obtain the outbound innterfaces, won't one of these addresses suffice?
+
+
+
+
+- is that how it works. if the destination address is the gateway, then how does the original address, the address to the true destination, be preserved. oh, i am not, they are referring to the L2 gateway, makes sense
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what is an ingress replication list
+Ingress Replication (IR) is a VXLAN mechanism where a VTEP replicates BUM traffic (Broadcast, Unknown unicast, Multicast) to a manually defined list of remote VTEPs — instead of relying on multicast groups.
+
+An Ingress Replication List is a manually configured list of remote VTEP IP addresses to which a local VTEP will replicate BUM traffic for a given VNI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- the important of optimal paths in DC cannot be stresses enough, it affects cost-effectiveness and congestion that affect tenant perceived delays.
+
+
+
+
+
+
+
+
+
+
+
+- the VLAN binding mode is more coherent to me.
+
+
+in the access on layer 2 sub-interface mode, how does the device know it has to send data through the subinterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+so can VNI exists within BDs?
+
+
+
+
+
+
+
+
+
+
+- why does the header reserve so may bits?
+- what are the flags used by the protocols
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+to
+
+
+- what forwarding protocols does the overlay network use, considering it's a virtual layer network, especially for data tranfer from one layer 3 nodes to the other. I don't think the routing suite available to these devices should be any different.
+
+
+
+
+
+- what are VXLAN gateways? Are they routers? I think so, but I am not sure.
+
+- I think it important that the term on any physical network be emphasised, it means that the VPN can treat routers as layer 2 nodes while utilising their routing capablities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- the idea of VMS being able to move from one server to another is very interesting to me, even though I don't know how flexibly this procress is. I imagine some sort of real-time load balancing of VMs accross clustering, but this is so strange, maye even senseless
+
+
+
+- but why would you want to migrate your VMs through?
+
+- so the access device that has to server the many VMs in the server may be overwhelmed too. A normal layer 2 device isnt expected to handle the traffic of rapidly increasing devices.
+
+
+- another limititation is that VMs cannot be increases into units that exceed what the server can handle, this is the same with AP, mutliple VAPs can be created, but they should be so high in quantity that they start to overwhelm the AP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- to lab this, especially since I can run a server process, is to create multiple vNIcs in my server. Ok, that's a separate lab, the first lab is of a server with multiple vNICs.
+
+- then the next lab is to lab a vSwitch connecting multiple vNICs and routing traffic between them.
+
+
+- but this idea of vSwitches makes networking even more beautiful, imagine needing a switch within a single device because of the multiple host instances, VM or otherwise, it is amazing.
+
+
+
+
+
+
+
+
+what is Soc, what FPGA,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what is an open vSwitch, some protocol for switch virtualisation?
+
+- since the physical NIC terminated data for the VMs, it takes an interesting role in this case. It provides a trunk interface to the VLANs of the VMS
+
+
+
+
+- my mind is like, what do NICs have to do with Vlans and so forth, till I remembered that NCIS are interfacinng that connects to a LAN
+
+so do these VM with vNIC also have unique addresses.
+
+
+- can a virtualisation platform deployed as a vm perfom cross server management? If not, what will reuqire such a platform for each server and the data must be synchronised for aggregate analysis
+
+- so since DC networks carry traffic of muliple tenants, I am imagining tentant based encryption within the DC to propect tht data of different tenants.
+
+
+
+
+
+
+
+
+how are VMs bound to physical NICs using NAT
+  
+
+
+
+- done for the day, was a lil too speedy but fruitful, you gotta let these concepts sink in so you gotta revise.
+
+- nah, the app is just not it, it's fine, think deeper and come back tommorow with a better soultion.
+
+
+
+- the subject of I/O virtulisation is very important. Remember when I had to plug a usb to my virtual machine and it didn't show up. So give that a lil practice
+
+
+
+
+
+
+
+
+
+
+- what is a kernel-based virtual machine?
+
+
+
+
+
+
+
+
+
+
+
+- what about a hypervisor OS, isnt that interesting, have it bootable from a USB or something.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- but how are I/O resources virtualised.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what's the time-sharing feature of resources?
+
+- the system breakdown is very absurd, the virtual machines run on the physical server, so if it is faulty, the vm will be stoped
+
+- you should randomly dowloads most of these applications even if you dont have a function for them right now:
+- kurbenetes, forgot the alternative, openstack, ansible, I am not sure about Huawei iMaster NCE, which every platform relevant to networking discovered from modules, just download
+
+
+- am I too imaginative to suggest the load balancing of VMs accross physical servers, come on, a sensible engineer would cram a lot of vms on a few when mutliple are available.
+
+- what is a hypervisor again?
+- I am very dissapointed by packet tracer and eNSP, of all features you could overlook, they didnt add some form of swicth or router virtualisation. This would have made network design more elegant. But cisco has hrsp and ensp has vrrp, so I dont know what you talkin about.
+
+- so interesting question, why do you have to begin all questions qith that. does server vitualisation include both vms and containers. Maybe vms since they run entire OSs, but containers share the same OS kernel, so maybe they are not included. your question has been answered
+
+
+but i get where this concept of lossless networks fit into the picture of dcs,dcs have algorithms distributed over server clusters, if the data representing one part of the algorithm fails, then the entire procedure is disrupted.
+
+
+
+- so is this lossless algorithm running some form of tcp for reliable data transfer. To me, this simply sounds like running a proprietary connection-oriented protocol at the network layer in order to minimise packet loss
+
+- in my tcp labs, I can do one to, so I will have a few router processing, very very basic. Then each of these will send each other ip pakets (DIY) packets through the sockets. this one is too basic, keep it for revision.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- microsegmentation seems like a straight forward solution for managing PODs.
+
+
+
+
+
+Instead of hardwiring traffic paths, SFC lets you dynamically steer packets through a sequence of Service Functions (SFs) based on policy, user identity, or application type. These functions can be virtualized (VNFs) or physical appliances.
+
+Think of it as building a custom pipeline for each traffic flow:
+
+Guest traffic → Firewall → NAT → Mail Relay
+
+Staff traffic → IDS → VPN Gateway → Internal Mail Server
+
+
+
+
+
+
+
+
+
+
+
+
+- now you labs get more demostratitive, the servers are named switches and maintain such info. then one node, which you will can the network controller, will recieve stats pushed to them
+
+
+- imagine a data centre without a robust network management system. It's pure horror. The requirements put on this type of nms are more complex than basic devices obviosuly. what if your dc's are distriubuted, how will you sychronised collected tasks to perform aggregate analysis. So it's very complex.
+
+- you also gonna tcp telemetry
+
+
+
+
+
+
+- so I wanna no what makes M-LAG unique to other link aggregation protocols
+
+- so what is dual-active detection
+
+
+
+
+- does M-LAG have to be limited to just two nodes
+
+- you should also socket program your own dns server. also use it for recursive queries
+
+
+- you must also try out hash load balancing
+
+
+
+simulate parallel computing using multple servers processes, each server performs part of an algorithm and passes on to another, before the output reaches the user
+
+- also lab  global server load balancing
+- look that up
+
+
+
+
+
+
+
+
+
+
+
+- since you dont have any specific means by which you can practice containers right now. Do a basic tcp container for now. so program a few tcp applications on the same tcp server app and classify these as different apps, when you run the server, both will run two. In fact, reverse this.
+
+
+- so before you demostrate a container management platform, first demostrate a container running multiple images, in this case, our tcp server will be running a diy pop3 server, just basic pull for made up mail, and ntp. so the client will be able to access both service, within the code, comment these as in separate containers, even in readme. Then aftwards, run clients to access these services..
+
+POP3 is a simple pull protocol, although I wonder how it connects to mail servers to pull main. what the case, or if you figure that out, build your own pop3, this should be simple, then add something to make it unique, like layered encryption, but the problem is that with encrpytion the server must be expecting it too.
+
+also do some imap, but imap requires a dedicated server to maintain the mail, so that's an issue.
+
+ - I really get the idea of building data centers and should lab some using pods, acls, and vpns. the tenant owning a port can match its network configurations with the pod through a VPN. the pod can be configured, dont even talk, just do, net project.
+
+- and do a more interesting example of a cdn network based on a website, mix the bgp and ipanycast with web-based scenario.
+
+then having done the container demo, do a plaftform. so for variety, create basic but different applications for ach of the tcp servers, maybe 5, so ai will specify these diy services. then having done that, the platfrom will automatically wuery for ths like active connections to each, at set intervals, and perfom aggregate statistics, and other parameters like active services, and again pefrom the stat, then the plaform will combine all results to exhibit resource management. so to make this more interesting , the algorithm of the resource request of our plaftom is interval based, as specified before.
+
+- while on that, I've realised that we can also use sockets to demostrate the workings of ntp, ntp itself being the simplest of them all. Do it before you sleep and add dh to improve its security. so this is ntp that runs asymmetric cryptography. in fact, the pairs are exclusive to the user and server, its ntp so users wont have to query for the public key of any other ntp client.
+
+- so what is application orchestration management
+
+
+- what is a hypervisor?
+
+
+
+
+ANOOther lab, icmp but with coherent purpose, it wont work, but the idea was to develop an icmp client that can adapt to firewall limitations, this icmp is used foor port scannning and should adapt accordingly.
+
+- since you always run multiple services on your packer tracer lab, you should do so on your pc. Download some OS and create virtual machines for them. Learn a container platform like kurbenetes and apply it to create cointaners.
+
+
+
+
+- you are going to lab a GSLB and then write a proprietary dns service for it
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Analysis 
+
+so is the some horizontal line between the PODs?
+
+- i am not understanding. Is a cabinet group a collection of cabinets or a single cabinet with multiple units?
+
+- an interesting question, what is the effect of the capacity of the link connecting the enterprise network to the data centre to the computing speed expreienced by the data cnentre? I think this the most important question in dcn, even with an advanced data centre, the link to the center can be come the computing botleneck if it doesn't provide enough capacity. Labs means by which this can be mitigated.
+
+- what are layer 4 to 7 services
+
+- at some level we can define the maximum number of spine devices as a function of the uplink interfaces of leaf nodes. However, what if one spine can handle all of the leaf interfaces. That won't suffice because it create a single point of failure.
+
+- this idea of the suitability of a horizontal is very important, I always wonder if I should add a horizontal line between devices of the same layer
+
+- based on the image in the module, it seems as if the leaf devices can be devices that provide access to internet or internal devices
+
+Questions

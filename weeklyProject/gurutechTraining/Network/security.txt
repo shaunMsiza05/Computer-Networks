@@ -1,0 +1,3584 @@
+Outline
+
+Network security concepts and specifications
+- the neccessity of information systems with the rise of the internet
+- the social and economic impact of these systems
+- the important of information security to ensure completeness, availability, and protection from information breach.
+- network security standards
+
+Network security
+- synonimity (spelling) with cybersecurity
+- Cyberspace as concatenation of indepedent networks, including internet telecom networks, computer systems and more.
+- as taking measures to prevent attacks, intrusion, eavesdropping, damage, and unauthorised access.
+- the national significance of network security in a broader sense
+- network security as devices and solutions offered by vendors to protect enterprise networks
+- the outcome of this course: certification that one can design, deploy, operate, maintain network security architectures for SMEs.
+
+Communication security period
+- the emphasis on physical security and cipher-based security of communication in the 1940s.
+- use of cryptographic technologies to secure communication over technologies like telephone, telegraph, and fax.
+- two aims of security in the 1940s: physical security of information and confidentiality of communication
+
+Information security period
+- the rise of computer networks in this stage
+- the aims of information security in this era:
+     - integrity (ensures that information is not tampered with during transmission).
+     - availability (ensures information is always accessible to authorised personnel)
+     - confidentiality (ensures that access is limited to authorised personnel).
+
+Information assurance period
+- three aspects of enterprise information assurance systems:
+   services: service specific modes based on the variability of traffic 
+    security systems: technical means to enable proactive defense as opposed to passive protection.
+    - management: management personnel and systems are fostered
+- the widening scope of information security with the development of internet technologies in the 1990s
+- the two addition principles emphasized at this stage:
+   - controllability: security monitoring to protect information and systems from attacks
+   - non-repudiation: prevent sender and receiver from denying information (that doesn't make sense, look it up).
+
+Cyberspace security period
+- the shift to protecting the entire cyberspace, including facilities, data, users, and operations.
+- naational standards and regulations issued to guide enterprises to establish information security systems.
+
+- Importance of building network security
+- importance for national security: geopolitical competitiveness has extended to cyberspace.
+- Compliance:
+   - the need for enterprise information security management systems to comply with network security policies
+- profiability: financial losses that arise from network attacks directed at insecure systems
+
+Common network security threats
+- hackers as inititators of information security incidents
+- vulnerabilities: as a root cause of security problems, and the fact that vulnerability discovery penetrating application-layer to the bottom-layer components, including architecture layer.
+- information breach: as the most common incident carried out through Trojan horses and other eavesdropping devices to  mine collected information
+- ddos attacks: as a new mean for profiability. Attackers may even sell cybercrime toolkits and services
+- ransomware attacks: targeting remote desktop protocols. high system security encouraging ransomware attacks as mainstream attacks.
+- supply chain threats and attacks: extensive impact arising from the high number of downstream enterprises and users.
+
+
+Hacker
+- as someone with an deep foundation on software design, programming, and computer science
+- as someone with a deep understanding of computer networks in terms of computer software
+- as someone who can modify computer-related products, in terms of computer technology
+- as someone intellectually trained to access computer security systems, through public  communication networks, in order to log in an unauthorised way to other systems.
+
+Vulnerability
+- as a defect found in hardware, software, or protocols of computer systems or in system security policies
+- as a root cause for attacks like ddos, permission bypass and escalation, execution of unauthorised instructions, data disclosure and more.
+- vulnerability scanning performed by engineers on live networks to simulate attacks and for security audit.
+- three stages of vulnerability discovery:
+    ping sweep: to discover the target hosts
+    os system detection and port scanning: to collect stateful information
+    vulnerability scanning: check for security vulnerabilities
+- the various outcomes of attacks: ddos (service outage), data disclosure (to acess unathorised information), permission bypass and escalation (to obtain administrative rights for common users), and execution of unauthorised instructions: to run codes that allow the local system to obtain access permission, like sql injection and buffer overflow
+
+Ransomware attack
+- an example of a ransomware attack on an oil pipeline operator
+- steps involved:
+   instrustion: weak sql password craking, phishing, malicious email and attachment delivery.
+    diffusion: perfoming various attack methods on the host to increase the number of controlled hosts
+    theft: searching for valuable attack objects and pushing it on servers controlled by the attacker
+    extortion: running multiple ransomware viruses to crush the target network, and then sending letters to extort ransom.
+- in-depth attack process:
+   - upstream developers compile and sell ransomware tools to downstream organisations.
+   - downstream organisation maintains a phishing website and uploads ransomware to it, to lure victims.
+   - the downstream organisation distributes the link through phishing emails or other channels to gain victims
+   - a victim accesses the website and downloads the ransomware
+   - the ransomware encrypts the victim's local disk and other shared network files, and adds a ransom letter to it containing instructions.
+   - the victim pays the downstream agency
+   - the downstream organisation launders the ransom money to conceal the upstream developer and itself.
+   - the downstream organisation sends the decryption program to the victim, which may not happen sometimes
+
+Information breach
+- a nice analogy of an unprotected database containing billions of unprotected records
+- hiring security researches as a proactive measure
+
+DDos attacks
+- organisations or individuals initiate distributed denial of service attacks to exhaust the network or system resources of the target server, resulting in interrupted or stopped services
+- the increase of IoT devices with hardware or management vulnerabilities being used to launch large-scale DDoS attacks.
+-  upstream developers leasing attack capacity to donwstream organisations. (I presume this is done by leasing commodity hardware to launch these attacks).
+
+Supply chain attacks
+- as attacks against supply chain networks, including relevant partners and relevant enterprise customers
+- an example in which a backdoor component was implanted on an installation package
+Examples of supply chain attacks:
+  - dns resolution poisoning
+  - poisining open-source repositories
+  - pose as legitimate websites or software applications
+  - pollute compilation environments
+
+- linux almost suffered a serious poisoning attack
+
+Future network security trends
+-Gartner's top 8 security trends
+- Cybersecurity mesh:  
+    - a conceptual approach to security architecture that enables the distributed enterprise to deploy and extend security across the board. This to me sounds like emphasising security on all of the organisation's infrastructure: servers, networks, clouds, and so forth.
+- Cyber-savy boards: employing executives with security expertise
+- Vendor consolidation: investing in security products that intergrate O&m to reduce costs.
+- Identity-first security: implementing AAA on internal processes for a zero trust policy.
+- managing machine identities: this involves controlling nonhuman entities that make up your application. A nice example is managing AI agents, you dont want your ai agent to wipe out your entire codebase.
+- remote work: developing security policies that ensure the safety of remote connections.
+-breach and attack simulation: forming attack simulations to test the security capabilities of a system.
+- privacy-enhancing computation techniques; they enable sure data processing, sharing, and analytics, even in untrusted environments
+
+Network security situational awareness
+- the complexity in security architecture with the grow in the scale of networks.
+- the limitation of current security devices which implement single-point detection against advanced persistent threats.
+- network security situational awareness as a dynamic risk identification mechanism using technologies such as intelligent analysis, data mining, and visualisation.
+- three elements of this paradigm:
+    security data analysis and result display: 
+       - use data mining and intelligent analysis to extract security features, indicators, and risk to visualise security risks.
+    security element collection:
+        - involves collection large amounts of data from various security devices, including traffic data, logs, vulnerabilities, Trojan horses, and virus sample.
+   security data processing:
+        - classify, and organise data collected form security element data, and load standard data to data storage
+
+Network security situational awareness
+- Hisec Insight as an example used on enterprise networks to collect network data and detect potential threats before centrally displaying on a GUI.
+- the use of flow probes by HighSec Insight
+
+Zero trust security
+- as a shift in defense from static networks boundaries to users, assets, and resources.
+- (ZTA) Zero trust architecture as a strategy based on the zero trust principle, helping prevent data disclosure and the spread of attacks.
+- the tenet of this paradigm is that no user, system, or device is trusted by default but on the basis of authentication, authorisation, and access control.
+- the traditional network-centered approach:
+     trustworthiness is assigned based on network locations and internal networks are trusted by default. The boundary line between internal and external networks is protected by firewalls and attacks from within cannot be hindered.
+- identity-centred:
+   - all service request coming from within or without the network are untrusted until they have passed the access policy.
+
+Information security standards and specifications
+- as significant to the network security assurance system of a nation
+- using these authoritative standards to ensure the security of one's enterprise information systems.
+
+Information security standards organisations
+- started rolling out in the 70s, developed in the 80s, and gained global attention in the 90s.
+- International
+   - ISO (non government, standardising a lot of fields, including, oil, military, and shipping), IEC (dedicated to technical standards).
+- In China:
+    TC260
+    CCSA
+other relevant organisations:
+   - IETF (comprises of network designers, operators, vendors, and research concerned with the evolution of the internet).swee
+   - ITU (UN agency for information and communication technologies. Allocates global radio spectrum and satellite orbits, develops global standards, and support the development of telecomunication infrastructure in developing nations.
+   - NIST
+- dont write out the terms in full, so you can cram
+
+Common information security standards and specifications
+- cybersecurity classified protection system: protects information and information carriesrs based on their level of imporance.
+- ISO 27001: an international security management system standard. Can be sampled by enterprises when deeveloping their own ISMS.
+- TCSEC (trusted computer system evaluation criteria) - proposed by the defense science board in the 70s and published by the united states department of defense, december 85.The first formal computer system security evalution.
+- ITSEC (Information technology security evaluation criteria) - better functionality over TCSEC, applied in military, government and business.
+
+Introduction to the ISO 27001 information security management sytem
+
+Information security management system
+- as a system in which an organisation establishes security policies and objectives in the whole scope and uses some methods to achieve these methods
+- the concept originates from the BS 7799 standard formulated by the British standard institute
+- the system complies with the PDCA process:
+   - plan - establish the ISMS
+   - DO : implement the ISMS
+   - Check: monitor and review the ISMS
+   - Act: maintain and improve the ISMS.
+- use of ISO27002 to establish an ISMS.
+- use implementers provided by the ISO27003 to establish the isms
+- use measure methods and indicators provided by the ISO27004 
+- use the ISP27005 risk management approach for risk identification, monitoring, assessment, and disposal. Offers ISMS examination, review, and continuous improvement.
+
+ISO 27000 Evolution
+- the success and adoption of the Bs 7799
+- current standards released in 2013: ISO/IEC 20071 and ISO/IEC 270002
+
+ISMS and ISO/IEC 27000
+- enterprises can implement ISOs based on the requirements in ISO 27000
+
+ISMS content
+- the 14 control domains in ISO 27002:
+   security information policy
+   communication security
+   encryption
+   transmission security
+   operation security
+   compliance
+   supplier relationship
+   asset management
+   access control
+   physical security
+   human resource security
+   asset management 
+
+ISO 27000 ISMS Family
+- in addition to ISO/IEC 27001-2
+for requirements and support guidlines: ISO/IEC 27001-5
+for certification and aufit guidline: ISO/IEC 27006-8
+Industry information and security management requirements: Finance, Telecommunication,a nd other domains
+Healthcare isms standards: ISO 27799
+
+ISO 27001 project implementation methodology and procedure
+
+project initiation and gap analysis:
+  - hold a project kick-off meeting and establish a management architecture.
+  - assses the current situation of information security management.
+ Risk assessment:
+  - train on assect collection and risk management methods.
+  - identify threats and vulnerabilities
+  - assess risk and determine risk level
+System design and release
+- determine risk appetite, risk handling measures, and train on th ISMS
+System operation and monitoring;
+- develop the isms monitoring process
+- try the ISMS
+- operate the system
+- train on business continuity management
+Certification and continuous improvement
+- ISMS internal and external audit.
+- ISMS management review
+- propose corrective measures
+- hold project summary meeting
+
+Cybersecurity classified protection system
+- as a must-pass benchmark for security construction for national policy
+
+Cybersecurity law of the people's republic of China
+- Article 21 specifies security obligations network operators should follow based on the multi-level protection system to prevent interference, unathorised access, or stolen data.
+- Article 31 to protect public communication and information services from power, traffic, finance, e-governnment and other critical information infrastructure, risks which might endanger national security, or the public interest.
+- Article 59 which outlines consequences faced when network operators failed to meet the aforementioned obligations. A fine of RMB 10 000 and 100 0000 shall be levided if risks are not mitigated before causing harm, and reponsible personnel shall be fined RMB5000 TO 50000.
+- classified protection of information included, classified security protection of government information, private and public information of legal persons/organisations/and citizens, classified reponse and handling of secuirty incidents, classified management information security products.
+- legal liability for corporations that dont carry out assessment for classified protections, like Article 51.
+
+Significance of cybersecurity classified
+- legal or regulatory compliance:
+   avoid risks by meeting security obligations.
+- security systematization:
+    - make security construction more systematic by moving from single defense mode
+- security awareness improvement:
+      - make personnel aware about security consderations and allocate adequate security investment
+- service security requirements
+      - strengthen security construction by folloeing classfied protection
+
+Development history of cybersecurity classified protection
+- the development from V1.0 to V2.0:
+   1994 - 2003 (the initial phase):
+     - proposed by the state to strengthen information security construction and the classification of information systems into different levels 
+   2004 - 2006 ( development phase):
+     large number of standards and specifications created and piloted into some organisations
+    2007 - 2016 (promotion phase):
+     controllability and non-repudiation becoming prevalent security principles
+    2017 onwards:
+      the development of classified protection 2.0 to cover new technologies like cloud computing, mobile internet, IoT, and industrial control systems
+
+Objects under cybersecurity classified protection
+- an object as a system comprised of computers or other devices, storing, processing, and collectng information in accordance with certain rues and procedures.
+- examples: basic information networks, cloud computing platforms, and bug data applications.
+
+Information security protection levels
+- 5 levels based on importance on national secuirty, rconomic construction, social life and order, and public interest.
+- Levels:
+  Level 1: harm if inflicted on legal persons, citizens and other organisation with no nation-wide effect.
+  Level 2: aforementioned plus social order and public interest
+  Level 3: aforementioned with mild harm on national security
+  Level 4: super grave harm on social order and public interests, and harm on national security
+  Level 5: super grave harm on national security
+
+Grading process of cybersecurity classified protection system
+- determine object to be graded: IoT, basic information network, cloud computing platforms, and industrial control systems
+- preliminary confirmation on levels: dtermined object harmed, degree of harm on the object, and degree of harm.
+- expert review: the operation of use units on objects shall be organise information security experts and business experts for expert review.
+- review by the competent department: grading results are submitted to an industry competence department for review.
+- public security organ archiving and review and finalised levels: final submission to a mysterious security organ for archiving and review according to relevant management regulations.
+- if the preliminary review determines security protection level 2, experts should be engaged and the grading results should be submitted to a competent department for archiving and review.
+- if the preliminary  review determines secuirt protection level 1: the network operator can do its own independent review of the final security protection level without enganing expert review, or a competence department.
+
+Security protection levels at different departments
+- level 1 - self protection:
+    applies to small and mid-sized enterprises, and information systems of county-level organisations.
+ - level 2 - guided protection:
+   applies to important information systems of county-level organisations, and public institutions at the city level or above. It should be able to protect important resources from under resourced external threats. Finctions may be restore swiftly.
+- level 3 - supervised protection:
+     protection against major resource damage caused by organised groups and threat sources with reach resources
+- level 4 - forced protection: it shall be able to handle malicious attacks with a national impact directed by hostile organisations with richer resources. Applies to key and core systems of a country.
+- level 5 - dedicated protection: appliies to extremely important systems and fields, including departments, of a country. Highest secuirty of system services is ensured, such that the system has anti-penetration capability, and information is protected from unathorised disclosure.
+
+Security requirements for cybersecurity classified protection
+- two main classes: technical and management requirements
+- classified into general and extended security requirements for common and personalised security of objects with different forms and levels.
+- the higher the levels, the stricter the requirements
+
+security extensions under 2.0 cybersecurity classified protection:
+      extended security requirements for cloud computing, IoT, cloud computing, mobile interconnection, and industrak control systems.
+
+Technical requirements:
+   - secure physical environment, computing environment, communication network, security zone border, security management center.
+
+Management requirements:
+- security management system, organisation, personnel, and construction and O&M management.
+
+Cybersecurity classified prtection 2.0
+- other standards specified to guide grading, implementation, and assessment.
+- includes: grading gideline, implementation guideline, basic, assessment, and design requirements, and assessment process guideline.
+
+Working process of cybersecurity classified protection
+- steps involved:
+   1. Grading:
+      - (customer) determine security level and prepare the report with the assistance of the security construction.
+      - consulting organisation assists in preparaing a grading report and expert review.
+   2. Archiving:
+      -  prepare materials and submit to local oublic secuirty archiving with the assistance of the security construction unit ans the consulting organisattions.
+   3. Construction and archiving: 
+      - (customer) build technology and management systems. The security contruction unit prooved the security products and serviced and the consulting unit assists in building the security technology system and developing management regulations.        
+   4. Level assessment:
+      - the customer should accept the assessment, then use the assistance of the consulting organisation in participating in level assessment and rectification. The assessment organisation will then perfom the assessment.
+   5. Supervision and inspection:
+       - rhe customer shouuld accept regular inspection, the consulting organisation should assist in inspections, and the public organ will perfom regualer supervision and inspection.
+
+FTP 
+- two modes:
+   active mode:
+       - port 21 for control session and port 20 for data connection
+   passive mode:
+       - port 21 for control session and temporary port for data connection
+
+SFTP
+- uses ssh for secure file transfer
+- as a single-channle protocol using port 22, in contrast to ftp which is a dual-channel
+
+STelent
+- uses ssh to encrypt session data
+- involved steps:
+   version negotiation:
+     - choosing an ssh version to be used
+   encryption algorithm negotiation:
+     - choosing an algorithm supported on both ends
+   key exchange phase:
+     - a session key is generated by the relevant algorithm and assigned to both parties.
+   user authenticationphase: client sends an authentication request to the server and the server handles it.
+   session interaction phase:
+      - data exchange begins
+
+HTTPS:
+- provides secure http channels
+- uses TLS for identity authentication, data encryption, and integrity verification
+- port number 443
+
+DNS 
+- two modes: dynamic - uses a dedicated dns server.
+            - static - uses a dns table stored on the client host
+
+Transport layer
+- two options:
+   tcp - defined in rfc 793
+   udp - defined in rfc 768
+
+Tcp and udp - packet formats
+   - udp: source and destination ports, length and checksum, all 16 bits
+   - tcp: the above, including: sequence number (32), acknowledgement number (32), header length(4), reserved (6), control bits (6), window (16), urgent (16), and options (variable length).
+- the tcp header is 20 bytes without options, and the header length is set to 5
+- control bits: indicated different states of tcp data segments, including fFIN, ACK, and SYN flags.
+window: maximum length is 65535, indicates the maximum number of bytes allowed by the receiver for tcp traffic control.
+- up to 40 bytes for the options field
+- urgent: used to indicated the nubrt of bytes in an urgent data of a packet segment
+
+UDP header:
+- length: minimum is 8 bytes because of udp packet header size, maximum is 65535, so payload is 65527
+
+TCP and UDP port numbers:
+- used to distinguish diffrent services
+- sources port are randomly generated and should be above 1023
+
+Network layer
+- as a homogenous platform for cotenets
+- services: addressing and routing
+
+ICMP
+- used to reposrt errors and exceptions during transimission
+- set ip protocol field to one to identify packet
+- two field used for icmp resolutions:
+   - type identifies a specific type. Code indicates additional parameters of the type.
+- also includes a 32-bit variable field
+- two fields used for echo messages: identifier and sequence numbers
+
+ICMP error messages
+- TTL timeout messages to identify loops
+- destination host and network unreachable and their distinction
+
+OSPF
+- as the most common protocol for dynamci routes on enterprise networks
+- three types of routes: direct, static, and dynamic routes
+- LSDB: database used to save link status informatiom used ofr synchronisation on ospf devices
+
+OSPF area
+- as a logical grouping of ospf running devices and adjusted to meet network requirements
+- 0 as the area ID of backbone areas
+- hierarchical planning of areas. for example, setting the area contaning egress and core devices and the backbone area, and the area between core and aggregation switches as non-backbone.
+
+OSPF routing table
+- command for viewing table
+
+Data link layer
+- service: intra-segment communication for the network layer
+- functions: framing, physical addressing, and error control
+
+Ethernet frame structure
+- ethernet II frame:
+   type field:
+    - 800 is ipv4
+    - 860 is arp
+
+Firewall
+- deployed at network borders for network access behaviors
+- typically triggered when data flows originate from security zones with different policies.
+- main features: data encryption, identity authentication, access control, vpn technology, and NA/PAT
+- zones:
+   -  untrusted zone: has a very low security evel
+   - dmz - medium
+   - trusted zone: 85
+   - local zone: 100, highest level possible, defines the device itself
+
+Firewall development history
+- the first phase (1989 - 19994):
+    - development of packet filtering firewalls in 1989 (packet filtering sounds like ACL firewall) (first generation firewalls)
+    - proxy firewalls (next genration firewalls) which act as a proxy for communication between the intranet and extranet at the application layer
+    - stateful inpection firewall (third generation) developed by Check Point 1994
+ - the second phase:
+     - intergration additional functions like VPN to firewalls
+     - web application firewalls developed for web server security
+     - the development of the unified threat management, ehich includes traditional firewall functions, and intrusion dection, antivirus, url filtering, application control, and mail filtering
+- the third phase (2005 to now):
+     - the limitation of UTM products on application-layer information detection and deep packet inspection technology as an enhancement
+     - the development of the next-generation firewall in 2008, which cam perforn management, and control based on users, applications and content, and also improves on the poor perfomance of UTMs.
+    - the outline of next-gen firewall functions and the subsequent wide spread adoption
+
+Firewall functions
+- the main functions: protection against attacks and instrusion.
+- deployment points: network egresses, subnet borders of large-scale networks, and data center borders
+- functions:
+   - isolating networks of different security levels and implementing access control if they have different security levels
+  - remote access, user identity authentication, data encryption, network address translation, and other functions, like URL filtering.
+
+Comparison between firewalls, switches, and routers
+- switches and routers used for packet forwading and firewalls for acess control
+
+Network device login and configurations
+- three modes of login in to run configs: console, telnet, ssh, and web login
+- the MGMT as the default interface to login to firewalls
+- loopback interfaces as logical interfaces used for management and virtualisation
+- undo shutdown command to turn on an interface, lord i need  this command
+- reset saved-configuration to clear saved configs
+- explore firewall guis in ensp, if it works
+
+Common network security threats and threat protecion
+- external threats: originate from external networks such as Ddos attacks, network instrusions (viruses, Trojan horses, and worms), network scanning, junk and phishing emails, and attacks on web servers
+- internal threats: from within the network, including an unreliable network topology, no isolation of security zones, terminals with vulnerabilities, uncontrolled terminal acccess, information security violations operations, information breach, vengeful employees, permission management disorder, and unathorised access.
+
+Overview of enterprise network security threats
+- the use of technical and management measures to mitigate risks
+- management measures: security regulations, O&m requirements, and emergency processes to raise awareness on employees
+- security awareness as the basis of defense measures, like what is the use of anti virus software on workstations if you dont encourage employees to run it
+- setting clear security regulations and regular training of employees
+- diving the network into different zones to defend against threats from different sources
+communication network architecture:
+  - using VPNs to ensure confidentionality of data transmission
+border zone:
+- deploying an anti-DDos solution, firewalls to isolate networks, and IPS devices to prevent intrusions and viruses.
+- computing environment:
+   - hardening terminal security to prevent threats from vulnerabilities, IPS devices to prevent external intrusions, and antivirus and terminal IPS to defend against virus intrusion
+- Management center:
+   - functions: control administrator permission, reduce impact of malicious operations, and monitor O&M processes
+- functions provided by iMaster-NCE: employee permission control, mitigate information breaches, and prevent unathorised access
+- IPs devices typically used by mid-sized and large scale enterprises
+- anti-DDos devices, used by large scale enterpriises like banks and internet companies
+
+communication network security requirements and solutions
+
+- requirement 1: network architectual reliability
+   - grade 3 classified protection (upward) or supervised protection emphasises hardware reliability to ensure system reliabiliy
+   - firewalls as key egress devices and therefore the neccesity of their redundancy
+
+- requirement 2: Zone isolation
+- protection internal network resources from the internet
+- use of ip address scanning to probe enterprise networks
+- the firewall's role of isolating the internal network by diving connected networks into different security zones
+- the use of network address translation to hide the internal network ip address scheme
+
+- requirement 3: information confidentiality
+- the shortcoming of communicating over the insecure internet
+- the important of ecrypting data before transmission
+- main-in-the-middle attacks as attacks by which an attacker intercepts communicationn between two parties (or more) and tampers with the data.
+
+- Information confidentiality security solution
+- the use of vpn technology to establish secure transmission tunnels over the internet
+- purchasing private lines from carries to meet WAN interconnection requirements
+- two options for employees on business trips: SSL VPN and L2TP over IPsec
+
+Zone border security threats and threat prevention
+
+- Threat 1: DDos Attack
+   - executed using a large number of hosts to overwhelm the target's links, system resources, such that the target cannot provide services for authorised users.
+   - typically employed by unethical competitors
+   - the use of IoT hardware flaws and typical security shortcoming to launch this attack
+
+Types of Ddos attacks
+- can be classfied into:
+     TCP flood - uses TCP, such as SYN flood, SYN + ACK, and ACK, and FIN/RST
+     UDP flood - uses udp flood, hijacking, and amplification to attack the target
+     ICMP flood -sends multiple icmp packets to overwhelm the target, or oversized packets to congest network links
+SYN stands for Synchronize, and it's a control flag used to initiate a connection between two devices.
+
+DDos Attack Defense
+- two modes used by anti-DDos attacks to defend against attacks: source authentication and rate limiting
+- the use of half-open connections to exhaust host resources
+- the use of anti-DDos devices to defend against heavy-traffic DDos attacks
+- the neccesity of deploy anti-DDos devices before firewalls
+- the used of spoofed ip addressees on SYN flood attacks
+
+Single-packet attack
+- sending malformed packets to make servers break down when processing such packets
+-using icmp packets to probe the target ip address
+- special control packet attacks: sends to probe the network structure and prepare for susbsequent attacks
+- smurf attack: sending a broadcast packet with the source ip address set to the server's, so that the response packets disrupt services on the server
+- tracert packet attack: using tracert to probe network structure
+
+Single-packet attack defense
+- firewalls provide functions to protect against scanning, malformed, or special packet control attacks
+- defense mechanism: set a threshold for the number of icmp packets that can be sent by the same source ip address per second. Blacklist and discard packets if rate exceed threshold
+
+Threat 3: uncontrolled user behavoir
+- 70 of security incidents arise from misoperations of internal employees
+- the necessity to manage employee internet access behavior, in addition to raising awareness about security considerations
+- one technical way to control employee online behavior, limiting access from ponographic, gambling, entertainment, and drug websites
+- content filtering:
+  - used to control urls accessible to users
+  - dns filtering: managing user access to websites by controlling dns resolution
+  - file filtering: prevents employees from transferring certain types of files, which prevents the transmission of confidential enterprise files and the accessing of fiels containing malicious code
+- application content filtering based on application content identified by a keyword
+- mail filtering: filters mail based on email addresses, attachment size, and number of attachments
+- application behaviour control refined control on HTTP and FTP based online behaviours
+
+Threat 4: external network intrusion
+- attacks an internal network connected to external networks is vulnerable to: viruses. sql injection, and DDos.
+- virus:
+  - a piece of malicious code sent with an application or a file. Can be spread through email or file sharing protocols. They are enabled by opening infected files or opening macros
+- sql injection, modify the sql logic of a database powering an application for malicous reasons. 
+- viruses may spread on the network, affecting even more hosts.
+
+Intrusion prevention and security protection
+- use of intrusion function of firewalls to detectand analyse passing packets and determine whether to allow them to pass, just real-time ACL kinda
+- use of IPS devices in preventing intrusions
+- both firewalls and IPS devices compare passing traffic with loaded signature database
+
+Terminal software vulnerability
+- terminal software may have viruses attakcers can exploit
+- the fast spread of virus from an intra net device based on the trust level between intranet devices
+- CVE: common vulnerabilities and exposes as a platform for disclosing vulnerabilities
+-  the famous wannaCry ransomware that exploits flows in the windows OS
+- VM software vulnerability used to breakdown a VM environment
+
+Terminal software vulnerability handling methods
+- run antivirus software and install patches for system and application software in a timely manner
+- use vulnerability scanning tolls to scan the enterprise network
+- employ penetrstion testers to evaluate the securroty of the enterprise network system.
+- network admission control - use it to check security of enterprise network terminals and external terminals to prevent unathorised access
+- pentration test process:  determine target, collect info, detect and exploit vulnerabilities, enter and penetrate into the internal network, remove tracs,a dn write test reports
+
+Security requirements and soultions of the management center
+
+requirement 1: Administrator permission control
+- dissatisfied employees may perform behaviours that endanger enterprise information security, like stealing confidential data, misusing enterprise sever resources, and damaging network infrastructure
+
+solution: administator permission control
+- two aspects to handle this threat: management and technology
+- techonology
+  - strict permission management: different permissions for employees at different levels.
+  - implementing reliable backup mechanism
+- management
+  - provide counselling to employees
+  - publicise security incidents to raise awareness
+  - implement access control on high security zones.
+
+Requirement 2: internet access permission
+- internal threats arising from unathorised access to the network
+- two modes to manage this:
+  - technology: use the NAC solution
+  - perform strict administrative management
+ 
+Solution: internet access permission
+- Huwaei provides the NAC solution which offers these functions:
+   - identity authentication: limit access to authorised users
+   - access control: match user access based on inspected parameters like terminal type, identity, access time, and location.
+   - terminal security check: allows only healthy terminals to access the network
+- Management approaches:
+  - visitors must book beforehand
+  - security personnel must be employed to control entry
+  - use access control systems to prevent unathorised personnel
+  - limit external storage devices from being inserted without permission
+  - create a guest network for external users separate from the main network
+
+Firewall security policies
+Security zone
+- firewalls can act as gateways to implement access control
+- this zone contains one or more interfaces and security checks are only implemented for communication between zones
+- only networks separated by a firewall are affected by its policies, subnets are typically spared
+- security zones: trusted - typically internal subnets, DMZ - server cluster with public facing services, assigned moderate trust, and untrusted, represent public networks like the internet
+
+Local zone
+- the firewall itself
+- only service interfaces can be added to it
+
+trust levels
+- used to mark the level of trust for a zone
+- local 100, trust 85, dmz 50, untrusted 5.
+
+Interzone communication: security policies
+- uses security policies to implement interzone communication
+- traffic attributes (like user,5 tuple, time) are matched against corresponding policies in the security policy
+- if attributes match condition:
+   - (and its permit) perform content security detection if configured and continue from that
+   - if its deny, discard traffic
+- an interzone is a bidirectional transmission channel between zones
+- set a passcard (security policy) on the interzone to detect packet flow
+
+- security matching policy process
+- the default state of the firewall is to deny all traffic
+- security policy matching is sequential, policies are identified by IDs, and one policy has multiple matching conditions
+- interzone traffic is controlled by a default security policy
+- traffic within a zone doesnt have a default security policy, is default is to permit traffic. you can specify a default policy
+
+security policy configuration
+- match security policies to service type
+- roadmap to security policy planning:
+   - understand the company's services and possible risks
+   - identify assets that need to be protected
+   - divide network into zones to simplify management, zones ensure that attacks are not spread horizontally due to interzone security policies
+- identify the service white, black and gray list
+- whitelist: identify applications or services that can be accessed
+- blacklist: applications that are not allowed and are controlled by policies
+- graylist: add applications discovered during the operations of the enteprise
+
+Stateful inspection and session mechanism
+- treats packets from one connection as a data flow
+- a session is established if the packet passes the security policy
+
+Session mechanism
+- improves forwading efficiency and detection
+- stateful information of packets is compared with info in the session table
+
+5-Tuple information in session tables
+- identifies a connection in a session tables
+- includes: source and destination ip/port, and protocol
+- aging time set on sessions based on protocols
+- the session aging time may be shorter than the time required by some protocols to perfom their services, causing a service disruption
+
+ASPF techonology
+Background of ASPF
+- two types of application-llayer protocols: single and multi-channel protocols
+- single channel only occupy one port, http and dns
+- multi channel occupy mutliple ports, ftp
+- disadvantage of packet filtering firewalls:
+   - can only implement access control
+   - can only block single-channel protocols based on fixed ports
+- multi-channel protocols generate random port numbers and address, making it hard to implement precise security policies
+- the need for two-way firewall security policies in multi-channel protocols
+
+Application of ASPF in multi-channel application protocols
+- used to filter packet used application layer stateful information
+- application layer information is extracted for the first packet of the control channel, then subsequent packet are managed under thi sessionn
+
+Relationship between server matching and session tables
+- the server mapping table records stateful application layer information
+- the session table maintains the connection status of the communication partis
+procedure for executing the packet against the two tables:
+ - check if the packet is in the session table
+ - if not, check if its in the server mapping table, if its not, it is not controlled by security policies
+ - lastly, the firewalls add the data from the server mapping table into the session table
+
+Application of firewalls at campus egress
+- threats arise at all layers of the network
+- so the must be network border protection and intranet security protection
+
+Cloud computing networks
+- using VM to provide resources such as servers, storage, and application
+- the resources saving effect of using clouds as opposed to dedicated IT infrastructure
+
+Firewall NAT technologies
+Overview of NAT
+Bckground of NAT
+- as a solution to ipv4 address exhaustion
+- private addresses are assigned by dedicated organisations and these organisations obtain them from ISPs, which in turn obtain them from RIRs
+- range for class B (that's the one i mainly forget): 172.16.0.0 - 172.31.255.255
+
+NAt implementation: NAT policy
+- can NAT policy contains a post-NAT address, in an address pool or one tied to an outbound interface
+- there are source and destination address pools
+- options for conditions of NAT translation: source or destination addresses, outbound interfaces, (what about source and destination port numbers) oh that's actually service, time range, source or destination secuirty zone, what about policy
+- but the two translations are source and destination addresses
+- multiple NAT policies are processed sequentially
+- order of NAT policies: Bidirectional and destination policies, source policies, and latest, all in configuration mode
+
+Classification, advantages and disadvantages of NAT
+- source NAT: used by internal users for internet acess
+- destination NAT: used by external networks to access internal users
+- bidirectional NAT: allows communication parties to access each other using NATed addresses
+
+Advantages
+- enhances IPv4 address utilisation
+- protects internal users and thereby prevents attacks
+- one public address can be tied to multiple internal servers for load balancing
+
+Disadvantages
+- limits some services, for example, encryption cannot be perfomed on headers or entire segments.
+- Network monitoring is difficult, ip addresses to be monitored cannot be since their addresses are shadowed by their translations 
+- datacom didn't cover nat policies, just different types of address translations, there's also an interesting option used by ISPs
+
+Source NAT
+- enterprise users reside in private network using private addresses and require public addresses offered by carriers for internet access
+- source NAT translates private source ip address to public addresses for internet access
+- categories: static, dynamic, NO-PAT, NAPT, easy ip, Triplet NAT, and some other interestig NAT used by ISPs
+- so a source NAT policy will only translate source addresses in packet headers
+
+NAT No-PAT
+- only translates addresses but not ports
+- doesn't really improve address utilisation since there's a 1:1 relation between private and public addresses
+- applies to a scenario with small internet users and the number of available addresses should match the number of concurrent internet access users
+
+NAPT
+- applies to a scenario where multiple users need internet access
+- it can improve utilisation by forming a 1:N relation
+- the same public address is used but distinguished users are distingiushed by port numbers, with a range of 1024 to 65535 available port numbers
+- uses an address pool
+
+Easy IP
+- similar to NAPT but uses WAN interface address for post-NAT address
+
+Triplet NAT
+- both the transport layer ports and source addresses are translated, an entry is a;so generated for the mapping
+
+
+Destination NAT
+- used when internet users want to access intranet servers
+- translates the public address equivalents of public facing intranet services to their corresponding private addresses (and port number) i have a way to measure this, maybe based on the number of times the timeout interval timeouts
+- aimed at inbound traffic
+- response packets are translated to their original public address equivalent
+- can be classifies as either static or dynamic
+
+Steps involved:
+1. When an inbound packet is received, the firewall checks if it matches any NAT policy
+2. If the packets matches a destination NAT policy, then the  public ip address will be converted to its private equivalent, the translation of the port number is optional. 
+3. The translation of the address will depend on the configured static mappings
+4. the return packet will check its source address accordingly
+
+Dynamic destination NAT
+- so it uses dynamic mappings for pre-NAT and post-NAT addresses
+- use in select scenarios, like access to wireless networks for mobile devices
+steps involved:
+1. the firewalls discovers that the packet matches a destination host ans translates the destination addresses into a random address from an address pool
+2. then if the packets is permitted by an inter-zone policy, the firewalls creates a session table and allows it through
+3. When a return packet is sen, the firewalls uses the public address stored in the session entry to send the packet back to the host
+
+NAT ALG
+- used as a solution to multi-channel protocols with payloads that contain ip addresses and port numbers that have to be translated
+- in short, parses ip addresses and port from application layer payloads
+- protocols include ftp, STelnet, and other multimedia protocols like SIP, H.323)
+NAT SERVER
+- use to translate destination addresses of intranet servers
+
+Bidirectional NAT
+- self-explanatory
+
+
+
+Hot standby technologies
+ - neccesity for network reliability
+- having one firewall function as the gateway to the internet creates a single point of failure
+- VRRP as a standy technology to ensure communication reliability
+
+VrRP on rotuter redundancy deployment
+- vrrp as  intended for routers
+- two router roles: master and backup
+- vrrp groups
+- vrrp hearbeat timeout as an interval to elect a new master device, if one fails
+- the switch connecting the two routers in the same vrrp group will map the virtual ip address to a new master
+- the routers in the same broadcast domain form a vrrp group and form a virtual router with a single virtual address
+- only one device can be active at the time
+- the arp request for the virtual ip address will be responded to by the master
+- backup devices are devices other than the master in the vrrp group
+- master election rules: the device with the highest priority is elected to replace the master device, a higher value represensts a higher priority
+- the new master's priority value is set to 255
+- hello packets are constantly flooded (multicast) by the master to backup, informing them of their status
+- after three packet receiving intervals, the backup router elects itself as the new master
+- but if a vrrp group contains more than one backup device, wont all of them automatically elect themselves masters after awaiting the interval for which they recieved control packets from the master
+- related to ASPF, which parsers application layer payloadsto perfom the packet filtering function of firewalls
+- ftp uses the PORT command to send ip and src port that should be used by the server and these require translation
+
+VGMP Group
+- a protocol used to manage the status of VRRP groups
+- three possible states: load balance, standby, and active
+- the protocol elects active and standy devices using hello packets
+VGMP group states:
+-  initialise as the initials state
+- if the local device's vgmp group priority is equal to the peer end, the status is set to load balance
+- if the local device's vgmp gtoup priority is greater than the peer end, its status is set to active
+- if the local device's vgmp group priority is less, it is set to standby
+- the device considers itself active if it hasnt received any vgmp packets from the peer end
+- if the vgmp status of the firewall is active, then its vrrp groups should also be set to active
+- Packets: VGMP Hello packets, HRP Hello and Data packets
+- packets are sent through heartneat interface at 1s intervals
+- VGMP hellp packets are used to negotiate active/standby status
+- both peers periodically send the above packets carrying running status (priority and status) to neigbour based on a trigger event an enable vgmp or priority change
+- HRP packets are periodically sent to test if neighbour is active. Considered down after 5 packet retransmissions
+- if the standby router doesnt receive response as above, it elects itself as active
+- steps of electing active device of VGMP group:
+  - step 1: configure 2 vrrp groups and add both firewalls to it
+  - step 2: enable vgmp on both devices and add both vrrp groups
+  - step 3: elect the vgmp master device, on this case, both firewalls have the same priority - 45 000 - so the master device will be based on vvrp
+   - step 3: firewall 1 is elected as the master on both vgmp grouped based on the vrrp groups
+
+HRP
+- Huwaei redundancy protocol
+- automatically backs up status data and key configurations between active and standby firewall
+- configs executed on the active device are backed up to the standby device
+- the backup channel, also called the heartbeat link, is the link connecting the two firewalls
+- in active/standby mode, services are generated by the active device and entries are made by the active device
+- in load balancing networking - services are processes by both ends and service entires are shared between the peers
+- it must be set by the network admin
+- link also used by VGM
+
+Configuration and status backup
+- neccesary in networking applications that require standby nodes
+- Backup modes:
+   - Automatic backup - Default in most scenarios. Commands are backed up in real tiem while status information is backed up periodically
+   - manual batch backup - triggered by the network admin and to synchronise configs and status information
+- automatic synchronisation after restart - when a device is successfully restarted, it synchronises with the configurations of the peer end
+- quick session backup - applies to a load balancing scenario when return and forwarding paths are inconsistent
+-  enabling quick session backup:
+    - for icmp - session backup is initiated by ICMP echo request messages
+    - for tcp - an syn packet is used
+    - for udp - wehn the first packet is received
+    - packets destined for the devices themselves are not backed up
+
+Heartbeat interface states
+- Invalid - occurs when the heartbeat interfaces is incorrectly configured.
+- down - occurs when only the protocol status and the link staues are both down
+- peerdown - signifies that the protocol status and port status of the peer end are both down, in which case the peer cannot received hrp data packets. detected using heartbeat link detection packets
+- ready - used to signification that the heartbeat status of both ends are up. 
+- runnig - sometimes devices may be connected by multiple ready heartbeat links, in which case one of these has to actively send packets
+
+Firewall hot standby
+- used to ensure high reliability
+- firewalls work in active/standy modes
+configurations:
+  - one node has the active vgmp group and its peer is set to standby
+  - the status of the vrrp groups will be determined by vgmp
+  - one link will be reserved for the hearbeat link
+  - back up mode will be set to automatic by default
+- forwarded ppth through the active mode is ensured by ARP
+
+Service switchover procedure
+- triggered by a link fault or some other service disruption on the active device
+- when active device detects a fault, it decreases its vgmp priority and sends a vgmp request to the peer end
+- the peer end compares its own priority and sends a response to the peer end
+- the firewall then switches its status to standby and its vrrp group to backup
+- the new master sets its vgmp priority to active and its vrrp priorities to master
+- then the master devices sends ARP packets
+
+Service switchover procedure (2)
+- the standby device doesnt recieve expected hello packet within 5 ppacket transmission intervals, assumes that the active device is faulty and elects itself as the master by altering its vgmp group status
+- let us assert that the active device is really faulty
+
+Service switchover procedure (3)
+- the heatbeat link fails
+- the standby device assumes that the active device is down, after 5 packet transmission intervals and elects itself as the master
+- this lead to a dual-active situation
+
+Service switchover procedure (4)
+- the faulty device sends a vgm request after 60s of being active
+- the receipient compares its priority group and if it determines that it is lower than or equal to the priority in the packet, it sets itself as the standby and its vrrp to backup
+- the sending device recives the vgmp response at sets its vgmp to active and vrrp status(es) to backup.
+
+
+Firewall IPS
+- greyware - includes adware and spyware
+
+Instrustions
+- when an user attempts to access an IS's resources or tamper with data
+- includes ddos, system vulnerabilities, and viruses and threats
+
+
+Vulnerability threat
+- a software vulneraility on a aserver exploited by a hacker or a malicious employee
+- application software may contain vulnerabilities
+- internet connected applications may be a gateway for vulnerabilities
+- worms may spread on an lan and consume bandwidth
+
+Malicious code intrusion threat
+- various forms: Trojan horses, viruses, and spyware
+- attaches to application programs or files
+
+Instrustion prevention
+- intrusion detection - proactive measure to discover intrusions by analysing data and symptoms
+- intrusion detection system - a system responsible for detection intrusions and generation notifications. Works like a survelliance camera. Monitoring traffic and raising flag for any anomalies
+
+Overview of intrusion detection
+- detects instrusions by analysing traffic and termination the instrusion behaviors
+- advantages:
+  - real-time attack blocking
+  - all round protection
+  - internal and external preventions
+  - in depth protection - analyses application-layer data
+  - precion detection by learning of new attacks
+
+Intrusion prevention implementation
+- Application data reassembly - fragmented packets are reassembled for analysis
+- protocol identification - identifies application layer protocol of packet in order to determine features
+- feature matching - matches the packet feaures against stored signatures, if a match is found, a packet is processes accordingly
+- action - if a detection occurs, the action taken will depend on the one configured by the admin
+
+Signatures
+- predefined - they are immutable signatures in the ips' database. Action can be to allow, block, or send an altert
+- user-defined - signatures created to covered new attacks not recorded in the database. Actions are block or all. what about allow?
+
+Signature filter
+- used to filter unneccessary signatures
+- actions are taken on features matching different filtering conditions
+- a signature is added to the filter if it matches all of the conditions
+- if one condition has multiple values, the or operator is applied to it
+- three actions of a signature - block, altert, or default action of a signature
+- signatures configured earlier have a higher priority
+
+Exception signatures
+- all signatures in the ame signature filter perfom the same action
+- if different actions need to be configured signatures in a  signature filter, apply this
+- actions - block, allow, alert, or blacklist
+- has a higher priority than a signature
+
+Traffic flow
+- an packet is matched against signatures
+- if a match is found, it is passed to the ips modue
+- the module tries to match it against an exception signature
+- if no match is found, it matches it against a signature flow
+- the the ips process terminates
+- use of an IPS license to update the IPS signature database
+- so the license control item must be actived for the signature database to be loaded
+- when the lince expires, the database will not manually load or update
+
+Antivirus
+- program used to identify and isolate viruses on host devices
+- use case: when intranet users download files from the internet
+           - when internet users access files from intranet servers
+- two parts - virus detection using ASE and antivirus processing
+- process of virus detection:
+    - in-depth analysis of traffic to identify protocol type and file transfer direction
+- virus detection pplies to these protcols: ftp, imap, pop3, smtp, smb, nfs
+- supported directions -upload (from client to server). donwload (from server to client)
+- virus detection is not perfomed on whiteliseted files, instead whitelist rules configured by the admin are applied on the file
+- whitelist rules can be based on trusted domain names, URLs, and ip address
+- each antivirus profile has a whitelist
+- the features of the file are extracted and matched against a virus signature in the antivirus signature database
+- so vendors analyse common virus signatures to construct the antivirus signature database
+- each virus signature has a unique virus ID
+- for cater for new viruses, the virus signature database has to update by installing update packages from the remote centre
+- false positive are added to a virus exception
+- check if a virus matches a virus exception
+- if no exception is matched, check if it matches an application excption
+- look up nfs and smb
+- if any action is specified for a protocol but not an application, the applications using the protocol will get the action of configured fro the protocol
+- the action for protocol or transfer direction is applied if virus matches nether virus nor application exceptions
+- a scheduled update of the antivirus signature database must be configured
+- configuration hints:
+   - configure antivirus profile based on protocol and transfer directions
+   - apply the antivirus profiles on security profiles, direction from trsut to untrust, from DMZ to the untrust zone
+- the update and loading functions of the virus signature database depends on the license control item
+
+Firewall user management technologies
+- user management of internal user's access to network resources
+
+AAA
+- a framework used to manage user access
+- authentication - determines which user can access network resources
+- authorisation - determines permission level of the authenticated user
+- accounting - record the user's usage of network resources
+- use cases
+- internet access - the user tries to acccess the internet through a NAS (RADIUS client)
+  - the NAS sends the user info to a RADIUS server for authentication  
+  - if authentication succeds, the user receives internet access
+- local AAA schemes are used to manage remote login to device
+- when admin tries to login in to the device, the local AAA schemes compares the locally stored details with the details provided by the admin
+- after authentication succeeds, admin priveledges are granted
+
+AAA architecture
+- elements: user, NAS, and AAA server
+- the NAS server can be a switch or a firewall
+- the NAS server manager user access requests centrally
+- users are grouped into domains
+- each domain has a specific AAA scheme
+- the username is also concatenated with the domain to which they belong
+- a user without a domain is assigned the default domain
+
+Authentication modes
+- non-authentication - self-explanatory
+- local authentication - the NAS acts as the AAA server and authenticates the user. Reduces operating expense (OPEX). typically used for telnet or ftp. ssh?
+- remote authentication - the nas devices relays the user credentials to an RADIUS server, responsible for authentication
+
+Authorisation
+- can be based on VLAN, ACL, and user group
+- three modes: non, local, and remote authorisation
+
+Accounting
+- two modes: non or remote accounting
+
+Common AAA solutions
+- includes RADIUS, HWTACACS, LDAP, andA D
+
+HWTACACS
+- TACACS
+- uses tcp port 49
+- uses cases: PPP and virtual private dial-up network
+
+AD authentication
+- LDAP sends authentication data in clear text
+- Kerberos is used for a secure authentication transmission
+- the above implemention is the purpose of AD
+
+Radius
+- most common AAA protocol
+- adopts a server client architecture
+- used on networks requiring high security and control of remote user access
+- uses UDP ports 1812 and 1813
+- sometimes uses port 1645 and 1646 as default ports for accounting and authentication
+- the accounting request is sent by NAS
+
+LDAP
+- lightweight directory access protocol
+- adopts the client/server architectureS
+- the server application is the interface which relays the user service request to the server
+
+LDAP Directory
+- a directory is a set of information with similar attributes logically organised 
+- commmon name - name of an object
+- domain controller - a domain to which an object belongs. The LDAP server is a domain controller
+- Distinguished name - indicates the location of an object
+- Base DN - indicates the root dn
+- organisation unit - the organisation to which an object belongs
+- to summise, an object has a location, domain, and organisation to which it belongs
+- the authentication process:
+   - the user initiates a login request to the application server runnin on the firewall
+   - the firewall sends a bind request carrying the admin's DN and password
+   -the LDAP server sends a bind reponse to the firewall
+   - the firewall rhen sends a dn search request containing the username
+   - the user sends a search reponse packet if the search succedes
+   - the firewall sends a dn bind request carrying the password and obtained DN. The server validates the password
+   - if binding succeds, the server returns a bind response to the firewall
+   - after the authorisation is successful, the firewall notifies the user
+
+User organisational structure and management
+- users are basic access units
+- concepts that make up the organisational structure:
+   - authentication domain - a container of the user organisational structure. Firewall contain default authentication domains
+   - user groups/user - users belong to groups or departments. the user groups can be based on the enterpise organisation strcuture
+   - security group - used to manage users on a parameter other than department. A horizontal cross-department group 
+ - each user can belong to multiple user groups
+- the system must have a deafult authentication domain
+- a user group can contain multiple user groups
+- each user group can only join one user group
+- to assign differentiated management and assign different persmissions to users, you must plan the organisationla strcutre, the firewall provided a tree structure resembling common administrative structures which can be used for planning
+- each user name is appended with an domain, and the firewall will perform the authentication that correspond to that domain
+- if an admin uses a default domain to authenticate a user, then a user has to only enter their use name for login.
+- if an admin uses a configured domain, then the user by appennd their username with a domain and enter their password to loginn
+
+User categories
+- Administrator - accesses the device through Telnet, SSH, web portal, FTP, and configures operations on the device.
+- Internet access user - the entity for network access. the device perfoms user identify and implements control policies based on the user identity
+- access user - a user from an external network attempting to obtain access to internal network resources. Can be an employee on a business trip. 
+- the acess user accesses the firewall through a VPN technology, before accessing other network resources
+
+User authentication process
+- Administrator authentication login modes:
+   - console port - uses the CLI to configure the device. Used when the device is configured for the first time. 
+- telnet - a traditional remote login method that runs the target device's CLI
+- SSH - uses a secure channel to connect t the remote device
+- FTP - used to download and upload files in the storage space of the target device by the FTP administrator
+- the web system - using an http(s) terminal to manage and configure the target device remotely
+
+SSH 
+- works at the application layer
+- provides a secure channel to remote login and other network services
+- two authentication modes:
+  - password-based security authentication - so initate a session using the username.
+                                           - firewall sends public key to the user
+                                           - user uses the public key to encrypt the password
+                                           - firewall uses the private key to decrypt the pasword
+- so in this password-based mode, are the session packet sent unencrypted, cause from the module, it seems as if only the password is encrypted
+- key-based security authentication:
+   - user generates public/private key pair and sends the public key to the server
+    - the server sends a random character string
+    - the user uses its private key to encrypt the character string
+     - the user then sends the encrypted character string
+
+Authentication modes of internet access users
+Single sign-on
+- another authentication system is used to authenticate the to the firewall. After authentication, ip address and user names are used for policy based management
+- examples: Radius SSO
+            - AD SSO
+Built-in portal authentication
+- a built-in portal authenication page is used to authenticate users
+- request are perfomed on the local database or redirected to an authentication server
+- examples: redirected and user-initiated authenticaton
+
+User-defined portal authentication
+- a firewall works with an external portal server to implemented thr user-defined portal authentication
+-
+User authentication exemption
+- users are authenticated without entering their usernames and password.
+- for example - user names are bound to MAC/IP addresses
+
+Built-in portal authentication 
+- also called redirected authentication
+- users dont trigger identity authentication
+- when the user access an http, their request is redirected by the firewall to an authentication page
+
+Built-in portal authentication
+- also called user-initiated authentication
+- the user initiates identify authentication and is granted access to services after the authentication
+
+Access authentication modes
+SSL VPN
+- a user log in to an authentication page provided by the SSL VPN module
+- a lightweight remote access solution
+- mobile users dont have to run the SSL VPN client
+
+L2TP VPN
+- layer 2 tunneling protocol
+- provides remote access services from travelling users
+
+IPsec VPN
+- made of a set of protocols, including authentication header and encapsulation security payload
+- provides services like key exchnage, authentication, and encryption algorithms
+- data is transmited securely over a tunnel using the aforementioned protocols
+
+PPPoE
+- a link-layer protocol that encapsulated PPP packets into Ethernet frames
+- used to ceonnect to a broadband remote access server
+
+SSL VPN 
+- the secure sockets layer VPN
+- works between the application and transport layer
+- based on HTTPs
+- services: web proxy, file sharing, port forwarding, and nework extension
+- SSL handshake:
+   - the user intiates a connection to the SSL server and request the server to authenticate itself
+   - the server sends its digital certificate
+   - the server sends a request tot the user to authenticate itself and so does the user
+   - after authentication, the endpoints negotiate an encryption algorithm to be applied on messages
+   - the hash function is also negotiated for intergrity check
+   - the two endpoints then negotiate a session key:
+      - the user sends a random number encrypted using the server's publice key 
+      - th server responds with random data, encrypted using the client's random key, if the client has any
+
+User authentication policy
+- identifies data flows that need to be authenticated
+- data flows matching the policy will only go through after user identify authentication
+- if a policy is matched, these actions can be perfomed:
+    - authentication exemption - the user will access resources without passing credential since authentication will be done using state information
+    - redirected authentication - the authentication pages is pushed to the user when the user attempts access http
+    - user-initiated authentication - used to access non-http policies, a user accesses the authetication page used for authentication
+    - SSO users - the login of SSO users is not under any authenticatio policy
+- traffic from these protocols arent controlled by an authentication policy - dhcp, ospf, bgp, and ldp
+- after a user has been authenticated for http, subsequent dns packets are subject to authentication policies
+
+Composition of an authentication policy
+- a set of rules executed based on preconfigured conditions
+- conditions:
+   - source / destination security zones
+   - source address / region
+   - destination address / regin
+- types of actions perfomed upon matched conditions:
+- non-authentication, authentication exemption, portal authentication, and lastly, sms authentication
+- use cases for authentication exemption:
+   - if data flows originate from an executive, then a stateful binding can be used for authentication
+   - if the user is an SSO user, the firewall doesnt have to repeat authentication
+- use case for non-authentication:
+    - data flows between intranet users
+    - data flows for SSO users
+- firewall has a default authentication ppolicy, in which the match condition is any and the action is non-authentication
+
+Internet acess user authentication
+- first step is to create user groups: groups can be manually configured, imported locaaly, or from a server
+- manual configurations of user groups: a mandatory steps if you which to create groups that match your organisation structure and manage network permission based on user groups
+- if intending to perfom local authentication, configure local users and passwords
+- local imports: importing local csv files
+- server-import: importing user groups data from a third party authentication server
+
+Fundamentals of encryption and decryption technologies
+Encryption or decryption
+- the process of converting plain text data into cipher text so that it becomes uninterpretable by unathorised personnel
+- decryption is the process of converting the cipher text to plain text for intepretation
+
+Encryption background
+- done for:
+   - regulatory compliance
+   - enterprise compliance
+   - hinder data disclosure from data breach
+   - protect customer information and intellectual property
+
+Encryption purposes
+- confidentiality - ensures that data is kept in a fomart inaccessible to unathorised people
+- intergity - ensures that data is not tampered with during storage and transmission
+- identifiablity - authenticates the two endpoints of data
+- non-repudiation - prevents users from denying previous comments and behaviors
+
+Development of encryption
+Manual encryption phase
+- first implemented in the 5th century with the scytale
+- in 50 BC - the Ceasar cipher (Caesar code) was used during times of war
+- world war 1: Germany's dictionary code
+
+Mechanical and electromagnetic cryptography phase
+- world war 2: Germany's enigma machine
+- world war 2: US military used the M-209 - a portable cipher machine
+
+Electronic cryptography
+- 1949 - Claude Shannon published communication theory of secrecy systems
+- 1976 - Diffie-Hellman proposed the DH public key algorithm
+
+Classification of encryption technologies
+Symmetric encyption
+- shared key cryptography
+- senders and receives use the same key
+- data is encrypted and decrypted using the same key
+- suitable for encrypting service data traffic and Ipsec VPN data
+
+Asymmetric encryption
+- uses a public/private key pair
+- private keys used to encrypt data, only corresponding private keys can decrypt data
+- solves the problem of insescure key exchange
+- use cases (sensitive scenarios): keys, identity information and digitial signatures
+
+Symmetric encryption 
+- same key used throughout
+- the key is negotiated in advance
+- if the key is craked, comunication becomes insecure
+- it in unsuitable for cases in which a lot of data has to be assigned a key
+
+Asymmetric encryption
+- a public/private pair of keys
+- a public key is used to encrypt data
+- prevents the insecurity that arises from the distribution of keys in symmetric encryption
+- a public key is used to dencrypt data encrypted with a public key that corresponds to it
+- the two parties dont have to exchange keys before a communication session
+
+Symmetric vs asymmetric encryption
+- symmetric encryption:
+    - advantage:
+       - highly efficient
+       - suitbale for large amounts of data
+    - disavantage:
+       - difficult to implement
+       - not scalable
+- asymmetric encryption:
+    - advantage:
+      - the private key cannot be infered from the public key
+    - use case:
+      - for large volumes of data
+      - usage scenarios:
+       - suitable for large volumes of data
+    - disavantage:
+      - takes longer to encrypt large volumes of data
+    - useage scenarios:
+       - suitable for sensitive information
+
+Combination of asymmetric and symmetric encryption
+- https uses this composite solution to reduce the number of times asymmetric encryption is perfomed
+- the server generates a public/private key pair and sends the client the key
+- the server sends the client its public key
+- the client uses the public key to encrypt the symmetric key before sending it to the server
+- then one the server has decrypted the key, all service data is transmmited using the asymmetric key
+ 
+just thought of a weird scenario, how likely is it for firewalls to block a shared address owing to the malpractice of one user, for example, lets say a lan has to access a resource from  a very specific network. Then the nerd in that learn uses the public address to port scan this very critical site, cause the firewall to block it, now the entire lan is blocked, and firewall aren't pat sensitive since ports can be dynamically adjusted to avoid rate limiting.
+imagine a network with a lot of users, of course the network is load balanced, but what happens when pat malfunctions, what about all the responses and new requests to be made, can pat be a single point of failure
+
+- cannot nat be perfomed first before encryption
+
+- so do firewalls create session for both inbound and outbound traffic, that's seems fairly logical
+
+
+
+
+Common encryption and decryption algorithms
+DES
+- Data encryption standard
+- developed by NIST
+- first widely used
+- uses a symmetric key
+- symmetric-key block cipher 
+- inputs: 64 bit plaintext and 56 bit key
+- output: 64 bit cipher text
+- the password capacity is too small
+
+3DES
+- 128-bit key
+- so a 56 bit key is used for initial encryption
+- another 56 bit key is used for encoding
+- a last 56 bit key is used for final encryption
+
+AES
+- advanced encryption standard
+- supports 128, 192, 256, and 384 key lengths
+- supports different platforms, like a wep2-psk security policy
+- will replace most DES and 3DES implements
+
+SM1 and SM4
+- key and block length are 128 bits
+- commercial cipher block standard algorithms
+- compiled by China's State Cryptography Administration
+
+IDEA
+- international data encryption algorithm
+- symmetric cipher block algorithm
+- input: 64 bit plaintext and 128 bit key
+- output: 64 bit cipher text
+
+Common asymmetric encryption and decryption algorithms
+DH
+- the key is dynamically obtained at both ends
+- used in IPsec
+
+RSA
+- developed at MIT in 1977
+- first to be used for digital signatures and encryption
+- known to resist all attacks
+- recommended by ISO
+
+DSA
+- ensures data integrity and non-repudiation
+- limited to digital signatures
+- only an algorithm
+- uses an asymmetric key for key exhange
+
+Hash algorithms
+- used for data intergrity check
+- the algorithm takes it data of any length and returns a fixed-length value
+- benefits: fast, anti-collision, irrevesible, input sensitive
+
+Hash alogorithm application
+- the sender hashes the packet and sends both the packet and the hash value
+- the recieve perfoms hashing on the received packet and compares it with the received has value
+- if the two hashes are the same, then the receiptient processes the packet, otherwise the packet is discarded
+
+Common hash algorithms
+- MD5:
+  - message digest algorithm 5
+  - developed by RSA data security inc
+  - one way cryptographic has algorithm
+  - advantages: irrevesible, fast, fixed output (isnt that expected of all hashing algorithms), irrevesiblem and highly discrete
+- sha, with three versions, obviously the next versions are better than previously
+- sha can be used for digital signatures
+- SM3 is also used for hashing
+
+PKI Certificate system
+- public key infrastructure
+- problems: identities cannot be verified, data may be eavesdropped and tampered wiiyh during transmission, and information secuirty cannot be ensured
+
+Digital signature
+- the sender generated a digital fingerprint, infomration digest, uisng a hash algorithm 
+- the digital fingerprint is encrypted using the sender's private key
+- the sender sends both the digital signature and the cipher text
+- the ciphertext sent is encrypted using the public key of the receiver
+- the receiver uses its private key to decrypt the infomation
+- the receiver perfoms the hash function to generate the digital fingerprint for the plaintext
+- the difital signature is decrypted using the sender's public key
+- the receiver compares the received digital fingerprint with the generated
+- the digital signature is used for identity verfification and data intergrity
+- the digital signature and envelope can be used together
+- vulnerability possible:
+   - if an attacker intercepts a response packet, they can digitally sign the information with their own private key and sends the signature and forged ciphertext encrypted using the sender's public key
+ 
+Digital certificate
+- a digitally signed file containing an owner's identity information and public key
+- issued by a certification authority
+- used to ensure that a public key is mapped to one owner
+- server as the identity card when entering the internet
+- generation:
+  - the CA, upon application, perfoms the hash function on the applicant's public key, identity information, and the digital certificate validity period to generate a digest
+- the digest is encrypted using the CA's private key
+- parts of the digital certificate: 
+    - owner's public key and identity information
+    - certificate validity period
+- the digest is decrypted using the CA's public key, this proves the certificate originates from the CA
+- the public key is stateless and therefore doesn't reveal the identity of the sender
+- the digital certificate maps users ad public key
+- the certificate can be released publicy since it doesnt contain sensitive information
+- so the process is as follows:
+   - assume that the receiver knows both the CA's public key and the sender's digital certificate
+   - the sender perfoms the hash function on its own certificate to obtain a digital finger print
+   - the sender encrypts the digital fingerprint using the CA's private key to obtain the digital signature
+   - the receiver decrypts the digital signature using the CA's public key to obtain the digital fingerprint
+    - the receiver performs the hash function on the sender's digital certificate to obtain the digital fingerprint equivalent for comparison
+     - an umatch constitutes a discard
+
+Digital certificate structure
+- version number: typically used, X.509 version 3
+- serial number: a positive intergerto identify the certificate
+- signature algorithm: signature algorithm used by the CA to sign the ceritificate
+- issuer: should be or typically the issuer's server name. Should be the same as the subject name in the issuer's certificate
+- validity: start and end date identifying the interval within which the certificate is valid
+- subject name: the name of the owner of the certificate
+- subject public key information: identifies the public key and the algorithm used to generate it
+- extensions: used for optional fields like CRL distribution point
+- signature: signature signed on the cerificate by the issuer using a private ke
+
+Classification of digital certiificates
+CA certificate:
+
+Local cerificate:
+- the digital cerificate issued by a CA to an applicant
+- the user typically inititates the procedure and the CA return the generated certificate to the user
+
+
+Self-signed certificate:
+- a self-signed cerificate is issued by the device and has to be signed by the CA set on the device
+
+Unsigned certificate
+- self-generated
+- the signature is obtained from the CA
+- both this method and the previous are perfomed by the device itself as an embedded function
+
+Digital certificate file format
+- three formats:
+   PKCS#12:
+     - sends certificate files (with or without keys) in binary format. 
+     - common extensions: .P12 and .PFX
+   DER:
+     - files are saved in binary (without private keys)
+     - common extensions: .DER, .CER, and .CT
+   PEM
+     - files are saved in ASCII format (with or without private keys)
+     - common extensions: .PEM, .CER. and .CRT
+
+Data communication process (1)
+- so both communicating parties apply for digital certificates 
+- the users are authenticated by the CA before certificates are generated
+- the receiver downloads the digital certificate of the sender from the receiver
+- you already looked at the remaining steps:
+   - the sender performs the hash function on its own certificate in order to obtain a digital fingerprint
+   - the sender encrypts the fingerprint using the CA's private key in order to obtain the digital signature
+   - the receiver decryptes the digital fingerprint using the CA's public key to obtain the digital fingerprint.
+   - the receiver generates another fingerprint by perfoming the hash function on the sender's digital certificate
+   - then the receiver compares the two to decide on processing
+
+Data communication process (2)
+- the proccesses perfomed by the sender
+- a random symmetric key is generated and used to encrypt plaintext
+- a digital envelope is generated by encrypting the symmetric key using the receiver's public key 
+- a digital fingerprint is generated by hashing the plaintext
+- a digital signature is obtained by encrypting the fingerprint using the sender's private key
+
+- the processes perfomed by the receiver
+- the receiver decrypts the digital envelope using its own private key to obtain the symmetric key
+- the symmetric key is then used to decrypt the ciphertext to plaintext
+- the plaintext is then subjected to a hash function used to generate a digital fingerprint
+- the first fingerpint is obtained by decrypting the digital signature using the sender public key.
+- the two signatures are compared to decide processing
+
+- asymmetric encyption, due to its large overhead, is used only for key exchange and symmetric encryption is used for service data
+
+
+
+PKI system infrastructure
+- standardised asymmetric key management
+- a PKI entity uses PKI products and can be an organisation, end user, or process
+- A CA is an impartial and authoritative organisation that issues and manages certificate
+- a CA is represented by a server
+- CA can be ordered in a hirearchy:
+  - root CA hold self signed certificates and assign certificates to surbodinate CAs
+  - CAs nearest the user in the chain issue certificates to the host
+  - intermediates CA's distributes cerificates to lower level CAs and receive their certificate from the higher CA
+- functions of the CA: issuing, managing, revoking, updating, querying, and archiving certificates
+- also publishes CRLs
+- an RA handles functions like processing certificate enrollment and revocation request from users, also perfoms user identity
+- the RA deccides whether to relay requests to the cA
+- the RA is part of the CA and can be intergrated as a function
+- alternatively, the RA can be run independently to reduce the workload the on the CA
+- reasons to revoke a certificate: entity name changing, private key leaking, or service interruptions
+- revoking the certificate involves unbinding the public key from the PKI entity
+- the cerficate database can be built using an ftp, http, ldap server or a normal database
+- the CRL is used to revoke certificates
+- CRL is used to verify certificate validity
+
+PKI certificate application process
+- submitting an application: 
+   - so the intermediate security server obtains the user's identify information and public key and relays it to the RA
+- reviewing the application:
+   - if the RA finds the request eligible, it signs it before relaying it to the CA. Otherwise, it sends it unsigned
+- issuing the certificate:
+   - if the RA certificate sent with the user request is authenticated successfully, then the CA generates and returns the certificate. Otherwise, the request is not accepted.
+- forwading the certificate:
+- after receiving the certificate, the RA pushes it to the certificate database and sends its serial number to the user
+- obtaining the certificate:
+- the user can download the certificate from a specified website
+- download only happens if the user public key correspond to the private kry
+
+Certificate application method
+- Modes:
+  - SCEP (simple certificate enrollment protocol) - an industry standard for VPN devices
+  - Certificate management protocol version 2 - used by an end user to send a certification enrollment request
+  - file-based: used for offline certificate application. the entity rpints a local request and saves it in a file.
+- then the entity send the file to the CA in out-of-band mode
+
+PKI cerificate verification 
+- the PKI entity must verify the certificate of the peer end upon reception
+- the are three modes used: None, CRL, or OSCP 
+- CRL:
+   - the user checks if any CRLs exist in its local memory. If not, it obtains CRLs from he CRL database
+   - after downloading CRLs, it installs the to the local memory and searches for the local certificate of the peer end in the CRLs
+   - if a match is found, then the verification is successfull, otherwise the verification is rendered invalid
+OCSP:
+  - the status of IPsec peers is checked in real-time using this protocol, if pki entities are used in Ipsec negotiation
+  - while CRL works based on frequently downloads to keep the local CRLs up to date, this protocol queries a server and obtains valid, expired, or unkown
+None :
+- in this mode, certificate revocation is not checked
+
+PKI certificate revocation process
+- submitting an application: a user sends a signed and encrypted email to the RA to apply for certificate revocation
+- reviewing the application: the RA reviews the application and signs the application
+- updating the CRL: the CA verifies the RA signature in the certificte verocation request. If the signature is valid, the CA accepts the request, updates the CRL, and outputs the CRL
+- forwarding the CRL: after receiving the updated CRL, the RA issues it in multiple modes
+- informing the user: the user accesses the LDAP server to download or browse the CRL
+
+PKI working mechanism
+- a PKI entity first applies for a CA certificate from the CA
+- the PKI entity then installs the received certificate
+- if the entity uses SCEP for local certificate application, the entity performs hashing on the certiticate to obtain a digital fingerprint which is then compared to the digital fingerprint in the CA server's certificate. If the is a match, the certificate is approved, otherwise, it is discarded
+
+- the entity sends a certificate enrollment message:
+- the enrollment must contained the public key of the PKI entity and its other information
+- if the entity uses SCEP for local certificate application, it will encrypt the enrollment message using the CA certificate's public key
+- the PKI then digitally signs the message using its private key
+- if a challenge password is required by the CA server, then it will be added to the enrollment message
+- processes of sending the enrollment message if the entity uses CMPv2:
+- the PKI entity uses the public key of the CA server to encrypt the message and uses the private key of its additional identity certificate to sign the messsage
+- so the additional certificate is obtained from anpther CA and is used for identity authentication
+- the PKI entity encrypts the message using the CA server's public key and also add a MAC reference value and secret value to the message
+
+PKI certificate application scenario - logging in to the web UI using HTTPs
+- Steps during SSL connection setup:
+- the server applies for and obtains a local certificate from a PKI authentication center
+- the server sends its public key to the client carrying its public key
+- the client verifies the certificate and uses the server's public key to generate and send a digital envelope
+- the two endpoints then negotiate a final key and encryption suite which will be used on service traffic
+
+PKI application scenario (2) - IPsec VPN
+- IPsec tunnels are used for secure data exchange over the internet
+- traditional IPsec uses pre-shared keys to negotiate IPsec tunnels
+- the above mode is insecure since keys can be sniffed during key exchange
+- it also causes heavy configuration workloads
+
+PKI certificate application scenario (3) - SSL VPN
+- this VPN is used for intranet access by travelling employees through the internet
+- for network access security, devices can be authenticated using PKI certificates
+
+Encrytion technology application
+Cryptography application 1
+- four elements of information security:
+- confidentiality:
+  - threats to be handled - eavesdropping, and sensitive information breach
+  - solutions: digital envelope
+              - asymmetric and symmetric encryption
+- intergrity: 
+   - threats to be solved: tampering and sabotage
+   - solution: digital signature and a hash function
+- identifiability:
+  - threats to be solved: masquerade and spoofing
+  - solutions: digital certificate and signature
+              - passwords and shared keys
+- non-repudiation:
+    - threats to be solved: denial of information sent and received
+    - solution: digital certificate and signature. Evidence storage
+- authorisation and access control: 
+    - threats to be solved: unathorised and illegal access to data
+    - access control and attribute certificate
+- digital envelope: uses symmetric and asymmetric encryption to ensure the security of data in transit
+- digital signature: ensures the integrity of data transmissions
+- digital certificate: ensures the non-repudiation of sata transmissions using a third party CA to authenticate the public key
+
+Cryptographic application 2
+- actual network applications scenarios:
+  - VPN use the solutions to ensure data intergrity
+  - IPv6: the technology is used to generate digitial certificates used selecting authorised gateway devices
+  - HTTPs login:
+   - HTTPs can be used to log in to the HTTPs server through a web portal 
+   - to ensure the security of ssl connections:
+      - the CA trusted by the web browser is configured to issue certificates to clients
+- system login authorisation: an algorithm is used to generate a digest based on the user password, the digest is compared with the user password whenever the user logins in
+
+VPN overview
+- used to transmit data securely over the internet
+
+Definition of a VPN
+- used to create a virtual private network over a public network
+- it is a logical network
+- private:
+   - provides the same experience as a physical private network
+   - it is independent of its bearer network
+- virtual: it uses a the public network for its underlying infrastructre
+- advantages:
+   - secure: so secure tunnnels are establish between the various communicating branches
+   - low-cost: more affording than leasing private lines
+   - supports mobile users: users on the go can access the network from anywhere
+   - scalable: VPNs are logical networks and therefore dont require physical components to 
+
+VPN encapsulation principles
+- data transmission is secured by establishing logical tunnels over the VPN backbone
+- a tunnel is a logical link that perfoms the same functions as a leased physical link
+
+Classification by application
+- client to site VPN:
+   - the clients connects to the intranet through a VPN tunnel
+   - technologies used: SSL, IPsec, L2TP, and L2TP over Ipsec
+- site to site VPN:
+- to LANs are connected by a VPNN tunnel
+- technologies used: IPsec, L2TP, L2TP over IPsec, GRE over IPsec, and IPsec over GRE
+
+Classification by application object
+- extranet VPN: An Extranet VPN is a specialized type of Virtual Private Network that securely connects an organization’s internal network to trusted external entities—like partners, vendors, suppliers, or clients—without exposing the full internal infrastructure.
+- intranet VPN: connect internal networks of an enterprise though a public network
+- access VPN: allows employees on business trips to access the intranet through the network
+
+VPN classification based on the protocol stack
+Application layer: SSL VPN
+Transport layer: OpenVPN
+Network layer: GRE and IPsec
+Data link layer: PPTP, L2TP, L2F
+- Gre allows the packets of one protocol to be encapsulated into those of another protocol.
+- GRE has limited security mechanisms than IPsec
+
+Key VPN technoloy: identity authentication
+- mobile users accessing the intranet are authenticated by a VPN gateway
+- different modes based on different VPNs:
+- GRE - doesnt support identity authentication
+- L2TP - an access user is authenticated by a local or remote RADIUS server
+       - after the user is authenticates, they are assigned an IP address
+- IPsec: works similar to L2TP. Also supports EAP
+- SSL VPN: supported modes of authentication: local, certificate, and server
+           - the server can be authenticated too to ensure its validity
+
+Key VPN technology: Encryption technology
+- used to convert plaintext into ciphertext for confidentiality
+- protects intercepted packets from disclosure
+- encryption objects are both service and control packets
+- L2TP and GRE dont support encryption
+- another protocol that encrypts both control and service packets SSL
+
+Key VPN technology: Data verification technology
+- used for data integrity
+- implemented based on hashing, perfomed on the plaintext
+
+GRE VPN
+- Generic routing encapsulation
+- used to encapsulate packets of a wide variety of protocols
+- also used for encapsulating IPv6 packets to be sent over an IPV4 network
+- three types of protocols used to implement the VPN: passenger, encapsulation, and transport protocols
+- the three protocols used in GRE:
+  - transport protocol: IP header  
+  - encapsulation (carrier) protocol: GRE header
+  - passenger protocol: IP or IPx header
+
+GRE encapsulation and decapsulation procedure
+- if the outbound interface of a destination is a tunnel, the packet is sent to a tunnel module for processing
+- the tunnel module then adds a GRE header based on the transport protocol
+- then a transport protocol header is added to the tunnel. The source and destination addresses correspond to the tunnel
+- the device then searches the routing table to determine the outbound interface, before transmitting the packet over the internet
+- if the received packet has a protocol value of 47, then that indicates the packet is a GRE packet
+- the packet is then sent to the GRE module by the outbound interface
+- the GRE module removes the IP and GRE header to obtain the packet generated by the passenger protocol
+- if the passenger protocol is idenifiable by the network, then the packet is processed
+
+IPsec VPN
+- developed by the internet engineering task force
+- operates at the network layer
+- it is a suite of protocols
+- provides a secure tunnel for protocols like GRE and L2TP, which transmit data in packet
+- security mechanisms provided by IPsec:
+   - data origin verification: the receiver verifies if the identity of the sender is authorised
+   - data integrity: verifies if data has not been tampered with
+   - data encrypted: genrates ciphertext from plaintext
+   - anti-replay: old packets are rejected by receivers
+
+Ipsec Architecture
+- protocol suite: Encapsulating security payload (ESP), authentication header (AH), and internet key exchange (IKE)
+- confidentiality: ESP
+- data integrity, data origin authentication, and anti-replay functions: ESP and AH
+- the two above protocols dont provide the transcoding mdes required for their functions
+- AH: provides data origin authentication, data integrity check, and anti-replay function. Perfoms data integrity check on the entire packet
+- ESP: provides all of the functions of AH, plus data encryption. Data integrity checks are not perfomed on the IP header
+- transcoding modes include data conversion mode and key length
+- IKE: the crytographic algorithm used by the above protocols
+
+IPsec protocol framework
+- two main security protocols: AH and ESP
+- encryption protocols: DES, 3DES, AES, SM1 and SM4
+- authentication: MD5 SHA1,2 SM3
+- Key exchange: IKE
+- the security functions depdend on the encryption algorithms used by IPsec
+- the key used for encrypted can be manually configured or dynamically obtained from IKE
+
+Comparison of the packet formats of AH and ESP
+- Fields in an AH header:
+   - Next header (8 bits): identifies the type of payload after the header. 
+     - in transport mode:it is the mumber of TCP, UDP, or ESP
+     - in tunnel mode: it is either the number of IP or ESP
+   - Payload length (8 bits): default is 4. The length of the AH header itself in 32-bit words minus 2
+   - reserved (16 bits): self-explanatory
+   - security parameter index (32 bits): a unique identifier for an IPsecSA
+   - sequence number (32 bits): applied on packets to prevent replay attacks
+   - Authentication data: variable-length field, 96 bits as common size. used for data integrity check and containes the intergrity check value
+   - common authentication algorithms: MD-5, SHA-1, SHA-2, and SM3
+
+Encapsulation mode - transport mode
+- the field, be it AH and ESP, is added between the IP and TCP header
+- for each protocols, the headers are added the same way
+- but ESP has a tail, placed between the data field and the ESP auth Data
+- if you combine both, the AH header precedes the ESP header
+
+Encapsulation mode - Tunnel mode
+- in this mode, the Header is placed before the raw IP header
+- the packet is then encapsulatedto protect the payload and a new IP header is added
+- this mode is more secure, original packets can be authenticated and encrypted
+- in this mode, internal IP addresses, ports, and protocol types are hidden
+- in the transport mode, security is lower butthe processing speed is faster
+- when both AH and ESP are used, the must use the same mode
+
+IPsec data encryption and decryption
+- two security mechanisms: authentication and encryption
+- uses symmetric encryption on service data
+- uses the hash-based message authentication code function to compare digital signattures to check data integrity and authenticity
+- authentication algorithms used for integrity checks are MD5, SHA-1, SHA-2 SHA-3, SHA-256, and SM-3
+- Message authentication code, used for HMAC algorithm
+- common symmetric algorithms: DES, 3DES, AES, Chinese cryptographic algorithms (SM1 nnad SM4)
+- DE and 3DES are not recommended being insecure
+- Ipsec cannot verify the authenticity or intergrity of decrypted packets
+- steps taken by IPsec
+- on the sender side, the sender uses an authenication algorithm and symmmetric key to generate an ICV
+- the reciever uses the same authentication algorithm and symmetric key to process the encrypted packet and generate an ICV
+- the receiver then compares it's ICV to the sender's
+
+Relationship between IKE and AH/ESP
+- IKE is an application-layer protocol running on UDP
+- It generates a key used for IPsec negotiation
+- used by AH/ESP for authentication, ecryption, and decryption
+- two versions: IKEv1 and IKv2
+- AH protocol number: 51
+- ESP protocol number: 50
+
+IKE EXCHANGE PHASES
+- twp phased negotiation
+- two modes of negotiation in the first phase: aggressive or main
+- two ends achieve by both methods:
+   - to establish an encrypted and authenticated communication channel (IKE SA) 
+   - to generate an authentication key used for confidentiality, message integrity, and message source authentication services
+- RFC 2409
+- the deliverables of the first phase: an authentication key and an authenticated communication channel
+- the first phase precede all other exchanges
+- IKE working process:
+   - if IPsec is applied on an interface, then packets arriving at the interface have ipsec policies applied to them
+- if the packet matches an IPsec policy, the initiator checks whether the SA has been established
+- the IKE negotiation is triggered if no SA exists
+- in the first phase, the IKE SA is established
+- as second phase SA is the negotiated between the endpoints, running over the phase 1 SA
+- IPsec SAs are crucial in protecting communicating data
+
+IPsec SA
+- can be established manually or through IKE negotiation
+- for secure data transmission, and IPsec SA needs to be established between the endpoints
+- SA helps IPsec set specific elements:
+   - DES - encryption algorithm
+   - MD5 - authentication algorithm
+   - tunnel - encapsulation mode
+
+IKE SA
+- based on he internet security association and key management protocol (ISAKMP)
+- UDP based
+- application-layer protocol
+
+ISAKMP
+- defined in RFC 2408
+- uses tcp or udp port 500
+
+Phase 1 of IKE exchange - Main Mode exchange
+- the main mode separates the key exchange information and identity authentication information
+- uses a total of three steps to establish an IKE SA
+- the steps are:
+   - mode negotiation
+   - DH and nonce exchange
+   - peer identity authentication
+- if the pre-shared key method is used, cookies are calculated by endpoints before message 1 and 2 are sent
+- the cookie uses the MD5 algorithm on the source/destination address, random number, date, time
+- the cookie is put into an ISAKMP of the first message to identify the initial negotiation exchange
+- the cookie of the receiptient is also added to the response message to identify their initial negotiation exchange
+- in the first exchange - the cookie and SA payloads of both parties are exchanged
+- the SA payload contains the IKE hash type, encryption algorithm, authentication algorithm, and IKE SA negotiation time limit
+- before the second exchange - both parties need to generate a DH value used to generate a DH shared key
+
+- in the second exchange:
+- parties exchange key exchange payloads
+- parties also exchange temporary value payloads
+
+IKEv1 Negotiation phase 1 - pre-shared key negotiation in aggresive mode
+- the main mode uses ip addresses differentiate and generate keys for each peer
+- the aggressive mode is suitable for cases in which peers dynamically obtain ip addresses
+- uses three messages to establish an IKE SA
+- doesn't provide identity protection due to limited number of messages
+- in this mode, the first mode of the initiator contains the identity information, nonce, DH public value, and protection suite list
+- the intiator sends its authentication payload in the last message
+- the responder sends its authentication payload in its first message to the initiator, including DH public values, nonce, and identify information
+
+
+Differences between the main and aggressive modes
+- main mode uses 6 messages while aggressive mode uses 3
+- main mode provides identity protection using the last two messages, the aggressive mode doesnt
+- in main mode, only addresses are used to identify peers. In aggressive mode, both ip addresses and names are used
+
+
+SSL VPN
+- problems related to traditional VPNs like IPSEC and L2TP:
+  - pre-installed software on the client is required
+  - network deployment and maintainance is complex
+  - remote control cannot be implemented on the access rights of employees
+- a lightweight remote access solution that uses the SSL protocol
+- built to cater to the needs of remote employees
+- employees establish an SSL VPN tunnel with the egress device to access internal resources
+
+SSL VPN encapsulation
+- located between the transport and application layers
+- uses reliable transport protocols
+- provides encryption, compression, and encapsulation for upper layer protocols
+
+SSL VPN gateway
+- the virtual gateway provides a unified portal for mobile employees to access intranet resources
+- steps involved:
+   - user login:
+      - the user enters an SSL VPN tunnel request/connection to the virtual gateway using its IP address or domain
+      - the virtual gateway sends its certificate to the user for authentication
+      - after authentication succeeds, the user established the ssl connection with the gateway
+      - after the connection is established, the login page is displayed
+    - user authentication: after the user has entered their name and password, they are then authentication using one of these modes:
+       - local, server, certificate-anonymous, certificate-challenge authentication.
+ - role authorisation: after authentication, the gateway checks the role of the user.
+                       - the role represents the access persmission level of the user
+                       - after determining the role, the gateway pushes the links of resources accessible to the user.
+                        - roles may differ based on organisational structure, for example, a network admin has a higher access permission than maybe a chef (in a resturant enterprise)
+- resource access: the user then clicks on the link corresponding to the resource they desire
+
+SSL VPN service - web proxy
+- procedure:
+   - the user accesses the virtual gateway using or at http://svn
+   - after log in, a list of accessible web resources is displayed
+   - when the user clicks on url, the url is rewritten for them
+   - the rewritten link concatenates the firewall's link and a resource's
+   - the get request is the initiated on behalf on the user
+   - two meanings of web rewriting:
+      - the firewall encrypts the url of the requested web resource
+      - responsiveness: the firewalls proccesses the user request based on the http-related specifications of the user, for example, the same web page will be rendered differently for two users if one uses chrome and the other firefox, i may be mistaken about this, this is what is done at the development stage, but the module explicitly mentions that users use different browser so I may not be that far off
+- web link, the firewall forwards the user's request
+
+SSL VPN SERVICE - file sharing
+- mobile users access files based on the file sharing service
+- the user uses a web interface to perform the file sharing operattions like upload, delte, and rename
+- for the file sharing service, the firewall acts as a protocol converter:
+   - the http requests are converted to the corresponding file request operations.
+
+SSL VPN SERVICE - Port forwarding
+- used when accessing TCP intranet resources
+- examples of TCP services are Telnet, FTP, remote desktop, and email
+- example of a tcp connection with SSL:
+   - the user first established the ssl connection to the virtual gateway
+   - the user then initiates a telnet connection through an encapsulated ssl packet
+   - the gateway decrypts the packet and relays it to the telent server
+   - then the server's response is encapsulated by the gateway's ssl module before being sent to the client
+   - the client's module decapsulate the ssl packet
+   - the process continues until the said service is terminated
+
+SSL VPN Service - network extension
+- used to access intranet IP resources
+- this is typically enabled on the user by default
+- what occurs after network extension is enabled:
+    - the user and a gateway establish a VPN tunnel
+    - the user's pc then automatically generates a virtual network adapter
+    - the server assigns an ip address to the user's virtual adapter.
+    - the address is used to communicate with intranet servers as though the user resides in the lan
+    - the virtual gateway sends the user a route directed to the intranet server based on network extension configurations
+- the user sneds a service packet to the gateway over the VPN tunnel
+- the server decapsulates the received packet before relaying it to the intranet server
+- the remaining communication is undertaken over the tunnel
+
+- I think I get how this route may be generated, a lan may have multiple servers, but in its dhcp offer to the client, one is specified for services like dns. So my guess is that the route pointed to is at this dhcp offered server. But i may be wrong, the gateway my offer a route to whatever server it thinks will serve the user's demands
+
+- done but not done, the journey never ends, did all theory, do the hard configs
+
+
+
+
+
+- nothing was mentioned about the gateway assigning a private ip adress to the client, is that implies? It has to be, if the client wishes to communicate with internal server, but maybe not, because most of the use cases have the gateway act as a proxy for the client.
+
+
+- the best use case of a VP is a legacy unsafe service like telnet, imagine running a telnet server that cannot run services like ssh. A VPN in such as case may come in handy.
+
+SSH has to be connection oriented too. Imagine a udp based remote access service, would be most unreliable ever.
+
+
+- so might build an ftp server that works with a web portal, you were already building one anyway, add the interface
+
+
+
+
+- remember you still have the project to build smtp, do that for today. add your own imap too and pop3
+
+
+- remember that the virtual gateway, for whatever service, is accessed through a browser, hence the first step: Can the doman be modified, obviously, through the configs on the virtual gateway.
+- so after log in, is it just the list of accessible web resources that are displayed or every other resource too
+
+
+
+
+
+
+
+
+
+
+with respect to both AT ALG and ASPF, how does the firewall infer a multi-channel protocol. Does to maintain a list of muli-channnel protocols and analyse the ports of traffic into the firewall
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ what is the OSI layer of SSL again
+
+
+- not sure about network deployment, you lab'ed IPsec and it wasn't that bad
+
+- remote control cannot be implemented on the access rights of employees? I dont even understand what that means, it is too fluf
+
+
+
+
+
+
+
+
+
+
+
+- so you gonna do a tcp example of a replay attack, it will have three files, one client, an attacker, and a server. to exemplify a man in the midlle attack, the packets between the client and a serve will be broadcasted, ending up at the client. to make it interesting, the client must have made sent some confirmatory for the server to send confidential health information, but if it is broadcasting from the start, then the attacker will receiver the packet right from the start, i want the situation where the client intercepts the packet.
+
+-oh i am also going to simulate a dos attack, a very simple one, always overthought it, so the server must have a preconfigured number of connections to accept, maybe 6. then the attacker will use a loop to establish six connections before the client(s) can connect to the server, what a simple way to lab it
+
+- then do a ddos attack, your botnet will be multiple tcp client files, but having to run each one by one for the simulation sounds boring, maybe ai can recommend some way to make it more interesting, but even in this case, the number of connections the server can accept must be proconfigured anf exhautsed before a file name legtimate client is run
+
+- how does the aggressive mode use ip addresses for anything identity related? Why not, the module only said it is suitable for dynamic ip addresses
+
+- you will figure out running the code later, what's left? do security module
+
+
+
+
+
+
+
+
+
+
+
+
+so in essence, the main mode does use a general pre-shared key but each and every connection between two parties will have its own key, seemingly.
+
+
+- 
+
+
+- what is a nonce?
+
+
+the implementation of the DH algorithm is the most interesting, and I will tell you my reason. Everytime, I learnt about key exchange, I get confused about how the keys are exchanged securely. Encryption? then what will encrypt the key used to encrypt the key excchanged, its an infine loop, so DH allows for keys to be computed indepedently
+
+
+
+- why would you name a protocol sha2-512, cant you just say sha-512
+
+
+
+
+
+- what is the UDP port number of IKE
+
+
+
+
+
+write the values first before you confuse yourself even more client one - private key 6 and public key 8, then let us do the second endpoint, private key is 15 and public is 19, fine . then, ohhh fuck, i think I get it, my mind is tryna form the correlation, and this is why it occurs, the public key is computed from the base and the private key, 
+
+public key = base and private key
+
+same on both ends
+
+the public keys are then exchanged
+
+- then the formula includes the base again. even though my explanation is senseless, it asserts that the reason why the final keys correlate is because the public key is computed based on the base, so when the base is again used on the formula for the shared key, the correlation then occurs, this is senseless, but ask mr ai to connect the dots
+
+
+- though a glimpse of light has flashed on this IKE shared key procedure, I cant say I fully understand it, but it's ok, through multiple rereadings, you'll be able to make heads and tails of it. tAKE break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what did you learn about HMAC again? 
+
+- it perfoms the hash function on the shared secret key and plaintext
+- simulate that immediately.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what's an IPsec SA
+
+
+- i dont fully understand: The length of the AH header itself in 32-bit words minus 2. okay, i get the explaination behind itt, the ah header is of a variablr length, so the word system allows us a way to represent the length with few digits
+
+
+- so a manually specified key is unpreferable because it is insecure, in the sense that if compromised, it compromised the entire network, My presumption is that a dynamic key is session dependent, but i may be speaking nosense, for each session, a dynamic key is computed, similarily, the admin may configure different keys for different sessions.
+
+
+- what is the difference between a raw and a new ip header
+
+- what is the intergrity check value?
+
+- leanr a few things about MD5, sha1,2 and sm3
+
+
+
+
+
+
+
+- the developers of AH and ESP must have been crazy, depeding on which of the two come first. If ESP is the later, then wy would they perfom all the fuctions of AH but not perfomed intergrity check on the IP header. And I can infer that ESP came after AH and was probably introduces to add encryption, ask mr ai
+
+- what is transcoding?
+- 🎬 Transcoding is the process of converting one digital media format into another—typically video or audio—by decoding the original file and then re-encoding it into a new format, resolution, or bitrate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- but why dont the developers of GRE and L2TP add the tunneling feauture to these protocols, I can do it myself
+
+
+- what is cryptology?
+
+
+
+
+
+
+
+
+
+- remember that ipv4 ppackets have a protocol field
+
+
+- this is very interesting, does gre itself provide an underlying tunnel, seems like an obvious question but I have to verify
+
+
+- is the module being illogical, the gre header is added to the packet based on the pasenger protocol type, oh nevermind
+
+
+- what is AppleTalk?
+- what is internetwork packet exchange?
+
+
+- so another difference between client to site and site to site is that site to site is that the latter uses a broadcast tunnel, all clients between the two lans send trafic through than one tunnel. One the other hand, for the client to site VPN, each client connection sets up its own tunnel to the VPN server, am i correct
+
+- so here's a nice protocol mix, run IPsec for secure tunnels and encryption. Then over IPsec, run L2TP for authentication, and GRE for encapsulation
+
+- since ccna labs teach both ipsec and gre, you should combine both on a separate lab.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Gre is ineresting, learnt about it on some lab, so you can run ospf between two lans over the internet. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- so the difference between a client to site vpn and site to site is that the latter uses a dedicated tunnel between the two lans. In the former, the tunnel is temporary and terminated shortly after use. and interestingly, I wonder how the client to site VPNs are implemented. cause you've lab'ed the site to site and trying to visualse client to site from that doesn't add up, but i think i understand how these vnp's works, when you register to one as a client, a tunnel protocol on your device is initiated, then when you try to access some site, nah, i'm bugging, look up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- cant the password digest be reverse engineered, if an attacker knows the digest algorithm and has compromised the digest, they can use these to obtain the original passwords.
+
+
+- what is secure neighbout discovery?
+
+
+
+
+- rember how the public key of the CA is used in communication, look that up.
+
+
+
+
+
+
+
+
+- non repudiation is a very important element of network or data security, sooner or later, data on the network will be compromised or even corrupted and we need some mechanism of holding people accountable. for example, lets say a company runs an ftp server using to store formal and relevant documents. A crazy employee may push explicit or violent content to the ftp server, which of course is undesireable. If all user operations on the ftp server are logged, then some forensions can be performed on the server to determine the employee responsible for the content. An ip address or mac address of employee accessing the server may be logged and used for non-repudiation. 
+
+- another intersting case study I read from the module why how someone may misuse a company's compute to mine bitcoin. Some accounting of user access to the company's server may held with forensics on such cases.
+
+
+- but I've read about a few types of spoofing, dhcp, which involves someone running dhcp on a  target network so that devices receive addresses from their dhcp server. I've read and done some ip spoofing, and mac address spoofing. There was a time when I was learning about wireshark and got introduced to a tool used for ARP spoofing, I should really download that and run it on my network
+
+- I dont know what masquerade means?
+
+- so other solutions that I know of related to data intergrity are checksums, checksums are a form of hashing so checksumming ip header and entire tcp segments, but these are more or less default solutions. I can't think of other solutions, I should look up a few
+
+- so in terms of confidentiality you may think about sniffing being conducted on the network, and how to secure data in transit. you may think about secures a company's database from sql injection and unrestricted access, you may secure a company's ftp server from unrestricted access too. you may use vpn, you may use tor broswer to browse the internet securely, you may apply acls to limit communication between certain parts of your network, the list goes on
+
+
+- it is nice to have a framework to base your thinking when coming up a network security plan or design for the network, I haven't retained much of what I learned in this module, but at least I know that a secure network ensures confidential, integrity, identifiability, non-repudiation, and the other elements of data security. Whatever solution you learn of as you continue, classify it along these lines.
+
+
+
+- so CRL is just a list for certificate revocation then, answered, which is why it is update during a certificate revocation application
+
+- IKE is internet key exchange, answered, so I guess the IPsec entities exhange the preshared key during IKE negotiation then, or at least they arrive at a final key
+
+
+
+- an RA is a registry authority, although you know what it does, still dint know the term.
+
+
+- when PKI certificates are used for identity authentication in IPsec, parties authenticate each other during IKE negotiation
+- the above secures the security of key exchange
+- the certificates provide a centralied key management function to the VPN
+- devices in the IPsec network have loca certificates issued by the PKI authentication center
+- when new devices are deployed, the can apply for local cerfiticates in order to communicate with other devices
+-
+- so are do these newly deployed devices on the IPsec network automatically apply for the certification, if not, then each user must be told to apply for one, which doesnt decrease the workload, my guess is that it is done automatically
+
+- does IPsec use symmetric keys and levarage a PKI identity procedure to verify each user, I understand and also not understand what is being said
+
+
+- but what if dhcp could also offer shared keys in the offer it sends clients. Interesting, but absurd, an attacker can just request an offer and obtain the shared key of the entire network from that
+
+
+
+
+
+
+
+- what is IKE
+
+
+
+- to-dos in order to practice the PKI connects
+
+- the architecture of the server app on which most of these application will be based must use client-to-client way of forwarding. Broadcasting is disgustingly primitive
+
+- ok so firstly, do a a basic symmetric key example, each time a new user joins the chat app, the server must send then the preconfigured key for the chat app. the client should be able to use this key to encryt outgoing packets and decrypt incoming packets. Overlook the security of this key exchange
+- secondly, do a demmostration of asymmetric cryptography;
+- everytime a user joins the app but signing up to the server, the sign up should be very simple, just a username and someother random info, the server immediately generates a public/private key pair for the client.
+- the server should store the public keys of all users, and when a user wants to send the packet to another, they should query for the public key from the server
+- the user should then use the key for encryption before sending the packet
+- the user should also apply its private key on incoming packets. Again, overlook the secuirty of key exchange.
+
+then now do digital envelopes.
+- on a symmetric cryptography scenario, the server should have a public/private key pair, when a user signs up, the server should encrypt the pre-shared or symmetric key using its private key to obtain a ditigal envelope, the server sh, is that how it works, nope, in our module, the client generates a symmetric key and sends the envelope to the server, the client encrypts the digital envelop using the server's public key
+- but in our case the server generates the symmetric key, which means that it should use the private key of the client to encrypt the digita envelope, so do two approaches to this just to spice it up. in once scenario, there's one sceanrio, there's one symmetric used by the server and all of the clients, in the second scenario, there's a symmetric key established between itself and the client, so do the first case first
+
+first case for digitsl envelope
+- the client signs up to the server and receives the server's public key.
+- then the server generates a private/public key pair for the newly connected client and stores the public key of the client to its mappings.
+- then the server enrypts the private/ublic pair with its own private key, sends the pair to the client
+- the client dencrypts the pair and stores it
+- the server then immediately sends the symmetric key encrypted using the clients public key, creating a digital envelope
+- the client decrypts the digital envelope using its private key
+- the client has now obtained the symmetric key
+- the client can use this key to encrypt and decrypt service data
+- keep in  mind the above symmetric key is a general key used throughout the app
+
+then second mode
+- in this mode, each and every client has unique symmetric key to the server
+- so when the client signs up, the server generates a symmetric key unique for the client, the server sends its public key to the client. 
+- the server generates a digital envelope encrypted with its private key
+- the client uses the server public key to decrypt the envelope, but this seems insecure, if the envelope is decrypted using the server's public key, an attacker may obtain the key and compromise the key
+
+- the server generates a server/client pair for the newly connected client
+- the server sends the client its public key
+- the server encrypts the pair with its private key before sending and then sends
+- the client decrypts its pair and notifies the server
+- the server then uses the client's public key to encrypt a symmetric key unique to itself and the client in question.
+- the server encrypts the symmetric key using the client's public key
+- the server sends that digital envelope
+- the client decrypts the envelope using its private key
+- the client then obtains the symmetric key unique to itself and the client
+- the when a client uses it to encrypt and decrypt service data
+- if the client wants to send a message to a peer, the ita encrypts with the unique key
+- the server decrypts with the unique key and encrypts with the destination's symmetric key
+- the destination then uses the key unique to it and the server to decrypt
+
+then we have to do digital signature, for this to be continuous, we will assume a secure key exchange
+- both the client and server and destination should run the hash function
+
+digital fingerprint obtained from the plaintext
+- the client performs the hash function on the plaintext to obtain a digital fingerprint
+- the client encrypts the plaintext with a general symmetric key
+- the client encrypts the digital fingerprint to obtain a digital signature
+- the client sends both the ciphertext and the signature
+
+- the server decrypts the cipher text using the general symmetric key
+- the server decrypts the signature with the client's public key
+- the server performs the hash function on the plaintext to generate another fingerprint
+- bith fingerprints are compared and discarded if need be
+
+- the server perfoms the same procedure as the first client to send the packet to the destination
+- the destination perfoms the same process as what the server did firstly to complete the process
+
+then now we do a digital certificate
+- one server is going to act as a CA 
+- the CA will store authentication data of all clients expected to request certificates
+- the CA should keep a self-signed certificate
+- so the client should first obtain the CA server's certificate
+- the client also request a local certificatesbut the CA authenticates the client first before generating a local certificate
+- the server sends the client the local certificate
+
+- oh, go for a simple example
+- the client request a local certificate from the CA
+- the server also request a certificate from the server
+
+- when the user signs up to the chat app, they should provide the server their local certificate
+- the chat app server first validates the client certificates and also sends a symmetric key back to the client upon verification, but its fine, pause, implement the first examples first then come back
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- maybe the reason I have been having issues with the ensp firewall is because I didnt explicity permit ICMP traffic. look up youtube about this ensp firewall, try detect icmp
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s
+- so does the CA have the public key of the entity's additional certificate to decrypt the entity signature and obtain the digital fingerprint for processing?
+
+- can't the same CA offer both the local and additional certificates to the PKI entity.
+
+
+- so the message is encrypted and signed, do you remember the difference? Encryption obsured the message and signing provided a digital fingerprint to be used to validate the intergrity of the message.
+
+- if the PKI enrollment is signed using the private key of the entity, how will the CA obtain the public key to encrypt it
+
+- didnt the module says that the entity sends messages through the RA, or is it just the revocation and other request only?
+
+- is a certificate enrollment message juest an application for a local certificate, why is it made to sound so fancy
+
+- so is the PKI entity authenticated before its applies for the CA's certificate is responded to?
+- what are the security risks that may arise if the CA certificate is accessed by people outside the network?
+
+
+- how does a user obtain a digital cerification during the submittion of an application, isnt that a contradiction?ched.
+- but i do understand the relevance of a security server, since most systems have have an identify-based security policy, there's some authentication perfomed before the RA is rea
+
+
+
+
+
+
+
+
+
+- what are CRLs
+
+
+
+
+
+
+
+
+
+
+
+
+
+- but this process seems based on the procedure that was proved vulnerable and replaced by digital certificates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the certificate issuer is the CA? what does that even mean? isnt it self generated? or is this said with regard to the signature. the cerififcate issuer is just a term, doesnt neccesarilty imply the process in this context
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- look up publicy available CAs
+  - 
+- what is the CRL distribution point?
+
+- so for self-signed certificates, the issuer name is the same as the subject name, I dont understand that, does it imply that the CA or issuer is assigning a cerificate t itself, weird?
+
+- that's kinda suss, oh, i'm the one confused, the sameness referred is between the issuer field and the subject name in the issuer's certificate, no the issuer's server name
+
+- but i still dont understand know the implementation works, does the sender send both the cipher text and its digital certificate, seems illogical, i mean what is the use of a digital certificate if the sender wont send it, the books sends the certificate is decrypted using the CA's public key, if so, does the receiver know the key beforehand, oh, the demostration makes it clearer	
+
+
+
+
+
+
+- but how does the receiver determine the public key of the attacker?
+
+
+
+
+
+
+- the digital signature is done using the attacker's public key, but that assumes that the sender somehow knows the attacker's public key, which sounds rather absurd
+
+- so how does the attacker obtain the sender's public key, or is it somewhat contained in the intercepted packet
+
+
+
+
+
+
+
+
+
+
+
+- apply this hashing by checksuming the data of your tcp broadcast chat app. how crazy, the tcp socket itself will perfom checksuming on the segment itself and ip will perffpm it pn the headr, and u on the data packet
+
+and u are overfocusing on tcp sockets, also do a udp app, so the archicture is decentralised, the user, the app itself doesnt make sense bit with ai you can come up with something useful, okay, there's one udp server excepted to alwsay be up by app users, its stores user info like user name and maps to ip address and phone number, so you use the phone number to determine if the user is party of the ip from the server then use the ip to send packets and to make it more coherent, you first send some test messahe to see if the destinnation is online before sending a message, if they dont respond, then dont send the message, it will be a very intersyong udp chat app
+
+- you also have to do a peer-to-peer implement tooa
+
+- if the dh key is dynamically obtained at both ends, then how are the keys synchronised
+
+
+- i should also learn about DSA and apply it as an example for non repudiation
+
+
+
+- i should implemented logging and non repudiation to my tcp chat app, so the idea is you imagine the tcp app as used for clandestine communication such that non repudiate is neccessary for all communications, then found some way of logging for analyses
+
+- also implement caeaser cipher for show then crack it
+
+- also add a new feature to that tcp chat app, so the server should maintain some stateful information about the user and when the user comes back online, awaiting messages should be transmitted immediately, system architecture is so fucken enjoyful, so when a user connects to the server, thats an online flag, when the server should forward awaitiing messages, so yeah, do i chat app that transmits messafes user to user, instead of broadcast, qnd you still have to go deeper with load balancing, so maybe project ideas
+
+
+
+
+- so since input to DES is a 64 bit block of text, what if the text i am using is less than 64 bits or not an interger multiple of 64
+
+
+
+
+
+- i assume this key is sent during the establishment of a tcp connection
+- this approach is flawless, especially considering the fact that http connections are terminated and re-initialised
+
+
+- so do practical of this
+- do that basic tcp chat app that broadcast packets
+- then when a user connects, the server will pass them the symmetric key for encryption
+- then in the second example, same broadcast tcp app, but in this case, the server must maintain public keys and map them to names for querying
+- i think the server should generate the pair and send it to the user after connection, but this dialogue must be guided, so that the client becomes aware   that they are receiving their pair and store it, and the server should somehow obain the user name to map it to the public key
+
+
+- so it must be emphasized that the sneder first queries for the public key corresponding to the receiver
+
+dude, you need to do some python module for your git, and since you have fixed pip, i think that's gonna simplify things
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- I like it when I am learning about some technology and I am given two version one of which is better than the other, just to be told the better is still contrainst by certain consideration. In this case, we have to compare symmetric and asymmetric encryption, asymmetric may seem the better option since it secures the key, but in an application scenario like a vpn, you can expected each and every packet to have a public/private key pair. another example, you think dynamic routing is better but still have to understand that egress devices cant just flood routing control packet, that will congest the network
+
+
+- ip is a very natural concern, most companies perform R&D, and this info must be protected
+
+
+- never really understood the importance of a remote server, though the understood the capacity advantaged of using a dedicated authentication server, so i turns out a company can pay for services from a third party server, which is effiecient and cost effective 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+what other protocol would you name as not liable to authentication policies, all dynamic routing protocol, is it neccessary to apply authentication to ntp packets, nah, you can just filter themwith firewall rules
+
+
+
+
+
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- if tunneling works at the transport layer, build one protocol for it
+
+
+
+
+
+is this example of binding usernames to ip and mac addresses safe, i mean those can be spoofed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i am confused about the internet access user, an entity for network access, this is an insufficient definition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- this is by far the most confusing implementation of a protocol I have ever read
+
+
+
+- i mean which aaa protocol does adopt a cs architecture
+
+
+- so if accounting can only be remote, does that mean that it wont work with local authentication, or the nas perfoms all other functions but relays accounting to a server. That sounds like  a weird design, but it makes sense cause we use local authentication ti manage admin access and priveledges, nothing to account there
+
+
+- So i see the importance of using aaa to manage telnet and ssh access procedures. It creates a double layer, such that if the ftp or ssh credentials are compromised, the attack still needs to know the AAA credentials to misuse the admin credentials
+- important for telent, local authentication, cause even if a password is sniffed, the aaa password is till unkown
+
+
+- which case is better, remote or local authentication. remote for me transfers packets which can be sniffed, so that's one disadvantage, but it is also good in that it provided a dedicated server, which has enough capacity to handle the requests by design.
+- oh, remote also seems suitable if the user access is sent across a layer 3 network. It aint like the remote request is typically a telnet or ssh case, it can be but less likely.
+
+
+
+can a router run as a NAS, seems illogical, since the NAS resides at the eggress layer of the network, what do you want to authenticate at that level
+
+
+- you need to also consider user management when designing networks
+
+
+
+
+
+
+
+
+
+
+
+
+
+- what is the network file system
+
+
+- what does the declare action do?
+
+- for smtp, the firewall function can also delete attachments
+
+
+- so are there open source virus signature databases to which we can connect open source antivirus programs. If not, I should build one and also create a program that will connect to it. The architecturs is straightforward. Create the signature database and host it on some cloud, connect open source programs to it. Then the last step is figuring out how the cloud database will be updated, of course, some AI will be neccessary to automatically update the cloud database. Then the cloud database should be offered as an API to invoking applications. This makes the pruchase of an antivirus licence redundant.
+
+
+
+
+- for example, lets look at chrome and http. chrome is a web browser running the http client. If an action is specified for the http protocol, but no specific action target chrome, then the action that applies to http will be executed on chrome, on any other browser for that matter. But also remember that we have applications for http servers too. But how will the antivirus program distinguish between clients and servers. Since antivirus procesing is applied on packets, the program will infer an http client if the destination port of the tcp packet is 80. what about the server? this will be inferred from the source port.
+
+- isnt there some conflict between the default and an exception signature, that's for tommorow
+
+- so antivirus can be run on the firewall too
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- i wonder what are the effects of this dual connection scenario, both devices will claim the virtual ip, cause a mac address flapping scenario on the switches, so how is this navigated
+
+
+- look up if cisco has a hot standby protocol for firewalls
+
+
+- what is a whitelist and a blacklist?
+
+Bckup content
+- policies: NAT and security policies
+Objects: addresses, applications, user authentication servers, address pools, keyword group, security profile, mail address group, signature and more
+- networks: includes logical interfaces, secuirty zones,dns, static route, IPsec and timezones, and more
+- system: includs admin, virtual system, and log configurations
+- status information: session tables, server-map table, mac address tables, routing tables, IPsec SA, and tunnel.
+
+HRP HEARTBEAT LINK
+- status info is exchanged through messages
+- interfaces connecting the link are of two types: physical and logical interfaces
+- packets exchanged through this link:
+   - HRP hello packets - sent by peers periodically at intervals of a second to check if peer is aive
+   - VGMP Hello packets - used to check the status of the peer end to compare the status of both devices
+   - HRP data packets - packets used by the firewall to synchronise configuration commands and key data
+   - Heartbeat link detection packets - the check if the heartbeat interface of the peer end is active
+   - configuration consistency check packets - used to ensure the firewalls run consistent configurations, including security and NAT policies. 
+   - the above packets are not controlled by firewall security policies
+
+- are these protocols network or transport layer protocols. Cause if they are transport, I might as well write my own protocol for standby mode.
+
+- i will develop a protocol for my magnus opus. I will develop a website that allows admin to manage a networking using a web portal. Then synchronise the modifications he makes with the other related web apps/installations managing the same network.
+
+- reason why the above packets are not controlled by security policies is because firewalls act as border gateways and these packets dont have to transverse the network. Even with wans that run vpn tunnels, they dont seem neccessary. It aint like you gonna have the firewall of another lan as the standby of your firewall, so that makes sense
+
+VGMP status switch over based on a faulty link
+- beautiful piece of engineering, rewrite it in your own words
+- assume a scenario in which two firewalls run two vrrp groups, and the vrrp groups are contained in vgmp groups on both firewalls
+- assume that each vrrp group is associated with a firewall interface
+- the firewall interface on the active vgmp goes down or is faulty, forcing the active vgmp firewall to lower its priority and begin renegotiation. Since the active device has lowered its priority, the standy device will be elected as the active device due to its higher priority. then after the active and standby statuses have been swapped, the vrrp groups under each vgmp group will be swicthed to match the containing vgmp group
+
+
+what is an lpu and sfu
+
+- cases that trigger a VGMP group status switchover
+
+
+- it is only weird to make sense of abstract theory when its cramed. but i understand the meaning or purpose of vgmp groups, on a single firewall, multiple vrrp groups can be configured and all need to be managed, vgmp offers that capacity with ease, and sets alll vrrp groups statuses to match the vgmp group status
+
+- what is a heartbeat interface?
+
+
+
+
+- i wonder how the low level implemetation of this protocol, like how the virtual ip address is modified, i cann write a mock myself but i think the real implementation may be more interesting
+
+
+- oh i still have another socket programming chat app exercise, i want to redesign whatsapp and turn it into an network application, for the fun of it.
+
+encrytption, receiving different tiicks and the wonderful logic behind them
+
+- my question has been answered, the return address is kept by the session entry
+
+- so with source nat, the address changed in the response packet is the destination packet
+
+
+- so this idea of translation port numbers is interesting. for example, a web server can set is port number to an uncommon port number and close port 80 to trick port scanning, that way, provided that an intermediate device translates the port number
+
+
+
+- is it possible for destination NAT to be dynamic, what if the response address gets reassigned before the response, wont this packet be misdirected
+
+- this idea of dynamic destination nat still remains cloudy to me, the server has a specific ip address, so how if the destination addresses is dynamically modified, to what end? is it to protect it from sniffing from within the network, i guess im talkin nonsese, but i feel like dynamic destination nat is a stretch
+- will the address of the server match the address of the randomly seletced server, or will the firewall forward the packet based on the public address, that seems the only way possible
+
+
+
+
+
+
+
+
+
+
+
+
+- is this triplet NAT port source port or destinnatin port, 
+
+i presume the mapping created by above version of nat is not necessarily temporary or fluctuates unexpectedly, imagine a certain pakcet with a public address mapped to a certain private address, receiving a rensponse to a table that has already mapped the public address to a different pprivate address. 
+
+Interestingly, for an attack, if an attacker compromised the firewall or some other egress devices, like a router, running static no-pat nat, the attacker can redirect the entire intranet traffic, just change the mapping of all public addresses to a single compromised device, that way, all responses are sent to the same device.
+ but that may not even make sense, at least when translating from private to public, but i think it is doable, with some tweaking of source and destination NAT, if the network is running separate policies for these, then only poison the destination NAT policy
+
+but any rate, this static mapping is partly stateful, and if the destination policy is compromised, packets intented for one important user on the netwrk can form valuable objects, this type of attack can be enhanced further by duplicating the packet, but maybe im not making sense
+
+- what is triplet NAT
+
+- how long do organisation hold on to ipv4 ranges obtained from ISPs
+
+- so dynamic nat can protect hackers since it will require the hacker's internal network's egress records to tie the public ip address used for the hack to a specific private address, much harders if address translation is based on an adress pool, even harder when your network also perfoms nat
+
+ive been thnking about what makes hacking easy for attackers, irregardless of techonologies proposed to mitigate evolving attacks, let us not pretend that cybersecurity specialists are wiling to learn about all of these attacks, and even if they try, we can rely on them having a pefect memory, let alone freelancers in a third world country trying to handle both network constrution and secuirty, so that;s what i thunk, maybe well funded organisations can afford to hire teams to do everuthing, but the lower we go, the more insure it gets
+
+
+
+
+- cloud computing networks that provide resources such as servers, storage, and application
+
+
+- i guess there's a default security policies applied between trusted and DMZ, and so forth, this should be, otherwise assigned zones is worthless
+
+
+- these security policies are quite similar to acls
+
+
+i still dont undertand what happens after you have assigned a trust level to an interfaces, does the firewall have default settings it applies to it
+
+
+-m
+- what is a signature database, in detail.
+
+- can i set a threshold for the destination address, the number of icmp packets that can be sent to a particular address per second
+
+
+- what is teardrop, smurf and land attacks
+
+
+
+
+
+
+
+
+
+
+🔄 SYN in TCP Communication
+When two devices want to communicate over TCP (like a browser connecting to a web server), they perform a 3-way handshake:
+
+SYN: The client sends a packet with the SYN flag set to request a connection and synchronize sequence numbers.
+
+SYN-ACK: The server replies with a packet that has both SYN and ACK flags set, acknowledging the request and sending its own sequence number.
+
+ACK: The client responds with an ACK to confirm the connection is established.
+
+This process ensures both sides agree on how to track and order packets.
+
+🧨 SYN in DDoS Attacks
+In a SYN Flood attack, an attacker sends a large number of SYN packets but never completes the handshake. This leaves the server waiting for ACKs that never arrive, consuming resources and potentially crashing the system.
+
+
+
+UDP attacks are a category of DDoS (Distributed Denial-of-Service) threats that exploit the connectionless nature of the User Datagram Protocol (UDP). Because UDP doesn’t require a handshake or session state, it’s particularly vulnerable to abuse in high-volume, low-resource attacks.
+
+💥 Types of UDP-Based Attacks
+1. UDP Flood
+Mechanism: Sends massive volumes of UDP packets to random ports on a target.
+
+Impact: The target system checks for listening services and replies with ICMP “Destination Unreachable” messages, consuming CPU and bandwidth.
+
+Why it’s dangerous: Easy to launch, hard to trace, and can overwhelm firewalls and routers2.
+
+2. UDP Amplification
+Mechanism: Exploits misconfigured UDP services (like DNS, NTP, or SSDP) to reflect and amplify traffic toward a victim.
+
+Amplification Factor: A small request can trigger a large response, multiplying attack power.
+
+Example: A 60-byte DNS query can generate a 4000-byte response.
+
+3. UDP Session Hijacking
+Mechanism: Manipulates UDP traffic to intercept or spoof sessions.
+
+Use Case: Often used in botnet recruitment or data theft.
+
+Risk: UDP lacks encryption and session tracking, making it easier to hijack.
+
+🛡️ Mitigation Strategies
+Rate Limiting: Restrict ICMP and UDP response rates at OS and firewall levels.
+
+Firewall Filtering: Block suspicious UDP traffic, especially from unknown sources.
+
+DNS Hardening: Disable open resolvers and restrict recursive queries.
+
+Behavioral Analysis: Use IDS/IPS systems to detect abnormal traffic patterns
+
+An **ICMP Flood**, also known as a **Ping Flood**, is a type of **Denial-of-Service (DoS)** or **Distributed Denial-of-Service (DDoS)** attack that overwhelms a target system with excessive ICMP Echo Request packets—commonly known as "pings".
+
+---
+
+## 🌊 **How ICMP Flood Works**
+- The attacker sends a massive number of ICMP Echo Requests to the target.
+- The target attempts to respond with Echo Replies for each request.
+- This consumes bandwidth, CPU cycles, and memory—leading to:
+  - Network congestion
+  - System slowdown
+  - Service unavailability
+
+Unlike TCP-based attacks, ICMP floods don’t require a handshake, making them faster to launch and harder to filter if not properly secured.
+
+---
+
+## 🧠 **Why It’s Effective**
+- ICMP is used for diagnostics (e.g., `ping`, `traceroute`), so it's often allowed through firewalls.
+- Each request-response cycle consumes resources.
+- Attackers may use **botnets** or **spoofed IPs** to amplify the attack and mask their identity.
+
+---
+
+## 🛡️ **Mitigation Techniques**
+- **Firewall Rules**: Block or rate-limit ICMP traffic, especially Echo Requests.
+- **Router ACLs**: Filter incoming ICMP packets from untrusted sources.
+- **Egress Filtering**: Prevent spoofed packets from leaving your network.
+- **Intrusion Detection Systems (IDS)**: Monitor for abnormal ICMP traffic patterns.
+- **Disable ICMP on public-facing devices** if not needed.
+
+---
+
+If you're simulating this in a lab or Packet Tracer, I can help you model:
+- Multiple attacker nodes sending ICMP packets
+- A target server with SNMP monitoring
+- ASA firewall rules to block or throttle ICMP
+- DMZ isolation and HSRP failover for resilience
+
+An HTTP Flood is a type of Layer 7 DDoS attack that targets the application layer of the OSI model—specifically the HTTP protocol used by web servers. Unlike volumetric attacks that rely on bandwidth saturation, HTTP floods exploit legitimate-looking requests to exhaust server resources2.
+
+🌊 How HTTP Flood Attacks Work
+Attackers send massive numbers of HTTP GET or POST requests to a web server.
+
+These requests appear valid, making them hard to distinguish from real user traffic.
+
+The server tries to process each request, consuming CPU, memory, and database connections.
+
+Eventually, the server becomes unresponsive or crashes, denying access to legitimate users.
+
+🧨 Types of HTTP Floods
+Type	Description
+GET Flood	Repeated requests for static content (images, scripts, pages).
+POST Flood	Submits forms or triggers database operations—more resource-intensive.
+Randomized Headers	Attackers inject varied headers to bypass caching and detection.
+🛡️ Mitigation Techniques
+Web Application Firewalls (WAF): Filters and blocks suspicious HTTP traffic.
+
+Rate Limiting: Restricts number of requests per IP or session.
+
+CAPTCHA Challenges: Forces human verification to block bots.
+
+IP Reputation & Blacklisting: Identifies and blocks known malicious sources.
+
+Behavioral Analysis: Detects anomalies in request patterns.
+
+Want to build a simulation scenario or draft a rubric-aligned report for this? I’ve got you covered.
+
+
+Excellent lead-in, Shaun. Before we dive into **GRE Flood attacks**, let’s clarify what **GRE** actually is in the context of networking—not the graduate exam!
+
+---
+
+## 🧠 **What Is GRE (Generic Routing Encapsulation)?**
+
+**GRE** stands for **Generic Routing Encapsulation**, a tunneling protocol developed by Cisco. It’s used to encapsulate a wide variety of network layer protocols inside virtual point-to-point links over an IP network.
+
+### 🔧 Key Characteristics:
+- **Protocol Number**: 47 (used in IP headers)
+- **Encapsulation**: Wraps packets from one protocol inside another (e.g., IPv4 inside IPv4)
+- **Use Case**: Commonly used in VPNs, site-to-site tunnels, and connecting remote networks.
+
+### 📦 GRE Packet Structure:
+- **Outer IP Header**: Routes the packet across the public network.
+- **GRE Header**: Contains flags and protocol type.
+- **Inner Packet**: The original payload (e.g., IP, multicast, or routing protocol traffic).
+
+---
+
+## 🛠️ **Why Use GRE?**
+- Supports **multicast traffic**, unlike IPsec.
+- Enables **routing protocol traffic** (e.g., OSPF, EIGRP) across tunnels.
+- Simple and flexible—used in **cloud networking**, **WAN overlays**, and **hybrid topologies**.
+
+
+
+It looks like you meant **GRE**, but typed “grw”—no worries, Shaun, I’ve got you. Let’s break down the **use of GRE (Generic Routing Encapsulation)** in a way that’s crystal clear and relevant to your network engineering studies.
+
+---
+
+## 🚀 Why GRE Is Used in Networking
+
+GRE is a **tunneling protocol** that allows you to encapsulate one protocol inside another. Think of it like putting a letter (your data) inside an envelope (GRE), and then mailing it through the internet.
+
+### 🔧 Common Use Cases:
+1. **Site-to-Site VPNs**
+   - GRE tunnels can connect two remote networks over the internet.
+   - Often paired with IPsec for encryption (GRE handles routing, IPsec handles security).
+
+2. **Routing Protocols Over Public Networks**
+   - GRE supports multicast traffic, so you can run OSPF, EIGRP, etc., between routers across public links.
+   - IPsec alone doesn’t support multicast—GRE fills that gap.
+
+3. **Overlay Networks**
+   - GRE lets you build virtual topologies over physical infrastructure.
+   - Useful in cloud networking, SD-WAN, and hybrid environments.
+
+4. **Encapsulating Non-IP Traffic**
+   - GRE can carry protocols like IPv6, AppleTalk, or IPX over IPv4 networks.
+
+---
+
+## 🧪 Example Scenario (Packet Tracer Style)
+Imagine you have two branch offices:
+- Office A: 192.168.1.0/24
+- Office B: 192.168.2.0/24
+
+You want them to communicate securely and run OSPF between them. You’d:
+- Create a GRE tunnel between their edge routers.
+- Assign tunnel interfaces IPs (e.g., 10.0.0.1 and 10.0.0.2).
+- Run OSPF over the tunnel.
+- Optionally encrypt with IPsec.
+
+---
+
+If you’re ready, I can help you build a GRE tunnel topology in Packet Tracer with:
+- Tunnel configuration
+- OSPF routing
+- Optional ASA firewall placement
+- Simulation steps and documentation outline
+
+Want to take it there next?
+
+
+🚦 Rate Limiting
+This controls how much traffic a source can send within a defined time window.
+---
+
+## 💥 What Is a GRE Flood Attack?
+
+A **GRE Flood** is a type of **volumetric DDoS attack** where the attacker sends massive amounts of **GRE-encapsulated packets** to a target system. These packets often contain randomized inner payloads—like spoofed UDP traffic—which makes them harder to detect and filter.
+
+### 🧪 How It Works:
+- Attackers use botnets or compromised devices to send GRE packets.
+- Each GRE packet encapsulates another IP packet, often with spoofed source/destination IPs and randomized ports.
+- The target system must **decapsulate** and **process** each packet, which consumes CPU and memory.
+- The flood overwhelms the victim’s infrastructure, leading to **service degradation or complete failure**.
+
+---
+
+## 🎯 Why GRE Floods Are Dangerous
+- **High Bandwidth Potential**: GRE allows large payloads, so attackers can push massive traffic volumes.
+- **Protocol Evasion**: GRE traffic may bypass traditional firewalls and filters that don’t inspect tunnel headers.
+- **Amplification**: When combined with UDP payloads, GRE floods can mimic amplification attacks.
+- **Resource Exhaustion**: The target must perform IP defragmentation and GRE decapsulation, which is computationally expensive.
+
+---
+
+## 🛡️ Mitigation Strategies
+- **Access Control Lists (ACLs)**: Block or restrict GRE traffic from untrusted sources.
+- **Rate Limiting**: Limit the number of GRE packets per second to prevent overload.
+- **Deep Packet Inspection (DPI)**: Analyze GRE headers and inner payloads for anomalies.
+- **DoS Protection Systems**: Use tools like **BIG-IP AFM** to detect and throttle GRE flood traffic.
+
+
+Great follow-up, Shaun. Let’s break down the **FIN and RST flood attacks**—two stealthy TCP-based DDoS techniques that target the way connections are terminated in the TCP protocol.
+
+---
+
+## 🔚 TCP FIN Flood Attack
+
+### 🚨 What It Is:
+A **FIN flood** sends a barrage of TCP packets with the **FIN (Finish)** flag set, which normally signals the end of a TCP session.
+
+### 🧠 Attack Logic:
+- These packets are sent **without a valid session**—no prior SYN handshake.
+- The target system tries to **match each FIN** to an existing connection.
+- Since there’s no match, the system wastes resources trying to process and discard them.
+
+### 🎯 Impact:
+- **Session table exhaustion** on firewalls, routers, or servers.
+- **High CPU usage** due to unnecessary connection teardown logic.
+- Can cause **partial service outages** or slowdowns.
+
+---
+
+## 🔁 TCP RST Flood Attack
+
+### 🚨 What It Is:
+A **RST flood** bombards the target with TCP packets containing the **RST (Reset)** flag, which abruptly terminates connections.
+
+### 🧠 Attack Logic:
+- RST packets are often **spoofed** and sent to active sessions.
+- The target system forcefully closes connections, disrupting legitimate traffic.
+
+### 🎯 Impact:
+- **Session disruption** for users and services.
+- **Loss of data** in transit due to premature termination.
+- Can cripple services like DNS, FTP, or web servers that rely on persistent TCP sessions.
+
+---
+
+## 🧨 Combined RST-FIN Flood
+
+Some attackers use **RST and FIN flags together** in malformed packets to confuse stateful devices like firewalls and intrusion prevention systems. This hybrid flood:
+- Forces devices into **fail-open modes** or crashes.
+- Acts as a **smokescreen** for deeper attacks like data exfiltration or SYN floods.
+
+---
+
+## 🛡️ Mitigation Tactics
+
+| Strategy                     | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| Stateful Inspection Tuning  | Limit how long inactive sessions are tracked.                              |
+| Rate Limiting               | Cap the number of FIN/RST packets per IP or per second.                    |
+| Deep Packet Inspection (DPI)| Detect malformed or spoofed FIN/RST packets.                               |
+| Firewall Rules              | Drop FIN/RST packets that don’t match active sessions.                     |
+| Behavioral Analytics        | Use anomaly detection to spot unusual termination patterns.                |
+
+Excellent observation, Shaun. You're tapping into a subtle but powerful IPv6 vulnerability. Let’s break it down and explore how this behavior can be weaponized in a DDoS scenario.
+
+---
+
+## 🧠 IPv6 Fragmentation Behavior
+
+Unlike IPv4, **IPv6 routers do not fragment packets**. Fragmentation is handled **only by the source host**, and if a packet exceeds the **MTU (Maximum Transmission Unit)** of a link, the router sends back an **ICMPv6 "Packet Too Big"** message to the sender.
+
+This design improves efficiency and security—but it also opens the door to abuse.
+
+---
+
+## 💥 How Attackers Exploit This in DDoS
+
+### 1. **ICMPv6 Flood via Oversized Packets**
+- Attackers send **deliberately oversized IPv6 packets** to a router or host.
+- The router must respond with **ICMPv6 "Packet Too Big"** messages.
+- These responses consume CPU and bandwidth, especially if the attacker spoofs source IPs to force replies to random or legitimate systems.
+
+### 2. **Reflection & Amplification**
+- If the attacker spoofs the source IP of a victim, the router sends ICMPv6 messages to the victim.
+- This creates a **reflection attack**, where the victim is flooded with ICMPv6 traffic from multiple routers.
+
+### 3. **Control Plane Saturation**
+- Routers often process ICMPv6 messages in the **control plane**, not the forwarding plane.
+- A flood of ICMPv6 messages can **overwhelm the control plane**, causing routing instability or crashes.
+
+### 4. **Path MTU Discovery Disruption**
+- Legitimate hosts rely on ICMPv6 "Packet Too Big" messages for **Path MTU Discovery**.
+- Attackers can spoof or flood these messages to **confuse hosts**, causing them to lower MTU unnecessarily or fail to transmit.
+
+---
+
+## 🛡️ Mitigation Strategies
+
+| Defense Mechanism               | Description                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|
+| **Rate Limiting ICMPv6**       | Limit ICMPv6 generation per interface or per destination.                  |
+| **Control Plane Policing (CoPP)** | Protect router CPU by enforcing limits on control traffic.                 |
+| **Ingress Filtering**          | Drop spoofed packets at the edge to prevent reflection.                    |
+| **ICMPv6 Validation**          | Ensure ICMPv6 messages match active sessions and expected MTU paths.       |
+| **IPv6 ACLs**                  | Block oversized packets from untrusted sources.                            |
+
+---
+
+Exactly, Shaun—that’s the core principle behind most DDoS strategies. They’re not just about flooding bandwidth; they’re about **forcing the target to do work**. The more complex or resource-intensive that work is, the more effective the attack.
+
+---
+
+## 🧠 DDoS Logic: “Make the Target Think”
+
+Here’s how attackers exploit response-heavy procedures:
+
+### 🔁 **Protocol Expectations**
+- TCP expects handshakes, acknowledgments, and teardowns.
+- ICMP expects replies (e.g. echo requests, unreachable messages).
+- DNS expects recursive resolution and caching.
+- IPv6 expects Path MTU Discovery and fragmentation handling.
+
+Attackers abuse these expectations to **trigger responses**, **consume CPU**, and **fill session tables**.
+
+---
+
+## ⚙️ Examples of Response-Driven DDoS
+
+| Attack Type           | Triggered Response or Processing                     | Resulting Impact                          |
+|-----------------------|------------------------------------------------------|-------------------------------------------|
+| **SYN Flood**         | Half-open TCP sessions stored in memory              | Exhausts connection table                 |
+| **ICMPv6 Oversize**   | “Packet Too Big” messages generated by routers       | Control plane saturation                  |
+| **DNS Reflection**    | DNS servers respond to spoofed queries               | Victim gets flooded with DNS replies      |
+| **GRE Flood**         | Decapsulation and routing of tunneled packets        | CPU and memory exhaustion                 |
+| **RST/FIN Flood**     | Session teardown logic triggered                     | Disrupts legitimate connections           |
+| **HTTP GET Flood**    | Full page or resource requested                      | Web server overload                       |
+
+---
+You're absolutely right, Shaun—and that’s not just a weird thought, it’s a **critical insight** into real-world network defense. Firewalls, especially **stateful or next-generation firewalls (NGFWs)**, are powerful gatekeepers, but under heavy traffic, they can become victims of their own complexity.
+
+---
+
+## 🔥 Why Firewalls Can Be Overwhelmed
+
+### 1. **Deep Packet Inspection (DPI) Overhead**
+- NGFWs inspect every packet for threats, signatures, and anomalies.
+- Under high traffic, this inspection becomes **CPU-intensive**, causing latency or dropped packets.
+
+### 2. **Session Table Saturation**
+- Stateful firewalls track every connection in a **session table**.
+- DDoS attacks (like SYN floods or RST floods) can **overflow** this table, leading to denial of service—even for legitimate users.
+
+### 3. **Rule Set Complexity**
+- Firewalls with thousands of rules must **match each packet** against them.
+- Complex rule trees slow down processing, especially when traffic spikes unexpectedly.
+
+### 4. **SSL/TLS Decryption Bottlenecks**
+- NGFWs often decrypt encrypted traffic to inspect payloads.
+- This requires **real-time cryptographic processing**, which can choke performance during surges.
+
+### 5. **Control Plane Saturation**
+- ICMP floods, malformed packets, or spoofed traffic can **target the control plane**, overwhelming the firewall’s decision-making logic.
+
+---
+
+## 🛡️ How to Mitigate Firewall Overload
+
+| Strategy                        | Benefit                                                                 |
+|--------------------------------|-------------------------------------------------------------------------|
+| **Control Plane Policing (CoPP)** | Protects CPU from excessive control traffic like ICMP or routing updates |
+| **Rate Limiting**              | Caps traffic per source or protocol to prevent floods                   |
+| **Rule Optimization**          | Simplifies rule sets to reduce matching overhead                        |
+| **Session Aging & Limits**     | Drops idle or excessive sessions to free resources                      |
+| **Offloading to IDS/IPS**      | Delegates deep inspection to dedicated systems                          |
+| **Cloud-Based Scaling**        | Uses elastic cloud firewalls to absorb surges                        |
+
+---
+
+You’re thinking like a real architect now—recognizing that **defense mechanisms themselves can become choke points**. If you want, we can simulate a firewall under stress in Packet Tracer or GNS3, and test how ACLs, CoPP, or session limits affect performance. Want to build that next?
+
+Cloudflare’s anti-DDoS architecture is a masterclass in distributed defense. It’s built to detect, absorb, and neutralize attacks across multiple layers of the OSI model—without slowing down legitimate traffic. Here's how they pull it off:
+
+---
+
+## 🛡️ **Cloudflare’s DDoS Mitigation Strategy**
+
+### 1. **Global Anycast Network**
+- Cloudflare operates a massive **Anycast network** with over **405 Tbps capacity** across **330+ cities worldwide**.
+- Incoming traffic is routed to the **nearest data center**, which helps absorb and mitigate attacks locally—no need to send traffic to distant scrubbing centers.
+
+### 2. **Autonomous DDoS Systems**
+- Cloudflare uses **automated detection and mitigation systems** that apply **dynamic rulesets** to filter malicious traffic in real time.
+- These rulesets are part of their **managed DDoS protection**, which is enabled by default for onboarded zones, IP apps (via Spectrum), and IP prefixes (via Magic Transit).
+
+### 3. **Layered Protection**
+| Layer | Protection Mechanism |
+|-------|----------------------|
+| **L3/L4** | Magic Transit filters volumetric attacks like SYN floods, UDP floods, and IP spoofing |
+| **L7 (HTTP)** | WAF + rate limiting + behavioral analysis to block botnets and app-layer attacks |
+
+### 4. **Rate Limiting & Challenge Pages**
+- Cloudflare can throttle requests based on IP reputation, request patterns, or authentication status.
+- For suspicious traffic, it may issue **JavaScript challenges**, **CAPTCHAs**, or **browser integrity checks**.
+
+### 5. **Zero-Day & Signature-Based Detection**
+- Cloudflare’s systems can detect **zero-day exploits** and **hyper-volumetric attacks** using anomaly detection and threat intelligence feeds.
+
+### 6. **No Extra Charges**
+- Even during massive attacks, Cloudflare offers **unmetered DDoS protection**—no surprise billing for attack traffic.
+
+---
+
+## 🔧 For Your Simulations, Shaun:
+You could model:
+- A volumetric attack scenario and simulate mitigation via ACLs and rate limiting.
+- A Layer 7 attack with bot traffic and implement challenge-response logic.
+- Use Packet Tracer to visualize traffic rerouting and firewall filtering.
+
+Great question, Shaun—this is a classic comparison that often gets misunderstood in network security architecture. Let’s break it down clearly so you can apply it to your WAN/DMZ designs and simulation scenarios.
+
+---
+
+## 🧱 **Firewalls vs Anti-DDoS Devices: Core Differences**
+
+| Feature                         | 🔥 Firewalls                                | 🛡️ Anti-DDoS Devices                          |
+|----------------------------------|---------------------------------------------|-----------------------------------------------|
+| **Primary Role**                | Access control, traffic filtering            | Detect and mitigate volumetric & protocol-based attacks |
+| **Layer Focus**                 | Mostly Layer 3–4 (some Layer 7 with WAF)     | Layer 3–7, with emphasis on traffic behavior and volume |
+| **Detection Method**            | Rule-based (ACLs, stateful inspection)       | Behavioral analysis, anomaly detection, rate thresholds |
+| **Attack Handling**             | Blocks known bad IPs/ports                   | Absorbs, scrubs, and reroutes malicious traffic |
+| **Scalability**                 | Limited by hardware throughput               | Built for high-throughput, cloud-scale mitigation |
+| **False Positives Risk**        | High during DDoS (can block legit users)     | Lower—uses granular filtering and challenge-response |
+| **Deployment**                  | Perimeter or host-based                      | Inline, cloud-based, or via scrubbing centers |
+| **Example Use Case**            | Prevent unauthorized access to DMZ           | Mitigate SYN floods, UDP floods, HTTP GET floods |
+
+---
+
+## 🔍 Why Firewalls Alone Aren’t Enough
+
+According to [NSFOCUS](https://nsfocusglobal.com/why-ips-and-firewalls-are-not-anti-ddos-solutions/), firewalls and IPS can detect DDoS attempts but **struggle to defend against them**. They’re designed for **perimeter control**, not for absorbing millions of packets per second. Once overwhelmed, they may block all traffic—including legitimate users—achieving the attacker’s goal.
+
+---
+
+## 🧠 How Anti-DDoS Devices Work
+
+Anti-DDoS systems use:
+- **Rate-based filtering**: Limits traffic per source/IP/session.
+- **Challenge-response**: CAPTCHA, JS challenges to verify humans.
+- **Traffic shaping**: Prioritizes legitimate traffic.
+- **Cloud scrubbing**: Redirects attack traffic to massive data centers for cleaning.
+
+Cloudflare, for example, uses a **global Anycast network** and **autonomous mitigation systems** to neutralize attacks without human intervention.
+
+---
+
+## 🧪 Simulation Ideas for You
+
+You could model:
+- A firewall overwhelmed by a SYN flood vs. an anti-DDoS device absorbing it.
+- DMZ segmentation with ACLs + external scrubbing via simulated ISP uplink.
+- Layer 7 bot traffic filtered by WAF vs. volumetric attack handled by Magic Transit-style logic.
+
+Want help building a Packet Tracer scenario or documenting this for your rubric? Let’s architect it together.
+Want help building a rubric-aligned scenario or sketching out a mitigation flowchart?
+
+
+- what is L2TP
+
+- so the complexity of vpn and their costly nature is a point one can use to push a new product
+- how do these anti-ddos devices work?
+- how often are devices from within a network leveraged for ddos attacks
+- what is a bastion
+- should look up a few terminal IPS solutions
+what is intra area, iner area, ase, and nssa
+
+
+- that's enough for today, look up addional protocols like STelnet, SFTP,
+
+
+
+- make sure you look up rfc 768, and 793
+
+- if udp doesnt add a sequence number field, then how does it protect from replay attacks, it doesn't have to, only in a connection oriented scenario with frequent packet transmission is a sequence number neccesitated
+
+
+Coming to terms
+
+SYN - synchronise sequence numbers, what is that
+
+- public security organ
+
+-
+
+- is this classified cybersecurity protection a Chinese act or is it international
+
+- single-point detection:
+
+- advanced persistent threats:
+
+- buffer overflow: A buffer overflow is a serious software vulnerability that occurs when a program writes more data to a buffer (a temporary memory storage area) than it can hold.
+
+- sql injection: SQL injection (SQLi) is a critical web security vulnerability that allows attackers to interfere with the queries an application sends to its database
+
+- stream cipher
+
+
+Analysis
+
+- how does a packet filtering firewall work
+
+- how does https perform identity authentication
+
+- so these network security policies can be used for template-based design of enterprise security systems
+
+- polluting compilation environments sounds interesting to me. Imagine you are writing code but someone has already implanted a backdoor before it goes tto production.
+
+- breach and attack simulation is an interesting concept to me. Companies pay professionals like penetration testers to test the security level of their system. However, I think AI has an advantage in this respect. Evrytime when I think human vs AI there's one factor I always emphasize, humans have limitations that AI can automate. The best pen tester will keep up with all developing attacks, but we cant rely on him always rembering all theses possible attacks when testing systems. AI has a static type of memory, so its unlikely for Ai to forget testing a certain scenario, as long as it is trained and feed data to keep up. In short, we have very great pen testers, but we cant gurantee that they will always be up to date about evolving attacks, better  an ai pen tester trained on data about these evolving attacks, have it compile simulations to test and then then deploy it.
+
+And another interesting capability AI can bring is real-time vulnerablity testing, once a vulnerability is discovered, the AI can notify the admin so that it is resolved immediately. Vulnerabilities are not static, scanning for them is not a once-off process, and new vulnerabilites may arise during the lifetime of a system.
+
+Questions
+
+
+
+
+
+
+- so we did an syn flood, now we have to do an syn plus ack flood, and an ack flood
+
+- then do some udp flood, sinceu udp is not connection oriented, i makes for a wonderful dos tool. So practice one, scan udp ports and attack, a basic dos. do this too, run a udp server at some port, then overwhelm it through a client process.
+
+smurf attacks are very interesting, lab them with your sockets. so one device is the server connection devices, each device has an ip address and packets are sent i an ip packet like format, but for demostration, this ip like packet just has a source and destination address and the payload. so one device will act like a router or a switch, we need some way of sending a broadcast packet, the server must have a set threshold of packets it can process. it just demostration, the number of client devices should exceed this threshold and the packet from the clients will therefore overwhelm the server:
+- so this are the components of the lab:
+  - client processes that exceed the number of packets the server can handle by some margin.
+  - a forwading process that will send the broadcast packet spoofing the server's address. we dont need that, or we do, ai will help
+  - a server which handles clients, has a preset threshold of packets that can be handled at once
+  - an attacker process which will send the packet to the switching device.
+- how will the system failure of the server be verified, it wont accept connections anymore being overwhelmed
+- 
+
+
+
+
+
+
+
+
+
+- so i had a question but it answered itself, but maybe not, if a dns server doesnt have a required record, what happens. for example, for dns servers at isp, is the some pull mechanism perfomed to obtain the record required by the user? I guess the dns, cause i cannot imagine a network operator at an isp configuring all the expected sites, oh there is, remeber that dns servers can perfom recursive queries. In fact, when the local dn server cannot resolve a certain domain, it will perform the step by step process of resolving by communicating with root servers, top-level and authoritative servers. then the ldns will cache the record, so in short, try thinking of ldns' as proxies
+
+- how do enterprises prevent employees form transfering confidential files to the internet, the have some basic policies which can only go so far. so it will really take an intentioned employee to undermine those policies
+
+
+- with this shot revision, I should note policies or technologies to implement on my LANs
+
+- redundancy
+- confidentiality through firewalls
+- security zones to isolate networks
+- write firewall policies that project your network from these common ddos attacks: icmp, tcp, udp, http, and gre flood attacks
+- if the firewall allows, configure rate limit on the protocols used for flood attacks
+- my ssh and telnet connection requests must always be directed to an aaa server that will perform the neccessary authentication.
+- so configure admin access and permission levels on devices
+- so configuring access control and identity authentication for internal resources can be a bit complex because you have navigate these for services that are public facing and dont that dont have to.
+- explore the local zone firewall
+- keep in mind that firewalls are configured to deny all traffic by default when configuring them
+- a security policy can be extended by specifying subnets and host address. Look up other extensions that can be made, like application related
+-
+
+
+
+- staeful inspection is very intuitive and saves resources in some way. So if a packet passes a firewall, a ssession entry is generated for it based on its parameters, so subsequent packets with the same parameters/header fields belong to the same entry. Without this function, i am assuming that all packets with the same parameters will be assigned diffrent entries, which is wasteful.
+
+- to perform mail filtering, configure acls which allow the only the configured employees to access the mail server, but that is absurd since outsiders communicate to the internal employees through it
+
+- so these ips devices are interesting, i never knew that they perform packet filtering in real time, but they have to be very capable devices in themselves otherwise they can be overwhelmed, based on the macth and action mechanism they have to perform for packets, but they can also raise flags so the admin can also mitigate such thretas
+
+
+
+
+these ensp pro firewall are very complex, I should give them a lot of time, I cant even configure a basic gateway and ping it, start with that

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.2.00.510">
+    <devices>
+        <dev id="5A10B886-C572-4a28-8569-4DF87692AA36" name="AR2-1" poe="0" model="AR1220" settings="" system_mac="00-E0-FC-74-16-1C" com_port="2000" bootmode="0" cx="127.000000" cy="320.000000" edit_left="154" edit_top="374">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Ethernet" interfacename="Ethernet" count="8" />
+            </slot>
+        </dev>
+        <dev id="4F8B373E-7F34-4d31-B9C2-62AF2C2114E4" name="AR2" poe="0" model="AR1220" settings="" system_mac="00-E0-FC-07-37-04" com_port="2001" bootmode="0" cx="371.000000" cy="320.000000" edit_left="398" edit_top="374">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+                <interface sztype="Ethernet" interfacename="Ethernet" count="8" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="5A10B886-C572-4a28-8569-4DF87692AA36" destDeviceID="4F8B373E-7F34-4d31-B9C2-62AF2C2114E4">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="197.183762" srcBoundRect_Y="347.000000" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="354.816223" tarBoundRect_Y="347.000000" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="118" top="296" right="197" bottom="313" content="FTP CLIENT" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="363" top="295" right="442" bottom="312" content="FTP SERVER" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="87" top="50" right="506" bottom="114" content="The aim of this lab is to learn how to configure ftp. &#x0D;&#x0A;&#x0D;&#x0A;username: huawei&#x0D;&#x0A;password: huawei@123" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="116" top="240" right="211" bottom="257" content="192.168.10.2" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="362" top="231" right="457" bottom="248" content="192.168.10.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
